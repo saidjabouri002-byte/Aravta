@@ -206,22 +206,23 @@ export default function Home() {
         }`}
       >
         <div className="mx-auto flex h-[78px] max-w-[1500px] items-center justify-between px-5 sm:px-8 lg:px-10">
-          <a href="#accueil" className="group flex items-center gap-3" aria-label="ARAVTTA accueil">
-            <span
-              className={`grid h-12 w-12 place-items-center border text-base font-black transition ${
-                scrolled || menuOpen
-                  ? "border-[#1538D6] bg-[linear-gradient(135deg,#1538D6,#4F7CFF)] text-[#FAFAFA]"
-                  : "border-[#FAFAFA] text-[#FAFAFA]"
-              }`}
-            >
-              A
-            </span>
-            <span className="leading-none">
-              <span className="block text-2xl font-black tracking-[-0.04em]">ARAVTTA</span>
-              <span className="mt-1 hidden text-[10px] font-bold uppercase tracking-[0.22em] opacity-70 sm:block">
-                Tanger · Tétouan · Al Hoceima
-              </span>
-            </span>
+          <a
+            href="#accueil"
+            className={`group flex items-center transition ${
+              scrolled || menuOpen
+                ? "bg-transparent"
+                : "bg-[#FAFAFA]/94 px-3 py-2 shadow-[0_18px_45px_rgb(13_13_13/18%)] backdrop-blur"
+            }`}
+            aria-label="ARAVTTA accueil"
+          >
+            <Image
+              src="/aravtta-logo.png"
+              alt="ARAVTTA"
+              width={430}
+              height={100}
+              priority
+              className="h-auto w-[172px] sm:w-[214px] xl:w-[244px]"
+            />
           </a>
 
           <nav className="hidden items-center gap-7 text-sm font-semibold lg:flex" aria-label="Navigation principale">
@@ -680,7 +681,15 @@ export default function Home() {
         </span>
         <div className="relative z-10 mx-auto grid max-w-[1500px] gap-10 lg:grid-cols-[1.25fr_0.7fr_0.7fr_1fr]">
           <div>
-            <h2 className="text-5xl font-black uppercase tracking-[-0.07em]">ARAVTTA</h2>
+            <div className="inline-flex bg-[#FAFAFA] px-4 py-3">
+              <Image
+                src="/aravtta-logo.png"
+                alt="ARAVTTA"
+                width={430}
+                height={100}
+                className="h-auto w-[220px] sm:w-[260px]"
+              />
+            </div>
             <p className="mt-5 max-w-sm leading-7 text-[#FAFAFA]/62">
               Association Régionale des Agences de Voyages Tanger-Tétouan-Al Hoceima.
             </p>
