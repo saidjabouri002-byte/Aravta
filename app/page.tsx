@@ -210,7 +210,7 @@ export default function Home() {
             <span
               className={`grid h-12 w-12 place-items-center border text-base font-black transition ${
                 scrolled || menuOpen
-                  ? "border-[#1E466B] bg-[#1E466B] text-[#FAFAFA]"
+                  ? "border-[#1538D6] bg-[linear-gradient(135deg,#1538D6,#4F7CFF)] text-[#FAFAFA]"
                   : "border-[#FAFAFA] text-[#FAFAFA]"
               }`}
             >
@@ -244,8 +244,8 @@ export default function Home() {
               href="#contact"
               className={`inline-flex h-12 items-center border px-5 text-sm font-black transition ${
                 scrolled
-                  ? "border-[#1E466B] bg-[#1E466B] text-[#FAFAFA] hover:bg-[#67BAF4] hover:text-[#0D0D0D]"
-                  : "border-[#FAFAFA] bg-[#FAFAFA] text-[#0D0D0D] hover:border-[#67BAF4] hover:bg-[#67BAF4]"
+                  ? "border-[#1538D6] bg-[linear-gradient(135deg,#1538D6,#4F7CFF)] text-[#FAFAFA] hover:border-[#8EC5FF] hover:bg-[linear-gradient(135deg,#4F7CFF,#8EC5FF)] hover:text-[#0D0D0D]"
+                  : "border-[#FAFAFA] bg-[#FAFAFA] text-[#0D0D0D] hover:border-[#8EC5FF] hover:bg-[#8EC5FF]"
               }`}
             >
               Devenir membre
@@ -280,7 +280,7 @@ export default function Home() {
             </nav>
             <div className="mt-5 flex items-center justify-between text-sm">
               <span className="font-black uppercase tracking-[0.2em]">FR / AR / EN</span>
-              <a href="#contact" className="border border-[#1E466B] bg-[#1E466B] px-4 py-3 font-black text-[#FAFAFA]">
+              <a href="#contact" className="border border-[#1538D6] bg-[linear-gradient(135deg,#1538D6,#4F7CFF)] px-4 py-3 font-black text-[#FAFAFA]">
                 Devenir membre
               </a>
             </div>
@@ -290,14 +290,13 @@ export default function Home() {
 
       <section id="accueil" className="relative min-h-[96svh] overflow-hidden bg-[#0D0D0D] text-[#FAFAFA]">
         <Photo src={photos.hero} alt="Côte de Tanger au coucher du soleil" priority className="opacity-72" />
-        <div className="absolute inset-0 bg-[#0D0D0D]/44" />
-        <div className="absolute bottom-0 right-0 top-0 hidden w-[36vw] bg-[#1E466B] mix-blend-multiply lg:block" />
-        <div className="absolute left-0 top-[78px] h-2 w-full bg-[#67BAF4]" />
+        <div className="absolute inset-0 bg-[#0D0D0D]/34" />
+        <div className="absolute left-0 top-[78px] h-2 w-full bg-[linear-gradient(90deg,#1538D6,#4F7CFF,#8EC5FF)]" />
 
         <div className="relative z-10 mx-auto grid min-h-[96svh] max-w-[1500px] content-end px-5 pb-10 pt-28 sm:px-8 lg:px-10">
           <div className="grid gap-8 lg:grid-cols-[0.66fr_0.34fr] lg:items-end">
             <div className="max-w-5xl">
-              <p className="mb-6 max-w-xl text-xs font-black uppercase tracking-[0.28em] text-[#67BAF4]">
+              <p className="mb-6 max-w-xl text-xs font-black uppercase tracking-[0.28em] text-[#8EC5FF]">
                 Association Régionale des Agences de Voyages
               </p>
               <h1 className="max-w-5xl text-[clamp(3.6rem,9vw,10.5rem)] font-black uppercase leading-[0.78] tracking-[-0.075em]">
@@ -327,7 +326,7 @@ export default function Home() {
           <div className="mt-12 grid border-y border-[#FAFAFA]/28 bg-[#0D0D0D]/55 text-[#FAFAFA] backdrop-blur md:grid-cols-4">
             {["Agences membres", "7 commissions", "Deux mers", "Une voix commune"].map((item, index) => (
               <div key={item} className="border-b border-[#FAFAFA]/18 py-5 md:border-b-0 md:border-r md:px-6">
-                <span className="block text-xs font-black text-[#67BAF4]">0{index + 1}</span>
+                <span className="block text-xs font-black text-[#8EC5FF]">0{index + 1}</span>
                 <span className="mt-2 block text-lg font-black tracking-[-0.03em]">{item}</span>
               </div>
             ))}
@@ -395,14 +394,14 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="association" className="bg-[#1E466B] text-[#FAFAFA]">
+      <section id="association" className="bg-[linear-gradient(135deg,#071394,#1538D6_46%,#4F7CFF)] text-[#FAFAFA]">
         <div className="grid min-h-[760px] lg:grid-cols-[0.48fr_0.52fr]">
           <div className="relative flex flex-col justify-between overflow-hidden px-5 py-16 sm:px-8 lg:px-10 lg:py-24">
-            <span className="absolute -left-4 top-8 text-[clamp(6rem,15vw,16rem)] font-black uppercase leading-none tracking-[-0.09em] text-[#67BAF4]/18">
+            <span className="absolute -left-4 top-8 text-[clamp(6rem,15vw,16rem)] font-black uppercase leading-none tracking-[-0.09em] text-[#8EC5FF]/18">
               ARAVTTA
             </span>
             <div className="relative z-10 max-w-xl">
-              <p className="section-label text-[#67BAF4]">L&apos;association</p>
+              <p className="section-label text-[#8EC5FF]">L&apos;association</p>
               <h2 className="mt-5 text-[clamp(3rem,6vw,7rem)] font-black uppercase leading-[0.82] tracking-[-0.075em]">
                 Une voix commune
                 pour le voyage.
@@ -433,7 +432,7 @@ export default function Home() {
       <section className="bg-[#0D0D0D] px-5 py-20 text-[#FAFAFA] sm:px-8 lg:px-10 lg:py-28">
         <div className="mx-auto grid max-w-[1500px] gap-12 lg:grid-cols-[0.38fr_0.62fr]">
           <div className="lg:sticky lg:top-28 lg:self-start">
-            <p className="section-label text-[#67BAF4]">Mission</p>
+            <p className="section-label text-[#8EC5FF]">Mission</p>
             <h2 className="mt-5 text-[clamp(4rem,8vw,9rem)] font-black uppercase leading-[0.78] tracking-[-0.08em]">
               Agir,
               <br />
@@ -459,7 +458,7 @@ export default function Home() {
       <section className="relative overflow-hidden bg-[#0D0D0D] text-[#FAFAFA]">
         <div className="relative h-[72svh] min-h-[520px]">
           <Photo src={photos.alHoceima} alt="Littoral d'Al Hoceima" className="opacity-76" />
-          <div className="absolute inset-x-0 bottom-0 bg-[#1E466B] px-5 py-8 sm:px-8 lg:px-10">
+          <div className="absolute inset-x-0 bottom-0 bg-[linear-gradient(135deg,#071394,#1538D6_48%,#4F7CFF)] px-5 py-8 sm:px-8 lg:px-10">
             <div className="mx-auto grid max-w-[1500px] gap-6 md:grid-cols-[0.95fr_1.05fr] md:items-end">
               <h2 className="text-[clamp(3.8rem,9vw,11rem)] font-black uppercase leading-[0.78] tracking-[-0.08em]">
                 Impact
@@ -472,7 +471,7 @@ export default function Home() {
                   ["1", "Vision commune"],
                 ].map(([value, label]) => (
                   <div key={label}>
-                    <span className="block text-4xl font-black tracking-[-0.06em] text-[#67BAF4]">{value}</span>
+                    <span className="block text-4xl font-black tracking-[-0.06em] text-[#8EC5FF]">{value}</span>
                     <span className="mt-2 block text-xs font-black uppercase tracking-[0.18em]">{label}</span>
                   </div>
                 ))}
@@ -515,7 +514,7 @@ export default function Home() {
                 />
               ))}
               <div className="absolute inset-x-0 bottom-0 bg-[#0D0D0D] p-6 text-[#FAFAFA]">
-                <p className="text-xs font-black uppercase tracking-[0.2em] text-[#67BAF4]">Commission active</p>
+                <p className="text-xs font-black uppercase tracking-[0.2em] text-[#8EC5FF]">Commission active</p>
                 <h3 className="mt-2 text-4xl font-black uppercase leading-none tracking-[-0.06em]">
                   {commissions[activeCommission].title}
                 </h3>
@@ -543,15 +542,15 @@ export default function Home() {
       <section className="grid bg-[#0D0D0D] text-[#FAFAFA] lg:grid-cols-[0.58fr_0.42fr]">
         <div className="relative min-h-[560px]">
           <Photo src={photos.tangier} alt="Littoral nord marocain" />
-          <div className="absolute left-0 top-0 h-full w-7 bg-[#67BAF4]" />
+          <div className="absolute left-0 top-0 h-full w-7 bg-[linear-gradient(180deg,#1538D6,#8EC5FF)]" />
         </div>
         <div className="relative overflow-hidden px-5 py-20 sm:px-8 lg:px-12 lg:py-28">
-          <svg aria-hidden="true" viewBox="0 0 480 260" className="absolute right-[-80px] top-12 w-[520px] text-[#67BAF4]/35">
+          <svg aria-hidden="true" viewBox="0 0 480 260" className="absolute right-[-80px] top-12 w-[520px] text-[#8EC5FF]/35">
             <path d="M18 181 C102 62 169 223 249 98 C304 13 358 80 452 24" fill="none" stroke="currentColor" strokeWidth="3" />
             <path d="M50 225 C142 130 199 250 284 156 C333 101 371 118 460 75" fill="none" stroke="currentColor" strokeWidth="1.5" />
           </svg>
           <div className="relative z-10 max-w-xl">
-            <p className="section-label text-[#67BAF4]">La Région</p>
+            <p className="section-label text-[#8EC5FF]">La Région</p>
             <h2 className="mt-5 text-[clamp(3.2rem,7vw,7.5rem)] font-black uppercase leading-[0.82] tracking-[-0.075em]">
               Entre deux mers.
             </h2>
@@ -588,8 +587,8 @@ export default function Home() {
               <div className="relative min-h-[520px]">
                 <Photo src={news[0].image} alt={news[0].title} />
               </div>
-              <div className="bg-[#1E466B] p-6 text-[#FAFAFA] sm:p-8">
-                <p className="text-xs font-black uppercase tracking-[0.2em] text-[#67BAF4]">
+              <div className="bg-[linear-gradient(135deg,#071394,#1538D6_52%,#4F7CFF)] p-6 text-[#FAFAFA] sm:p-8">
+                <p className="text-xs font-black uppercase tracking-[0.2em] text-[#8EC5FF]">
                   {news[0].category} · {news[0].date}
                 </p>
                 <h3 className="mt-4 text-4xl font-black uppercase leading-[0.9] tracking-[-0.06em]">
@@ -605,7 +604,7 @@ export default function Home() {
                     <Photo src={item.image} alt={item.title} />
                   </div>
                   <div className="py-5 sm:py-8">
-                    <p className="text-xs font-black uppercase tracking-[0.2em] text-[#1E466B]">
+                    <p className="text-xs font-black uppercase tracking-[0.2em] text-[#1538D6]">
                       {item.category} · {item.date}
                     </p>
                     <h3 className="mt-3 text-3xl font-black uppercase leading-none tracking-[-0.055em]">
@@ -624,8 +623,8 @@ export default function Home() {
       </section>
 
       <section className="grid bg-[#FAFAFA] lg:grid-cols-[0.38fr_0.62fr]">
-        <div className="bg-[#1E466B] px-5 py-16 text-[#FAFAFA] sm:px-8 lg:px-10">
-          <p className="section-label text-[#67BAF4]">Partenaires</p>
+        <div className="bg-[linear-gradient(135deg,#071394,#1538D6_50%,#4F7CFF)] px-5 py-16 text-[#FAFAFA] sm:px-8 lg:px-10">
+          <p className="section-label text-[#8EC5FF]">Partenaires</p>
           <h2 className="mt-5 text-[clamp(3rem,6vw,6.8rem)] font-black uppercase leading-[0.82] tracking-[-0.075em]">
             Un écosystème en mouvement.
           </h2>
@@ -647,14 +646,14 @@ export default function Home() {
         <div className="grid min-h-[680px] lg:grid-cols-[0.46fr_0.54fr]">
           <div className="relative min-h-[420px] lg:min-h-full">
             <Photo src={photos.hero} alt="Côte de Tanger pendant l'heure dorée" className="opacity-80" />
-            <div className="absolute inset-x-0 bottom-0 bg-[#67BAF4] px-5 py-5 text-[#0D0D0D] sm:px-8">
+            <div className="absolute inset-x-0 bottom-0 bg-[linear-gradient(90deg,#1538D6,#4F7CFF,#8EC5FF)] px-5 py-5 text-[#0D0D0D] sm:px-8">
               <p className="text-2xl font-black uppercase leading-none tracking-[-0.05em]">
                 Tanger · Tétouan · Al Hoceima
               </p>
             </div>
           </div>
           <div className="flex flex-col justify-center px-5 py-20 sm:px-8 lg:px-12">
-            <p className="section-label text-[#67BAF4]">Adhésion</p>
+            <p className="section-label text-[#8EC5FF]">Adhésion</p>
             <h2 className="mt-5 max-w-3xl text-[clamp(3.4rem,7.2vw,8rem)] font-black uppercase leading-[0.82] tracking-[-0.078em]">
               Rejoignez le réseau qui avance.
             </h2>
@@ -675,8 +674,8 @@ export default function Home() {
       </section>
 
       <footer className="relative overflow-hidden bg-[#0D0D0D] px-5 py-16 text-[#FAFAFA] sm:px-8 lg:px-10">
-        <div className="absolute inset-x-0 top-0 h-2 bg-[#67BAF4]" />
-        <span className="pointer-events-none absolute -bottom-9 left-0 text-[clamp(6rem,18vw,18rem)] font-black uppercase leading-none tracking-[-0.1em] text-[#1E466B]/55">
+        <div className="absolute inset-x-0 top-0 h-2 bg-[linear-gradient(90deg,#1538D6,#4F7CFF,#8EC5FF)]" />
+        <span className="pointer-events-none absolute -bottom-9 left-0 text-[clamp(6rem,18vw,18rem)] font-black uppercase leading-none tracking-[-0.1em] text-[#1538D6]/55">
           ARAVTTA
         </span>
         <div className="relative z-10 mx-auto grid max-w-[1500px] gap-10 lg:grid-cols-[1.25fr_0.7fr_0.7fr_1fr]">
@@ -691,7 +690,7 @@ export default function Home() {
             <ul className="mt-5 space-y-3 text-[#FAFAFA]/62">
               {navItems.slice(0, 5).map((item) => (
                 <li key={item.label}>
-                  <a href={item.href} className="hover:text-[#67BAF4]">
+                  <a href={item.href} className="hover:text-[#8EC5FF]">
                     {item.label}
                   </a>
                 </li>
@@ -712,12 +711,12 @@ export default function Home() {
             <address className="mt-5 space-y-3 not-italic leading-7 text-[#FAFAFA]/62">
               <p>139 Av. Louis Van Beethoven, Tanger 90060</p>
               <p>
-                <a href="tel:+212539325004" className="hover:text-[#67BAF4]">
+                <a href="tel:+212539325004" className="hover:text-[#8EC5FF]">
                   05393-25004
                 </a>
               </p>
               <p>
-                <a href="mailto:contact@aravtta.org" className="hover:text-[#67BAF4]">
+                <a href="mailto:contact@aravtta.org" className="hover:text-[#8EC5FF]">
                   contact@aravtta.org
                 </a>
               </p>
@@ -728,10 +727,10 @@ export default function Home() {
         <div className="relative z-10 mx-auto mt-14 flex max-w-[1500px] flex-col gap-4 border-t border-[#FAFAFA]/14 pt-6 text-sm text-[#FAFAFA]/42 sm:flex-row sm:items-center sm:justify-between">
           <p>Copyright 2026 ARAVTTA. Tous droits réservés.</p>
           <div className="flex gap-5">
-            <a href="#accueil" className="hover:text-[#67BAF4]">
+            <a href="#accueil" className="hover:text-[#8EC5FF]">
               Mentions légales
             </a>
-            <a href="#accueil" className="hover:text-[#67BAF4]">
+            <a href="#accueil" className="hover:text-[#8EC5FF]">
               Confidentialité
             </a>
           </div>

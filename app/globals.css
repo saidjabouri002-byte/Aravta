@@ -21,36 +21,41 @@
 :root {
   --background: #fafafa;
   --foreground: #0d0d0d;
+  --blue-deep: #071394;
+  --blue-main: #1538d6;
+  --blue-bright: #4f7cff;
+  --blue-sky: #8ec5ff;
+  --blue-gradient: linear-gradient(135deg, #071394 0%, #1538d6 48%, #4f7cff 100%);
   --card: #fafafa;
   --card-foreground: #0d0d0d;
   --popover: #fafafa;
   --popover-foreground: #0d0d0d;
-  --primary: #1e466b;
+  --primary: #1538d6;
   --primary-foreground: #fafafa;
-  --secondary: #67baf4;
+  --secondary: #8ec5ff;
   --secondary-foreground: #0d0d0d;
   --muted: #e9eef4;
   --muted-foreground: #3f4f60;
-  --accent: #67baf4;
+  --accent: #8ec5ff;
   --accent-foreground: #0d0d0d;
   --destructive: #b42318;
   --border: #0d0d0d;
   --input: #0d0d0d;
-  --ring: #67baf4;
-  --chart-1: #1e466b;
-  --chart-2: #67baf4;
+  --ring: #8ec5ff;
+  --chart-1: #1538d6;
+  --chart-2: #8ec5ff;
   --chart-3: #0d0d0d;
   --chart-4: #fafafa;
-  --chart-5: #2d63a0;
+  --chart-5: #4f7cff;
   --radius: 0;
   --sidebar: #fafafa;
   --sidebar-foreground: #0d0d0d;
-  --sidebar-primary: #1e466b;
+  --sidebar-primary: #1538d6;
   --sidebar-primary-foreground: #fafafa;
-  --sidebar-accent: #67baf4;
+  --sidebar-accent: #8ec5ff;
   --sidebar-accent-foreground: #0d0d0d;
   --sidebar-border: #0d0d0d;
-  --sidebar-ring: #67baf4;
+  --sidebar-ring: #8ec5ff;
 }
 
 @theme inline {
@@ -107,7 +112,7 @@ body {
 }
 
 ::selection {
-  background: #67baf4;
+  background: #8ec5ff;
   color: #0d0d0d;
 }
 
@@ -121,7 +126,7 @@ button {
 }
 
 .section-label {
-  color: #1e466b;
+  color: #1538d6;
   font-size: 0.72rem;
   font-weight: 900;
   letter-spacing: 0.24em;
@@ -174,8 +179,8 @@ button {
 }
 
 .btn-light:hover {
-  background: #67baf4;
-  border-color: #67baf4;
+  background: linear-gradient(135deg, #4f7cff, #8ec5ff);
+  border-color: #8ec5ff;
 }
 
 .btn-outline {
@@ -185,31 +190,32 @@ button {
 }
 
 .btn-outline:hover {
-  border-color: #67baf4;
-  color: #67baf4;
+  border-color: #8ec5ff;
+  color: #8ec5ff;
 }
 
 .btn-blue {
-  background: #67baf4;
-  border: 1px solid #67baf4;
-  color: #0d0d0d;
+  background: var(--blue-gradient);
+  border: 1px solid #4f7cff;
+  color: #fafafa;
 }
 
 .btn-blue:hover {
-  background: #fafafa;
-  border-color: #fafafa;
+  background: linear-gradient(135deg, #4f7cff, #8ec5ff);
+  border-color: #8ec5ff;
+  color: #0d0d0d;
 }
 
 .text-link {
   align-items: center;
-  color: #1e466b;
+  color: #1538d6;
   display: inline-flex;
   font-weight: 900;
   gap: 0.9rem;
 }
 
 .text-link::after {
-  background: #1e466b;
+  background: #1538d6;
   content: "";
   height: 2px;
   width: 4.5rem;
@@ -231,7 +237,7 @@ button {
 }
 
 .logo-marquee-label {
-  background: #1e466b;
+  background: var(--blue-gradient);
   color: #fafafa;
   display: flex;
   flex-direction: column;
@@ -240,7 +246,7 @@ button {
 }
 
 .logo-marquee-label span {
-  color: #67baf4;
+  color: #8ec5ff;
   font-size: 0.72rem;
   font-weight: 900;
   letter-spacing: 0.22em;
@@ -300,7 +306,7 @@ button {
 .logo-wordmark {
   align-items: center;
   border-right: 1px solid rgb(13 13 13 / 0.22);
-  color: #1e466b;
+  color: #1538d6;
   display: inline-flex;
   gap: 1rem;
   min-height: 7.4rem;
@@ -309,7 +315,7 @@ button {
 }
 
 .logo-wordmark span {
-  color: #67baf4;
+  color: #8ec5ff;
   font-size: 0.78rem;
   font-weight: 900;
   letter-spacing: 0.18em;
@@ -390,7 +396,7 @@ button {
 
 .territory-caption span,
 .territory-strip span {
-  color: #67baf4;
+  color: #8ec5ff;
   display: block;
   font-size: 0.76rem;
   font-weight: 900;
@@ -450,7 +456,7 @@ button {
 }
 
 .mission-row span {
-  color: #67baf4;
+  color: #8ec5ff;
   font-size: 3rem;
   font-weight: 900;
   letter-spacing: -0.08em;
@@ -505,7 +511,7 @@ button {
 }
 
 .commission-line span {
-  color: #67baf4;
+  color: #8ec5ff;
   font-size: 0.85rem;
   font-weight: 900;
   letter-spacing: 0.18em;
@@ -527,7 +533,7 @@ button {
 }
 
 .commission-line.is-active {
-  background: #1e466b;
+  background: var(--blue-gradient);
 }
 
 .commission-line.is-active em {
@@ -568,7 +574,7 @@ button {
 
 .partner-run span {
   border-right: 1px solid #0d0d0d;
-  color: #1e466b;
+  color: #1538d6;
   flex: 1 1 11rem;
   font-size: clamp(1.6rem, 3vw, 3rem);
   font-weight: 900;
@@ -582,12 +588,12 @@ button {
 }
 
 .partner-run span:hover {
-  background: #67baf4;
+  background: linear-gradient(135deg, #4f7cff, #8ec5ff);
   color: #0d0d0d;
 }
 
 .footer-title {
-  color: #67baf4;
+  color: #8ec5ff;
   font-size: 0.78rem;
   font-weight: 900;
   letter-spacing: 0.2em;
