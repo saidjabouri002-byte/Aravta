@@ -219,6 +219,120 @@ button {
   color: #0d0d0d;
 }
 
+.logo-marquee-section {
+  align-items: stretch;
+  background: #fafafa;
+  border-bottom: 1px solid #0d0d0d;
+  border-top: 1px solid #0d0d0d;
+  display: grid;
+  grid-template-columns: minmax(18rem, 0.28fr) 1fr;
+  min-height: 7.4rem;
+  overflow: hidden;
+}
+
+.logo-marquee-label {
+  background: #1e466b;
+  color: #fafafa;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 1.1rem clamp(1.25rem, 3vw, 2.5rem);
+}
+
+.logo-marquee-label span {
+  color: #67baf4;
+  font-size: 0.72rem;
+  font-weight: 900;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+.logo-marquee-label strong {
+  display: block;
+  font-size: clamp(1.1rem, 1.6vw, 1.85rem);
+  font-weight: 900;
+  letter-spacing: -0.055em;
+  line-height: 0.95;
+  margin-top: 0.65rem;
+  text-transform: uppercase;
+}
+
+.logo-marquee {
+  align-items: center;
+  display: flex;
+  overflow: hidden;
+  position: relative;
+}
+
+.logo-marquee::before,
+.logo-marquee::after {
+  content: "";
+  height: 100%;
+  pointer-events: none;
+  position: absolute;
+  top: 0;
+  width: min(8vw, 7rem);
+  z-index: 2;
+}
+
+.logo-marquee::before {
+  background: linear-gradient(90deg, #fafafa, rgb(250 250 250 / 0));
+  left: 0;
+}
+
+.logo-marquee::after {
+  background: linear-gradient(270deg, #fafafa, rgb(250 250 250 / 0));
+  right: 0;
+}
+
+.logo-marquee-track {
+  align-items: center;
+  animation: logo-slide 28s linear infinite;
+  display: flex;
+  min-width: max-content;
+  will-change: transform;
+}
+
+.logo-marquee:hover .logo-marquee-track {
+  animation-play-state: paused;
+}
+
+.logo-wordmark {
+  align-items: center;
+  border-right: 1px solid rgb(13 13 13 / 0.22);
+  color: #1e466b;
+  display: inline-flex;
+  gap: 1rem;
+  min-height: 7.4rem;
+  padding: 0 clamp(1.8rem, 3.2vw, 3.6rem);
+  white-space: nowrap;
+}
+
+.logo-wordmark span {
+  color: #67baf4;
+  font-size: 0.78rem;
+  font-weight: 900;
+  letter-spacing: 0.18em;
+}
+
+.logo-wordmark strong {
+  font-size: clamp(1.8rem, 3.4vw, 4rem);
+  font-weight: 900;
+  letter-spacing: -0.075em;
+  line-height: 0.8;
+  text-transform: uppercase;
+}
+
+@keyframes logo-slide {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+
+  to {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
 .territory-stage {
   display: grid;
   gap: 1rem;
@@ -481,6 +595,18 @@ button {
 }
 
 @media (max-width: 1024px) {
+  .logo-marquee-section {
+    grid-template-columns: 1fr;
+  }
+
+  .logo-marquee-label {
+    min-height: 5.8rem;
+  }
+
+  .logo-wordmark {
+    min-height: 6.3rem;
+  }
+
   .territory-stage {
     grid-template-rows: none;
   }
@@ -525,6 +651,15 @@ button {
 }
 
 @media (max-width: 640px) {
+  .logo-marquee-label {
+    padding: 1rem 1.25rem;
+  }
+
+  .logo-wordmark {
+    gap: 0.75rem;
+    padding: 0 1.55rem;
+  }
+
   .territory-main {
     min-height: 460px;
   }
@@ -552,5 +687,9 @@ button {
     animation-duration: 1ms !important;
     scroll-behavior: auto !important;
     transition-duration: 1ms !important;
+  }
+
+  .logo-marquee-track {
+    animation: none !important;
   }
 }

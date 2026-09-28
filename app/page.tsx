@@ -147,6 +147,19 @@ const news = [
 
 const partners = ["ONMT", "CRT TTA", "FNAVM", "ISITT", "Région TTAH"];
 
+const heroLogos = [
+  "ONMT",
+  "CRT TTA",
+  "FNAVM",
+  "ISITT",
+  "Région TTAH",
+  "Agences TTA",
+  "MICE",
+  "Maritime",
+  "Aérien",
+  "Réceptif",
+];
+
 function Photo({
   src,
   alt,
@@ -323,6 +336,23 @@ export default function Home() {
 
         <div className="absolute right-5 top-28 hidden text-right text-[10px] font-black uppercase tracking-[0.24em] text-[#FAFAFA]/55 lg:block">
           Détroit / Rif / Méditerranée
+        </div>
+      </section>
+
+      <section className="logo-marquee-section" aria-label="Partenaires et expertises ARAVTTA">
+        <div className="logo-marquee-label">
+          <span>Écosystème régional</span>
+          <strong>Partenaires · Métiers · Commissions</strong>
+        </div>
+        <div className="logo-marquee" aria-hidden="true">
+          <div className="logo-marquee-track">
+            {[...heroLogos, ...heroLogos].map((logo, index) => (
+              <span className="logo-wordmark" key={`${logo}-${index}`}>
+                <span>{String((index % heroLogos.length) + 1).padStart(2, "0")}</span>
+                <strong>{logo}</strong>
+              </span>
+            ))}
+          </div>
         </div>
       </section>
 
