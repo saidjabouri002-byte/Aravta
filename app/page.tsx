@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { Menu, X } from "lucide-react";
+import type { FormEvent } from "react";
 import { useEffect, useState } from "react";
 import { TextHoverEffect } from "@/components/ui/text-hover-effect";
 
@@ -142,6 +143,35 @@ const news = [
 
 const partners = ["ONMT", "CRT TTA", "FNAVM", "ISITT", "Région TTAH"];
 
+const membershipQuestions = [
+  {
+    name: "agencyName",
+    label: "Quel est le nom de votre agence ?",
+    placeholder: "Ex. Voyages du Nord",
+  },
+  {
+    name: "city",
+    label: "Dans quelle ville est-elle basée ?",
+    placeholder: "Tanger, Tétouan, Al Hoceima...",
+  },
+  {
+    name: "manager",
+    label: "Qui est la personne à contacter ?",
+    placeholder: "Nom complet et fonction",
+  },
+  {
+    name: "contact",
+    label: "Quel numéro ou email devons-nous utiliser ?",
+    placeholder: "+212 ... / contact@agence.ma",
+  },
+  {
+    name: "activity",
+    label: "Quel est votre agrément et votre activité principale ?",
+    placeholder: "Agrément, billetterie, réceptif, Hajj & Omra...",
+    multiline: true,
+  },
+];
+
 const memberLogos = [
   {
     name: "ISITT Tanger",
@@ -225,6 +255,7 @@ export default function Home() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [activeCommission, setActiveCommission] = useState(0);
+  const [membershipStatus, setMembershipStatus] = useState("");
 
   useEffect(() => {
     const update = () => setScrolled(window.scrollY > 30);
@@ -232,6 +263,23 @@ export default function Home() {
     window.addEventListener("scroll", update, { passive: true });
     return () => window.removeEventListener("scroll", update);
   }, []);
+
+  function handleMembershipSubmit(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    const formData = new FormData(event.currentTarget);
+    const agency = String(formData.get("agencyName") ?? "").trim();
+    const details = membershipQuestions
+      .map((question) => {
+        const value = String(formData.get(question.name) ?? "").trim();
+        return `${question.label}\n${value}`;
+      })
+      .join("\n\n");
+    const subject = `Demande d'adhésion ARAVTTA${agency ? ` - ${agency}` : ""}`;
+    const body = `Bonjour ARAVTTA,\n\nJe souhaite devenir membre de l'association.\n\n${details}\n\nMerci de me recontacter pour la suite du dossier.`;
+
+    window.location.href = `mailto:contact@aravtta.org?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    setMembershipStatus("Votre messagerie s'ouvre avec la demande pré-remplie.");
+  }
 
   return (
     <main className="min-h-screen bg-[#FAFAFA] text-[#0D0D0D]">
@@ -268,7 +316,7 @@ export default function Home() {
 
           <div className="hidden items-center gap-5 lg:flex">
             <a
-              href="#contact"
+              href="#adhesion-form"
               className="inline-flex h-12 items-center border border-[#1538D6] bg-[linear-gradient(135deg,#1538D6,#4F7CFF)] px-5 text-sm font-black text-[#FAFAFA] transition hover:border-[#8EC5FF] hover:bg-[linear-gradient(135deg,#4F7CFF,#8EC5FF)] hover:text-[#0D0D0D]"
             >
               Devenir membre
@@ -300,7 +348,11 @@ export default function Home() {
               ))}
             </nav>
             <div className="mt-5 flex justify-end text-sm">
-              <a href="#contact" className="border border-[#1538D6] bg-[linear-gradient(135deg,#1538D6,#4F7CFF)] px-4 py-3 font-black text-[#FAFAFA]">
+              <a
+                href="#adhesion-form"
+                onClick={() => setMenuOpen(false)}
+                className="border border-[#1538D6] bg-[linear-gradient(135deg,#1538D6,#4F7CFF)] px-4 py-3 font-black text-[#FAFAFA]"
+              >
                 Devenir membre
               </a>
             </div>
@@ -683,14 +735,47 @@ export default function Home() {
               Vous êtes une agence de voyages ou un acteur du secteur touristique ?
               Parlons représentation, coopération et développement régional.
             </p>
-            <div className="mt-10 flex flex-col gap-3 sm:flex-row">
-              <a href="mailto:contact@aravtta.org" className="btn-light">
-                Devenir membre
-              </a>
-              <a href="tel:+212539325004" className="btn-outline">
-                Nous contacter
-              </a>
-            </div>
+            <form id="adhesion-form" className="membership-form" onSubmit={handleMembershipSubmit}>
+              <div className="membership-form-header">
+                <span>5 questions</span>
+                <strong>Demande d&apos;adhésion agence</strong>
+              </div>
+              {membershipQuestions.map((question, index) => (
+                <div className="membership-question" key={question.name}>
+                  <span>{String(index + 1).padStart(2, "0")}</span>
+                  <label htmlFor={question.name}>{question.label}</label>
+                  {question.multiline ? (
+                    <textarea
+                      id={question.name}
+                      name={question.name}
+                      placeholder={question.placeholder}
+                      rows={3}
+                      required
+                    />
+                  ) : (
+                    <input
+                      id={question.name}
+                      name={question.name}
+                      type="text"
+                      placeholder={question.placeholder}
+                      required
+                    />
+                  )}
+                </div>
+              ))}
+              <div className="membership-actions">
+                <button type="submit" className="membership-submit">
+                  Envoyer la demande
+                </button>
+                <a href="tel:+212539325004" className="membership-call">
+                  Appeler directement
+                </a>
+              </div>
+              <p className="membership-note">
+                L&apos;email sera préparé automatiquement avec vos réponses.
+              </p>
+              {membershipStatus ? <p className="membership-status">{membershipStatus}</p> : null}
+            </form>
           </div>
         </div>
       </section>

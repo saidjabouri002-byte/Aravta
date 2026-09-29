@@ -605,6 +605,146 @@ button {
   color: #0d0d0d;
 }
 
+.membership-form {
+  background:
+    linear-gradient(135deg, rgb(250 250 250 / 0.1), rgb(250 250 250 / 0.035)),
+    rgb(13 13 13 / 0.34);
+  border-bottom: 1px solid rgb(250 250 250 / 0.22);
+  border-top: 1px solid rgb(250 250 250 / 0.24);
+  margin-top: 2.6rem;
+  max-width: 740px;
+  padding: 0 clamp(1rem, 2vw, 1.6rem) 1.2rem;
+  scroll-margin-top: 7rem;
+}
+
+.membership-form-header,
+.membership-question {
+  border-bottom: 1px solid rgb(250 250 250 / 0.14);
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: 5.2rem 0.92fr 1.2fr;
+}
+
+.membership-form-header {
+  align-items: center;
+  color: #fafafa;
+  grid-template-columns: 5.2rem 1fr;
+  padding: 1.2rem 0;
+}
+
+.membership-form-header span,
+.membership-question span {
+  color: #8ec5ff;
+  font-size: 0.74rem;
+  font-weight: 900;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.membership-form-header strong {
+  font-size: clamp(1.45rem, 2.5vw, 2.65rem);
+  font-weight: 900;
+  letter-spacing: -0.065em;
+  line-height: 0.88;
+  text-transform: uppercase;
+}
+
+.membership-question {
+  align-items: start;
+  padding: 1.1rem 0;
+}
+
+.membership-question label {
+  color: rgb(250 250 250 / 0.86);
+  font-size: 0.98rem;
+  font-weight: 900;
+  line-height: 1.35;
+}
+
+.membership-question input,
+.membership-question textarea {
+  background: transparent;
+  border: 0;
+  box-shadow: inset 0 -1px 0 rgb(250 250 250 / 0.28);
+  color: #fafafa;
+  font: inherit;
+  min-height: 2.2rem;
+  outline: none;
+  padding: 0 0 0.55rem;
+  resize: vertical;
+  width: 100%;
+}
+
+.membership-question input::placeholder,
+.membership-question textarea::placeholder {
+  color: rgb(250 250 250 / 0.38);
+}
+
+.membership-question input:focus,
+.membership-question textarea:focus {
+  box-shadow: inset 0 -2px 0 #8ec5ff;
+}
+
+.membership-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  margin-top: 1.2rem;
+}
+
+.membership-submit,
+.membership-call {
+  align-items: center;
+  display: inline-flex;
+  font-size: 0.92rem;
+  font-weight: 900;
+  height: 3.2rem;
+  justify-content: center;
+  min-width: 12rem;
+  padding: 0 1.15rem;
+  transition:
+    background 180ms ease,
+    border-color 180ms ease,
+    color 180ms ease;
+}
+
+.membership-submit {
+  background: #fafafa;
+  border: 1px solid #fafafa;
+  color: #0d0d0d;
+}
+
+.membership-submit:hover {
+  background: linear-gradient(135deg, #4f7cff, #8ec5ff);
+  border-color: #8ec5ff;
+}
+
+.membership-call {
+  border: 1px solid rgb(250 250 250 / 0.42);
+  color: #fafafa;
+}
+
+.membership-call:hover {
+  border-color: #8ec5ff;
+  color: #8ec5ff;
+}
+
+.membership-note,
+.membership-status {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  margin-top: 0.85rem;
+}
+
+.membership-note {
+  color: rgb(250 250 250 / 0.48);
+}
+
+.membership-status {
+  color: #8ec5ff;
+  font-weight: 900;
+}
+
 .footer-title {
   color: #8ec5ff;
   font-size: 0.78rem;
@@ -646,6 +786,7 @@ button {
 
   .mission-row,
   .commission-line,
+  .membership-question,
   .news-spread,
   .commission-board {
     grid-template-columns: 1fr;
@@ -657,6 +798,10 @@ button {
 
   .mission-row {
     gap: 1rem;
+  }
+
+  .membership-form-header {
+    grid-template-columns: 1fr;
   }
 
   .commission-board {
@@ -694,7 +839,9 @@ button {
 
   .btn-light,
   .btn-outline,
-  .btn-blue {
+  .btn-blue,
+  .membership-submit,
+  .membership-call {
     min-width: 100%;
   }
 }
