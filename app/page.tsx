@@ -194,10 +194,10 @@ export default function Home() {
   return (
     <main className="min-h-screen bg-[#FAFAFA] text-[#0D0D0D]">
       <header
-        className={`fixed inset-x-0 top-0 z-50 border-b text-[#0D0D0D] transition duration-500 ${
+        className={`fixed inset-x-0 top-0 z-50 border-b text-[#FAFAFA] backdrop-blur transition duration-500 ${
           scrolled || menuOpen
-            ? "border-[#0D0D0D]/12 bg-[#FAFAFA]/86 shadow-[0_18px_60px_rgb(13_13_13/10%)] backdrop-blur-2xl"
-            : "border-[#FAFAFA]/22 bg-[#FAFAFA]/54 backdrop-blur-2xl"
+            ? "border-[#FAFAFA]/20 bg-[#0D0D0D]/68 shadow-[0_18px_60px_rgb(13_13_13/18%)]"
+            : "border-[#FAFAFA]/28 bg-[#0D0D0D]/55"
         }`}
       >
         <div className="mx-auto flex h-[78px] max-w-[1500px] items-center justify-between px-5 sm:px-8 lg:px-10">
@@ -237,21 +237,21 @@ export default function Home() {
             type="button"
             aria-label={menuOpen ? "Fermer le menu" : "Ouvrir le menu"}
             onClick={() => setMenuOpen((value) => !value)}
-            className="grid h-12 w-12 place-items-center border border-[#0D0D0D] lg:hidden"
+            className="grid h-12 w-12 place-items-center border border-[#FAFAFA]/65 lg:hidden"
           >
             {menuOpen ? <X size={21} /> : <Menu size={21} />}
           </button>
         </div>
 
         {menuOpen ? (
-          <div className="border-t border-[#0D0D0D]/10 bg-[#FAFAFA]/90 px-5 py-5 text-[#0D0D0D] backdrop-blur-2xl lg:hidden">
+          <div className="border-t border-[#FAFAFA]/18 bg-[#0D0D0D]/80 px-5 py-5 text-[#FAFAFA] backdrop-blur lg:hidden">
             <nav className="grid" aria-label="Navigation mobile">
               {navItems.map((item) => (
                 <a
                   key={item.label}
                   href={item.href}
                   onClick={() => setMenuOpen(false)}
-                  className="border-b border-[#0D0D0D]/12 py-3 text-xl font-black tracking-[-0.03em]"
+                  className="border-b border-[#FAFAFA]/16 py-3 text-xl font-black tracking-[-0.03em]"
                 >
                   {item.label}
                 </a>
@@ -301,14 +301,6 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="mt-12 grid border-y border-[#FAFAFA]/28 bg-[#0D0D0D]/55 text-[#FAFAFA] backdrop-blur md:grid-cols-4">
-            {["Agences membres", "7 commissions", "Deux mers", "Une voix commune"].map((item, index) => (
-              <div key={item} className="border-b border-[#FAFAFA]/18 py-5 md:border-b-0 md:border-r md:px-6">
-                <span className="block text-xs font-black text-[#8EC5FF]">0{index + 1}</span>
-                <span className="mt-2 block text-lg font-black tracking-[-0.03em]">{item}</span>
-              </div>
-            ))}
-          </div>
         </div>
 
         <div className="absolute right-5 top-28 hidden text-right text-[10px] font-black uppercase tracking-[0.24em] text-[#FAFAFA]/55 lg:block">
