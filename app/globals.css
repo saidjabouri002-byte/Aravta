@@ -602,7 +602,7 @@ button {
 }
 
 .news-feature > div:last-child {
-  background: linear-gradient(0deg, rgb(7 19 148 / 0.96), rgb(21 56 214 / 0.82) 48%, rgb(13 13 13 / 0)) !important;
+  background: linear-gradient(0deg, rgb(7 19 148 / 0.98) 0%, rgb(21 56 214 / 0.86) 46%, rgb(79 124 255 / 0.34) 76%, rgb(13 13 13 / 0) 100%) !important;
   bottom: 0;
   left: 0;
   padding-top: 8rem;
@@ -619,17 +619,20 @@ button {
 }
 
 .news-line > div:first-child {
-  inset: 0;
-  height: 100%;
-  position: absolute;
-  width: 100%;
+  inset: 0 !important;
+  height: 100% !important;
+  position: absolute !important;
+  width: 100% !important;
 }
 
 .news-line > div:nth-child(2) {
-  background: linear-gradient(0deg, rgb(7 19 148 / 0.95), rgb(21 56 214 / 0.78) 56%, rgb(13 13 13 / 0));
+  background: linear-gradient(0deg, rgb(7 19 148 / 0.98) 0%, rgb(21 56 214 / 0.86) 46%, rgb(79 124 255 / 0.34) 76%, rgb(13 13 13 / 0) 100%);
   color: #fafafa;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
   min-height: 250px;
-  padding: 6rem 1.25rem 1.25rem;
+  padding: 7.5rem 1.25rem 1.25rem;
   position: relative;
   z-index: 1;
 }
@@ -925,7 +928,7 @@ button {
 
   .news-line {
     grid-template-columns: 1fr;
-    padding: 0 1rem 1rem;
+    padding: 0;
   }
 }
 

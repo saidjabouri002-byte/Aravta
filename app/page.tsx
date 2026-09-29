@@ -24,6 +24,7 @@ const photos = {
   akchour: "/images/region/akchour.avif",
   akchourNature: "/images/region/akchour-nature.avif",
   alHoceima: "/images/region/al-hoceima.jpg",
+  impact: "/images/region/tanger-tourism-associations.webp",
   tetouan: "/images/region/tetouan.avif",
   cave:
     "https://images.unsplash.com/photo-1771690288491-4de18b75e038?auto=format&fit=crop&w=2400&q=84",
@@ -291,10 +292,10 @@ export default function Home() {
         return `${question.label}\n${value}`;
       })
       .join("\n\n");
-    const subject = `Demande d'adhésion ARAVTTA${agency ? ` - ${agency}` : ""}`;
-    const body = `Bonjour ARAVTTA,\n\nJe souhaite devenir membre de l'association.\n\n${details}\n\nMerci de me recontacter pour la suite du dossier.`;
-    const href = `mailto:contact@aravtta.org?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-    const message = `À: contact@aravtta.org\nObjet: ${subject}\n\n${body}`;
+    const subject = `Demande d'adhésion ARAVTA${agency ? ` - ${agency}` : ""}`;
+    const body = `Bonjour ARAVTA,\n\nJe souhaite devenir membre de l'association.\n\n${details}\n\nMerci de me recontacter pour la suite du dossier.`;
+    const href = `mailto:contact@aravta.org?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    const message = `À: contact@aravta.org\nObjet: ${subject}\n\n${body}`;
 
     setMembershipDraft({ href, message });
     setMembershipStatus("Demande prête. Si l'email ne s'ouvre pas, utilise les boutons ci-dessous.");
@@ -307,9 +308,9 @@ export default function Home() {
     if (!membershipDraft) return;
     try {
       await navigator.clipboard.writeText(membershipDraft.message);
-      setMembershipStatus("Message copié. Colle-le dans ton email à contact@aravtta.org.");
+      setMembershipStatus("Message copié. Colle-le dans ton email à contact@aravta.org.");
     } catch {
-      setMembershipStatus("Copie le message affiché ci-dessous puis envoie-le à contact@aravtta.org.");
+      setMembershipStatus("Copie le message affiché ci-dessous puis envoie-le à contact@aravta.org.");
     }
   }
 
@@ -326,11 +327,11 @@ export default function Home() {
           <a
             href="#accueil"
             className="group flex items-center transition"
-            aria-label="ARAVTTA accueil"
+            aria-label="ARAVTA accueil"
           >
             <Image
               src="/aravtta-logo.png"
-              alt="ARAVTTA"
+              alt="ARAVTA"
               width={430}
               height={100}
               priority
@@ -413,7 +414,7 @@ export default function Home() {
             </div>
             <div className="max-w-sm justify-self-start border-l border-[#FAFAFA]/35 pl-5 lg:justify-self-end">
               <p className="text-lg leading-8 text-[#FAFAFA]/84">
-                L&apos;ARAVTTA fédère les agences de voyages de Tanger-Tétouan-Al Hoceima
+                L&apos;ARAVTA fédère les agences de voyages de Tanger-Tétouan-Al Hoceima
                 autour d&apos;une industrie touristique forte, responsable et visible.
               </p>
               <div className="mt-7 flex flex-wrap gap-3">
@@ -434,10 +435,10 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="logo-marquee-section" aria-label="Membres et partenaires ARAVTTA">
+      <section className="logo-marquee-section" aria-label="Membres et partenaires ARAVTA">
         <div className="logo-marquee-label">
           <span>Réseau membre</span>
-          <strong>Ils avancent avec ARAVTTA</strong>
+          <strong>Ils avancent avec ARAVTA</strong>
         </div>
         <div className="logo-marquee">
           <div className="logo-marquee-track">
@@ -505,7 +506,7 @@ export default function Home() {
         <div className="grid min-h-[760px] lg:grid-cols-[0.48fr_0.52fr]">
           <div className="relative flex flex-col justify-between overflow-hidden px-5 py-16 sm:px-8 lg:px-10 lg:py-24">
             <span className="absolute -left-4 top-8 text-[clamp(6rem,15vw,16rem)] font-black uppercase leading-none tracking-[-0.09em] text-[#8EC5FF]/18">
-              ARAVTTA
+              ARAVTA
             </span>
             <div className="relative z-10 max-w-xl">
               <p className="section-label text-[#8EC5FF]">L&apos;association</p>
@@ -564,7 +565,8 @@ export default function Home() {
 
       <section className="relative overflow-hidden bg-[#0D0D0D] text-[#FAFAFA]">
         <div className="relative h-[72svh] min-h-[520px]">
-          <Photo src={photos.alHoceima} alt="Littoral d'Al Hoceima" className="opacity-76" />
+          <Photo src={photos.impact} alt="Associations touristiques à Tanger" className="opacity-[0.88]" />
+          <div className="absolute inset-0 bg-[#1538D6]/30" />
           <div className="absolute inset-x-0 bottom-0 bg-[linear-gradient(135deg,#071394,#1538D6_48%,#4F7CFF)] px-5 py-8 sm:px-8 lg:px-10">
             <div className="mx-auto grid max-w-[1500px] gap-6 md:grid-cols-[0.95fr_1.05fr] md:items-end">
               <h2 className="text-[clamp(3.8rem,9vw,11rem)] font-black uppercase leading-[0.78] tracking-[-0.08em]">
@@ -738,7 +740,7 @@ export default function Home() {
         </div>
         <div className="flex min-h-[360px] flex-col justify-center px-5 py-16 sm:px-8 lg:px-10">
           <p className="max-w-2xl text-xl leading-9 text-[#0D0D0D]/72">
-            L&apos;ARAVTTA travaille avec les institutions, écoles, fédérations et opérateurs
+            L&apos;ARAVTA travaille avec les institutions, écoles, fédérations et opérateurs
             pour renforcer la compétitivité touristique du Nord.
           </p>
           <div className="partner-run mt-10">
@@ -840,13 +842,13 @@ export default function Home() {
           aria-hidden="true"
           className="absolute inset-x-[-6vw] -bottom-12 z-0 h-[clamp(7rem,18vw,18rem)] opacity-70 sm:-bottom-16"
         >
-          <TextHoverEffect text="ARAVTTA" duration={0.14} />
+          <TextHoverEffect text="ARAVTA" duration={0.14} />
         </div>
         <div className="relative z-10 mx-auto grid max-w-[1500px] gap-10 lg:grid-cols-[1.25fr_0.7fr_0.7fr_1fr]">
           <div>
             <Image
               src="/aravtta-logo.png"
-              alt="ARAVTTA"
+              alt="ARAVTA"
               width={430}
               height={100}
               className="h-auto w-[220px] drop-shadow-[0_0_22px_rgb(79_124_255/36%)] sm:w-[260px]"
@@ -886,8 +888,8 @@ export default function Home() {
                 </a>
               </p>
               <p>
-                <a href="mailto:contact@aravtta.org" className="hover:text-[#8EC5FF]">
-                  contact@aravtta.org
+                <a href="mailto:contact@aravta.org" className="hover:text-[#8EC5FF]">
+                  contact@aravta.org
                 </a>
               </p>
               <p>LinkedIn · Facebook · Instagram</p>
@@ -895,7 +897,7 @@ export default function Home() {
           </div>
         </div>
         <div className="relative z-10 mx-auto mt-14 flex max-w-[1500px] flex-col gap-4 border-t border-[#FAFAFA]/14 pt-6 text-sm text-[#FAFAFA]/42 sm:flex-row sm:items-center sm:justify-between">
-          <p>Copyright 2026 ARAVTTA. Tous droits réservés.</p>
+          <p>Copyright 2026 ARAVTA. Tous droits réservés.</p>
           <div className="flex gap-5">
             <a href="#accueil" className="hover:text-[#8EC5FF]">
               Mentions légales
