@@ -358,7 +358,7 @@ export default function Home() {
           <div className="hidden items-center gap-5 lg:flex">
             <a
               href="#adhesion-form"
-              className="inline-flex h-12 items-center rounded-full border border-[#8EC5FF]/75 bg-[#FAFAFA]/50 px-5 text-sm font-black text-[#0D0D0D] shadow-[inset_0_1px_0_rgb(250_250_250/38%),0_14px_42px_rgb(13_13_13/18%)] backdrop-blur-xl transition hover:border-[#FAFAFA] hover:bg-[#FAFAFA]/68"
+              className="inline-flex h-12 items-center rounded-[10px] border border-[#8EC5FF]/75 bg-[#FAFAFA]/50 px-5 text-sm font-black text-[#0D0D0D] shadow-[inset_0_1px_0_rgb(250_250_250/38%),0_14px_42px_rgb(13_13_13/18%)] backdrop-blur-xl transition hover:border-[#FAFAFA] hover:bg-[#FAFAFA]/68"
             >
               Devenir membre
             </a>
@@ -392,7 +392,7 @@ export default function Home() {
               <a
                 href="#adhesion-form"
                 onClick={() => setMenuOpen(false)}
-                className="rounded-full border border-[#8EC5FF]/75 bg-[#FAFAFA]/50 px-4 py-3 font-black text-[#0D0D0D] backdrop-blur-xl"
+                className="rounded-[10px] border border-[#8EC5FF]/75 bg-[#FAFAFA]/50 px-4 py-3 font-black text-[#0D0D0D] backdrop-blur-xl"
               >
                 Devenir membre
               </a>
@@ -775,16 +775,24 @@ export default function Home() {
               </p>
             </div>
           </div>
-          <div className="flex flex-col justify-center px-5 py-20 sm:px-8 lg:px-12">
-            <p className="section-label text-[#8EC5FF]">Adhésion</p>
-            <h2 className="mt-5 max-w-3xl text-[clamp(3.4rem,7.2vw,8rem)] font-black uppercase leading-[0.82] tracking-[-0.078em]">
-              Rejoignez le réseau qui avance.
-            </h2>
-            <p className="mt-8 max-w-xl text-xl leading-9 text-[#FAFAFA]/74">
-              Vous êtes une agence de voyages ou un acteur du secteur touristique ?
-              Parlons représentation, coopération et développement régional.
-            </p>
-            <form id="adhesion-form" className="membership-form" onSubmit={handleMembershipSubmit} noValidate>
+          <div className="relative overflow-hidden px-5 py-20 sm:px-8 lg:px-12">
+            <Photo
+              src={photos.impact}
+              alt="Fond photographique du formulaire d'adhésion"
+              className="scale-105 opacity-52 saturate-125"
+            />
+            <div className="absolute inset-0 bg-[#0D0D0D]/62" />
+            <div className="absolute inset-x-0 bottom-0 h-2/3 bg-[linear-gradient(0deg,rgb(7_19_148/0.5),rgb(13_13_13/0))]" />
+            <div className="relative z-10 flex min-h-full flex-col justify-center">
+              <p className="section-label text-[#8EC5FF]">Adhésion</p>
+              <h2 className="mt-5 max-w-3xl text-[clamp(3.4rem,7.2vw,8rem)] font-black uppercase leading-[0.82] tracking-[-0.078em]">
+                Rejoignez le réseau qui avance.
+              </h2>
+              <p className="mt-8 max-w-xl text-xl leading-9 text-[#FAFAFA]/74">
+                Vous êtes une agence de voyages ou un acteur du secteur touristique ?
+                Parlons représentation, coopération et développement régional.
+              </p>
+              <form id="adhesion-form" className="membership-form" onSubmit={handleMembershipSubmit} noValidate>
               <div className="membership-form-header">
                 <span>5 questions</span>
                 <strong>Demande d&apos;adhésion agence</strong>
@@ -845,7 +853,8 @@ export default function Home() {
                   />
                 </div>
               ) : null}
-            </form>
+              </form>
+            </div>
           </div>
         </div>
       </section>
