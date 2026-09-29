@@ -667,15 +667,13 @@ export default function Home() {
         </div>
         <div className="relative z-10 mx-auto grid max-w-[1500px] gap-10 lg:grid-cols-[1.25fr_0.7fr_0.7fr_1fr]">
           <div>
-            <div className="inline-flex bg-[#FAFAFA] px-4 py-3">
-              <Image
-                src="/aravtta-logo.png"
-                alt="ARAVTTA"
-                width={430}
-                height={100}
-                className="h-auto w-[220px] sm:w-[260px]"
-              />
-            </div>
+            <Image
+              src="/aravtta-logo.png"
+              alt="ARAVTTA"
+              width={430}
+              height={100}
+              className="h-auto w-[220px] drop-shadow-[0_0_22px_rgb(79_124_255/36%)] sm:w-[260px]"
+            />
             <p className="mt-5 max-w-sm leading-7 text-[#FAFAFA]/62">
               Association Régionale des Agences de Voyages Tanger-Tétouan-Al Hoceima.
             </p>
