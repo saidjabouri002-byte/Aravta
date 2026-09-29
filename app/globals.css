@@ -474,15 +474,16 @@ button {
 }
 
 .mission-row {
+  align-items: start;
   border-bottom: 1px solid rgb(250 250 250 / 0.22);
   display: grid;
-  gap: 1.2rem;
-  grid-template-columns: 5rem 0.72fr 1fr;
+  gap: clamp(1rem, 2.4vw, 2.8rem);
+  grid-template-columns: 4.8rem minmax(10rem, 0.5fr) minmax(22rem, 1fr);
   padding: 2.2rem 0;
 }
 
 .mission-row-shift {
-  margin-left: clamp(0rem, 8vw, 9rem);
+  margin-left: clamp(0rem, 4vw, 4.5rem);
 }
 
 .mission-row span {
@@ -494,17 +495,19 @@ button {
 }
 
 .mission-row h3 {
-  font-size: clamp(2rem, 3vw, 4rem);
+  font-size: clamp(1.65rem, 2.3vw, 3.15rem);
   font-weight: 900;
-  letter-spacing: -0.07em;
-  line-height: 0.88;
+  letter-spacing: -0.055em;
+  line-height: 0.96;
   text-transform: uppercase;
+  word-break: keep-all;
 }
 
 .mission-row p {
   color: rgb(250 250 250 / 0.7);
-  font-size: 1.08rem;
-  line-height: 1.8;
+  font-size: 1.02rem;
+  line-height: 1.68;
+  max-width: 34rem;
 }
 
 .commission-board {
@@ -678,14 +681,20 @@ button {
 
 .membership-form {
   background:
-    linear-gradient(135deg, rgb(250 250 250 / 0.1), rgb(250 250 250 / 0.035)),
-    rgb(13 13 13 / 0.34);
-  border-bottom: 1px solid rgb(250 250 250 / 0.22);
-  border-top: 1px solid rgb(250 250 250 / 0.24);
+    linear-gradient(145deg, rgb(250 250 250 / 0.18), rgb(250 250 250 / 0.055) 42%, rgb(142 197 255 / 0.1)),
+    rgb(250 250 250 / 0.08);
+  backdrop-filter: blur(24px) saturate(1.35);
+  border: 1px solid rgb(250 250 250 / 0.3);
+  border-radius: 28px;
+  box-shadow:
+    inset 0 1px 0 rgb(250 250 250 / 0.32),
+    0 24px 70px rgb(0 0 0 / 0.24);
   margin-top: 2.6rem;
   max-width: 740px;
+  overflow: hidden;
   padding: 0 clamp(1rem, 2vw, 1.6rem) 1.2rem;
   scroll-margin-top: 7rem;
+  -webkit-backdrop-filter: blur(24px) saturate(1.35);
 }
 
 .membership-form-header,

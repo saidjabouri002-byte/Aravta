@@ -358,7 +358,7 @@ export default function Home() {
           <div className="hidden items-center gap-5 lg:flex">
             <a
               href="#adhesion-form"
-              className="inline-flex h-12 items-center border border-[#1538D6] bg-[linear-gradient(135deg,#1538D6,#4F7CFF)] px-5 text-sm font-black text-[#FAFAFA] transition hover:border-[#8EC5FF] hover:bg-[linear-gradient(135deg,#4F7CFF,#8EC5FF)] hover:text-[#0D0D0D]"
+              className="inline-flex h-12 items-center rounded-full border border-[#8EC5FF]/75 bg-[#FAFAFA]/50 px-5 text-sm font-black text-[#0D0D0D] shadow-[inset_0_1px_0_rgb(250_250_250/38%),0_14px_42px_rgb(13_13_13/18%)] backdrop-blur-xl transition hover:border-[#FAFAFA] hover:bg-[#FAFAFA]/68"
             >
               Devenir membre
             </a>
@@ -392,7 +392,7 @@ export default function Home() {
               <a
                 href="#adhesion-form"
                 onClick={() => setMenuOpen(false)}
-                className="border border-[#1538D6] bg-[linear-gradient(135deg,#1538D6,#4F7CFF)] px-4 py-3 font-black text-[#FAFAFA]"
+                className="rounded-full border border-[#8EC5FF]/75 bg-[#FAFAFA]/50 px-4 py-3 font-black text-[#0D0D0D] backdrop-blur-xl"
               >
                 Devenir membre
               </a>
@@ -402,7 +402,7 @@ export default function Home() {
       </header>
 
       <section id="accueil" className="relative min-h-[96svh] overflow-hidden bg-[#0D0D0D] text-[#FAFAFA]">
-        <Photo src={photos.hero} alt="Côte de Tanger au coucher du soleil" priority className="opacity-72" />
+        <Photo src={photos.hero} alt="Côte de Tanger au coucher du soleil" priority className="object-[50%_66%] opacity-72" />
         <div className="absolute inset-0 bg-[#0D0D0D]/34" />
 
         <div className="relative z-10 mx-auto grid min-h-[96svh] max-w-[1500px] content-end px-5 pb-10 pt-28 sm:px-8 lg:px-10">
@@ -574,6 +574,12 @@ export default function Home() {
         <div className="relative h-[72svh] min-h-[520px]">
           <Photo src={photos.impact} alt="Associations touristiques à Tanger" className="opacity-[0.88]" />
           <div className="absolute inset-0 bg-[#1538D6]/30" />
+          <div
+            aria-hidden="true"
+            className="absolute inset-0 grid place-items-center text-[clamp(4.5rem,15vw,17rem)] font-black uppercase leading-none tracking-[-0.09em] text-[#FAFAFA]/18 drop-shadow-[0_22px_70px_rgb(13_13_13/82%)]"
+          >
+            ARAVTA
+          </div>
           <div className="absolute inset-x-0 bottom-0 bg-[linear-gradient(135deg,#071394,#1538D6_48%,#4F7CFF)] px-5 py-8 sm:px-8 lg:px-10">
             <div className="mx-auto grid max-w-[1500px] gap-6 md:grid-cols-[0.95fr_1.05fr] md:items-end">
               <h2 className="text-[clamp(3.8rem,9vw,11rem)] font-black uppercase leading-[0.78] tracking-[-0.08em]">
@@ -844,11 +850,11 @@ export default function Home() {
         </div>
       </section>
 
-      <footer className="relative overflow-hidden bg-[#FAFAFA] px-5 py-16 text-[#0D0D0D] sm:px-8 lg:px-10">
+      <footer className="relative overflow-hidden bg-[#0D0D0D] px-5 py-16 text-[#FAFAFA] sm:px-8 lg:px-10">
         <div className="absolute inset-x-0 top-0 h-2 bg-[linear-gradient(90deg,#1538D6,#4F7CFF,#8EC5FF)]" />
         <div
           aria-hidden="true"
-          className="absolute inset-x-[-6vw] -bottom-12 z-0 h-[clamp(7rem,18vw,18rem)] opacity-45 sm:-bottom-16"
+          className="absolute inset-x-[-6vw] -bottom-12 z-0 h-[clamp(7rem,18vw,18rem)] opacity-70 sm:-bottom-16"
         >
           <TextHoverEffect text="ARAVTA" duration={0.14} />
         </div>
@@ -861,13 +867,13 @@ export default function Home() {
               height={100}
               className="h-auto w-[220px] drop-shadow-[0_0_22px_rgb(79_124_255/36%)] sm:w-[260px]"
             />
-            <p className="mt-5 max-w-sm leading-7 text-[#0D0D0D]/62">
+            <p className="mt-5 max-w-sm leading-7 text-[#FAFAFA]/62">
               Association Régionale des Agences de Voyages Tanger-Tétouan-Al Hoceima.
             </p>
           </div>
           <div>
             <h3 className="footer-title">Navigation</h3>
-            <ul className="mt-5 space-y-3 text-[#0D0D0D]/62">
+            <ul className="mt-5 space-y-3 text-[#FAFAFA]/62">
               {navItems.slice(0, 5).map((item) => (
                 <li key={item.label}>
                   <a href={item.href} className="hover:text-[#8EC5FF]">
@@ -879,7 +885,7 @@ export default function Home() {
           </div>
           <div>
             <h3 className="footer-title">Informations</h3>
-            <ul className="mt-5 space-y-3 text-[#0D0D0D]/62">
+            <ul className="mt-5 space-y-3 text-[#FAFAFA]/62">
               <li>Commissions</li>
               <li>Adhésion</li>
               <li>Partenariats</li>
@@ -888,7 +894,7 @@ export default function Home() {
           </div>
           <div>
             <h3 className="footer-title">Contact</h3>
-            <address className="mt-5 space-y-3 not-italic leading-7 text-[#0D0D0D]/62">
+            <address className="mt-5 space-y-3 not-italic leading-7 text-[#FAFAFA]/62">
               <p>139 Av. Louis Van Beethoven, Tanger 90060</p>
               <p>
                 <a href="tel:+212539325004" className="hover:text-[#8EC5FF]">
@@ -904,7 +910,7 @@ export default function Home() {
             </address>
           </div>
         </div>
-        <div className="relative z-10 mx-auto mt-14 flex max-w-[1500px] flex-col gap-4 border-t border-[#0D0D0D]/14 pt-6 text-sm text-[#0D0D0D]/42 sm:flex-row sm:items-center sm:justify-between">
+        <div className="relative z-10 mx-auto mt-14 flex max-w-[1500px] flex-col gap-4 border-t border-[#FAFAFA]/14 pt-6 text-sm text-[#FAFAFA]/42 sm:flex-row sm:items-center sm:justify-between">
           <p>Copyright 2026 ARAVTA. Tous droits réservés.</p>
           <div className="flex gap-5">
             <a href="#accueil" className="hover:text-[#8EC5FF]">
