@@ -256,6 +256,10 @@ export default function Home() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [activeCommission, setActiveCommission] = useState(0);
   const [membershipStatus, setMembershipStatus] = useState("");
+  const [membershipDraft, setMembershipDraft] = useState<{
+    href: string;
+    message: string;
+  } | null>(null);
 
   useEffect(() => {
     const update = () => setScrolled(window.scrollY > 30);
@@ -266,7 +270,19 @@ export default function Home() {
 
   function handleMembershipSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
+    setMembershipDraft(null);
     const formData = new FormData(event.currentTarget);
+    const missingQuestion = membershipQuestions.find(
+      (question) => !String(formData.get(question.name) ?? "").trim(),
+    );
+
+    if (missingQuestion) {
+      setMembershipStatus("Remplis les 5 réponses avant l'envoi.");
+      const field = event.currentTarget.elements.namedItem(missingQuestion.name);
+      if (field instanceof HTMLElement) field.focus();
+      return;
+    }
+
     const agency = String(formData.get("agencyName") ?? "").trim();
     const details = membershipQuestions
       .map((question) => {
@@ -276,9 +292,24 @@ export default function Home() {
       .join("\n\n");
     const subject = `Demande d'adhésion ARAVTTA${agency ? ` - ${agency}` : ""}`;
     const body = `Bonjour ARAVTTA,\n\nJe souhaite devenir membre de l'association.\n\n${details}\n\nMerci de me recontacter pour la suite du dossier.`;
+    const href = `mailto:contact@aravtta.org?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    const message = `À: contact@aravtta.org\nObjet: ${subject}\n\n${body}`;
 
-    window.location.href = `mailto:contact@aravtta.org?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-    setMembershipStatus("Votre messagerie s'ouvre avec la demande pré-remplie.");
+    setMembershipDraft({ href, message });
+    setMembershipStatus("Demande prête. Si l'email ne s'ouvre pas, utilise les boutons ci-dessous.");
+    window.setTimeout(() => {
+      window.location.href = href;
+    }, 120);
+  }
+
+  async function handleCopyMembership() {
+    if (!membershipDraft) return;
+    try {
+      await navigator.clipboard.writeText(membershipDraft.message);
+      setMembershipStatus("Message copié. Colle-le dans ton email à contact@aravtta.org.");
+    } catch {
+      setMembershipStatus("Copie le message affiché ci-dessous puis envoie-le à contact@aravtta.org.");
+    }
   }
 
   return (
@@ -735,7 +766,7 @@ export default function Home() {
               Vous êtes une agence de voyages ou un acteur du secteur touristique ?
               Parlons représentation, coopération et développement régional.
             </p>
-            <form id="adhesion-form" className="membership-form" onSubmit={handleMembershipSubmit}>
+            <form id="adhesion-form" className="membership-form" onSubmit={handleMembershipSubmit} noValidate>
               <div className="membership-form-header">
                 <span>5 questions</span>
                 <strong>Demande d&apos;adhésion agence</strong>
@@ -774,7 +805,28 @@ export default function Home() {
               <p className="membership-note">
                 L&apos;email sera préparé automatiquement avec vos réponses.
               </p>
-              {membershipStatus ? <p className="membership-status">{membershipStatus}</p> : null}
+              {membershipStatus ? (
+                <p className="membership-status" aria-live="polite">
+                  {membershipStatus}
+                </p>
+              ) : null}
+              {membershipDraft ? (
+                <div className="membership-result">
+                  <div className="membership-result-actions">
+                    <a href={membershipDraft.href} className="membership-open">
+                      Ouvrir l&apos;email
+                    </a>
+                    <button type="button" onClick={handleCopyMembership} className="membership-copy">
+                      Copier le message
+                    </button>
+                  </div>
+                  <textarea
+                    readOnly
+                    value={membershipDraft.message}
+                    aria-label="Message d'adhésion préparé"
+                  />
+                </div>
+              ) : null}
             </form>
           </div>
         </div>
