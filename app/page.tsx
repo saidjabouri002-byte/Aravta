@@ -25,6 +25,7 @@ const photos = {
   akchourNature: "/images/region/akchour-nature.avif",
   alHoceima: "/images/region/al-hoceima.jpg",
   impact: "/images/region/tanger-tourism-associations.webp",
+  spartel: "/images/region/phare-cap-spartel-tange.webp",
   tetouan: "/images/region/tetouan.avif",
   cave:
     "https://images.unsplash.com/photo-1771690288491-4de18b75e038?auto=format&fit=crop&w=2400&q=84",
@@ -396,7 +397,6 @@ export default function Home() {
       <section id="accueil" className="relative min-h-[96svh] overflow-hidden bg-[#0D0D0D] text-[#FAFAFA]">
         <Photo src={photos.hero} alt="Côte de Tanger au coucher du soleil" priority className="opacity-72" />
         <div className="absolute inset-0 bg-[#0D0D0D]/34" />
-        <div className="absolute left-0 top-[78px] h-2 w-full bg-[linear-gradient(90deg,#1538D6,#4F7CFF,#8EC5FF)]" />
 
         <div className="relative z-10 mx-auto grid min-h-[96svh] max-w-[1500px] content-end px-5 pb-10 pt-28 sm:px-8 lg:px-10">
           <div className="grid gap-8 lg:grid-cols-[0.66fr_0.34fr] lg:items-end">
@@ -464,7 +464,7 @@ export default function Home() {
 
       <section id="region" className="overflow-hidden bg-[#FAFAFA] py-20 lg:py-28">
         <div className="mx-auto max-w-[1500px] px-5 sm:px-8 lg:px-10">
-          <div className="grid gap-10 lg:grid-cols-[0.42fr_0.58fr] lg:items-end">
+          <div className="grid gap-10 lg:grid-cols-[0.42fr_0.58fr] lg:items-center">
             <div>
               <p className="section-label">Notre territoire</p>
               <h2 className="mt-4 max-w-2xl text-[clamp(3rem,6vw,7.4rem)] font-black uppercase leading-[0.83] tracking-[-0.07em]">
@@ -473,7 +473,7 @@ export default function Home() {
                 Quatre climats visuels.
               </h2>
             </div>
-            <p className="max-w-2xl text-xl leading-9 text-[#0D0D0D]/70">
+            <p className="max-w-2xl text-xl leading-9 text-[#0D0D0D]/70 lg:-translate-y-4">
               Le territoire se lit par contrastes : ports, médinas blanches, villes bleues,
               falaises méditerranéennes. La page suit cette géographie au lieu de répéter des modules.
             </p>
@@ -650,7 +650,8 @@ export default function Home() {
 
       <section className="grid bg-[#0D0D0D] text-[#FAFAFA] lg:grid-cols-[0.58fr_0.42fr]">
         <div className="relative min-h-[560px]">
-          <Photo src={photos.akchourNature} alt="Nature d'Akchour dans le Rif" />
+          <Photo src={photos.spartel} alt="Phare du Cap Spartel à Tanger" />
+          <div className="absolute inset-x-0 bottom-0 h-1/2 bg-[linear-gradient(0deg,rgba(7,19,148,0.92),rgba(21,56,214,0.58)_46%,rgba(13,13,13,0)_100%)]" />
           <div className="absolute left-0 top-0 h-full w-7 bg-[linear-gradient(180deg,#1538D6,#8EC5FF)]" />
         </div>
         <div className="relative overflow-hidden px-5 py-20 sm:px-8 lg:px-12 lg:py-28">
@@ -836,11 +837,11 @@ export default function Home() {
         </div>
       </section>
 
-      <footer className="relative overflow-hidden bg-[#0D0D0D] px-5 py-16 text-[#FAFAFA] sm:px-8 lg:px-10">
+      <footer className="relative overflow-hidden bg-[#FAFAFA] px-5 py-16 text-[#0D0D0D] sm:px-8 lg:px-10">
         <div className="absolute inset-x-0 top-0 h-2 bg-[linear-gradient(90deg,#1538D6,#4F7CFF,#8EC5FF)]" />
         <div
           aria-hidden="true"
-          className="absolute inset-x-[-6vw] -bottom-12 z-0 h-[clamp(7rem,18vw,18rem)] opacity-70 sm:-bottom-16"
+          className="absolute inset-x-[-6vw] -bottom-12 z-0 h-[clamp(7rem,18vw,18rem)] opacity-45 sm:-bottom-16"
         >
           <TextHoverEffect text="ARAVTA" duration={0.14} />
         </div>
@@ -853,13 +854,13 @@ export default function Home() {
               height={100}
               className="h-auto w-[220px] drop-shadow-[0_0_22px_rgb(79_124_255/36%)] sm:w-[260px]"
             />
-            <p className="mt-5 max-w-sm leading-7 text-[#FAFAFA]/62">
+            <p className="mt-5 max-w-sm leading-7 text-[#0D0D0D]/62">
               Association Régionale des Agences de Voyages Tanger-Tétouan-Al Hoceima.
             </p>
           </div>
           <div>
             <h3 className="footer-title">Navigation</h3>
-            <ul className="mt-5 space-y-3 text-[#FAFAFA]/62">
+            <ul className="mt-5 space-y-3 text-[#0D0D0D]/62">
               {navItems.slice(0, 5).map((item) => (
                 <li key={item.label}>
                   <a href={item.href} className="hover:text-[#8EC5FF]">
@@ -871,7 +872,7 @@ export default function Home() {
           </div>
           <div>
             <h3 className="footer-title">Informations</h3>
-            <ul className="mt-5 space-y-3 text-[#FAFAFA]/62">
+            <ul className="mt-5 space-y-3 text-[#0D0D0D]/62">
               <li>Commissions</li>
               <li>Adhésion</li>
               <li>Partenariats</li>
@@ -880,7 +881,7 @@ export default function Home() {
           </div>
           <div>
             <h3 className="footer-title">Contact</h3>
-            <address className="mt-5 space-y-3 not-italic leading-7 text-[#FAFAFA]/62">
+            <address className="mt-5 space-y-3 not-italic leading-7 text-[#0D0D0D]/62">
               <p>139 Av. Louis Van Beethoven, Tanger 90060</p>
               <p>
                 <a href="tel:+212539325004" className="hover:text-[#8EC5FF]">
@@ -896,7 +897,7 @@ export default function Home() {
             </address>
           </div>
         </div>
-        <div className="relative z-10 mx-auto mt-14 flex max-w-[1500px] flex-col gap-4 border-t border-[#FAFAFA]/14 pt-6 text-sm text-[#FAFAFA]/42 sm:flex-row sm:items-center sm:justify-between">
+        <div className="relative z-10 mx-auto mt-14 flex max-w-[1500px] flex-col gap-4 border-t border-[#0D0D0D]/14 pt-6 text-sm text-[#0D0D0D]/42 sm:flex-row sm:items-center sm:justify-between">
           <p>Copyright 2026 ARAVTA. Tous droits réservés.</p>
           <div className="flex gap-5">
             <a href="#accueil" className="hover:text-[#8EC5FF]">
