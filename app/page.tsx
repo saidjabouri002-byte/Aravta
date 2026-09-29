@@ -29,6 +29,13 @@ const photos = {
   tetouan: "/images/region/tetouan.avif",
   cave:
     "https://images.unsplash.com/photo-1771690288491-4de18b75e038?auto=format&fit=crop&w=2400&q=84",
+  commissionAir: "/images/commissions/transport-aerien.jpg",
+  commissionSea: "/images/commissions/transport-maritime.jpg",
+  commissionHajj: "/images/commissions/hajj-omra.jpeg",
+  commissionReception: "/images/commissions/receptif-outgoing.jpg",
+  commissionMice: "/images/commissions/mice.jpg",
+  commissionPublic: "/images/commissions/relations-publiques.webp",
+  commissionSages: "/images/commissions/conseil-sages.jpg",
 };
 
 const destinations = [
@@ -85,37 +92,37 @@ const commissions = [
   {
     title: "Transport aérien",
     scope: "Connectivité, compagnies, distribution",
-    image: photos.tangier,
+    image: photos.commissionAir,
   },
   {
     title: "Transport maritime",
     scope: "Détroit, flux voyageurs, coordination portuaire",
-    image: photos.oldPort,
+    image: photos.commissionSea,
   },
   {
     title: "Hajj & Omra",
     scope: "Conformité, qualité, encadrement",
-    image: photos.tetouan,
+    image: photos.commissionHajj,
   },
   {
     title: "Réceptif & Outgoing",
     scope: "Circuits, production, expérience client",
-    image: photos.akchour,
+    image: photos.commissionReception,
   },
   {
     title: "MICE",
     scope: "Rencontres, événements, tourisme d'affaires",
-    image: photos.chefchaouen,
+    image: photos.commissionMice,
   },
   {
     title: "Relations publiques",
     scope: "Dialogue institutionnel et porte-parole",
-    image: photos.akchourNature,
+    image: photos.commissionPublic,
   },
   {
     title: "Conseil des sages",
     scope: "Transmission, arbitrage, mémoire professionnelle",
-    image: photos.alHoceima,
+    image: photos.commissionSages,
   },
 ];
 
