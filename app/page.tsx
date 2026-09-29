@@ -34,6 +34,7 @@ const photos = {
   commissionHajj: "/images/commissions/hajj-omra.jpeg",
   commissionReception: "/images/commissions/receptif-outgoing.jpg",
   commissionMice: "/images/commissions/mice.jpg",
+  formMice: "/images/commissions/mice-event-tanger.webp",
   commissionPublic: "/images/commissions/relations-publiques.webp",
   commissionSages: "/images/commissions/conseil-sages.jpg",
 };
@@ -358,7 +359,7 @@ export default function Home() {
           <div className="hidden items-center gap-5 lg:flex">
             <a
               href="#adhesion-form"
-              className="inline-flex h-12 items-center rounded-[8px] border border-[#1538D6] bg-transparent px-5 text-sm font-black text-[#1538D6] transition hover:border-[#071394] hover:text-[#071394]"
+              className="inline-flex h-12 items-center rounded-[8px] border border-[#FAFAFA]/85 bg-transparent px-5 text-sm font-black uppercase text-[#FAFAFA] transition hover:border-[#FAFAFA]"
             >
               Devenir membre
             </a>
@@ -392,7 +393,7 @@ export default function Home() {
               <a
                 href="#adhesion-form"
                 onClick={() => setMenuOpen(false)}
-                className="rounded-[8px] border border-[#8EC5FF]/80 bg-transparent px-4 py-3 font-black text-[#FAFAFA]"
+                className="rounded-[8px] border border-[#FAFAFA]/85 bg-transparent px-4 py-3 font-black uppercase text-[#FAFAFA]"
               >
                 Devenir membre
               </a>
@@ -402,7 +403,7 @@ export default function Home() {
       </header>
 
       <section id="accueil" className="relative min-h-[96svh] overflow-hidden bg-[#0D0D0D] text-[#FAFAFA]">
-        <Photo src={photos.hero} alt="Côte de Tanger au coucher du soleil" priority className="object-[50%_66%] opacity-72" />
+        <Photo src={photos.hero} alt="Côte de Tanger au coucher du soleil" priority className="object-[50%_20%] opacity-72" />
         <div className="absolute inset-0 bg-[#0D0D0D]/34" />
 
         <div className="relative z-10 mx-auto grid min-h-[96svh] max-w-[1500px] content-end px-5 pb-10 pt-28 sm:px-8 lg:px-10">
@@ -777,8 +778,8 @@ export default function Home() {
           </div>
           <div className="relative overflow-hidden px-5 py-20 sm:px-8 lg:px-12">
             <Photo
-              src={photos.commissionMice}
-              alt="Audience professionnelle MICE"
+              src={photos.formMice}
+              alt="Événement MICE à Tanger"
               className="scale-105 object-[50%_45%] opacity-58 saturate-125"
             />
             <div className="absolute inset-0 bg-[#0D0D0D]/62" />
