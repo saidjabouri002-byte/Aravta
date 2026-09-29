@@ -358,7 +358,7 @@ export default function Home() {
           <div className="hidden items-center gap-5 lg:flex">
             <a
               href="#adhesion-form"
-              className="inline-flex h-12 items-center rounded-[10px] border border-[#8EC5FF]/75 bg-[#FAFAFA]/50 px-5 text-sm font-black text-[#0D0D0D] shadow-[inset_0_1px_0_rgb(250_250_250/38%),0_14px_42px_rgb(13_13_13/18%)] backdrop-blur-xl transition hover:border-[#FAFAFA] hover:bg-[#FAFAFA]/68"
+              className="inline-flex h-12 items-center rounded-[8px] border border-[#1538D6] bg-transparent px-5 text-sm font-black text-[#1538D6] transition hover:border-[#071394] hover:text-[#071394]"
             >
               Devenir membre
             </a>
@@ -392,7 +392,7 @@ export default function Home() {
               <a
                 href="#adhesion-form"
                 onClick={() => setMenuOpen(false)}
-                className="rounded-[10px] border border-[#8EC5FF]/75 bg-[#FAFAFA]/50 px-4 py-3 font-black text-[#0D0D0D] backdrop-blur-xl"
+                className="rounded-[8px] border border-[#8EC5FF]/80 bg-transparent px-4 py-3 font-black text-[#FAFAFA]"
               >
                 Devenir membre
               </a>
@@ -777,9 +777,9 @@ export default function Home() {
           </div>
           <div className="relative overflow-hidden px-5 py-20 sm:px-8 lg:px-12">
             <Photo
-              src={photos.impact}
-              alt="Fond photographique du formulaire d'adhésion"
-              className="scale-105 opacity-52 saturate-125"
+              src={photos.commissionMice}
+              alt="Audience professionnelle MICE"
+              className="scale-105 object-[50%_45%] opacity-58 saturate-125"
             />
             <div className="absolute inset-0 bg-[#0D0D0D]/62" />
             <div className="absolute inset-x-0 bottom-0 h-2/3 bg-[linear-gradient(0deg,rgb(7_19_148/0.5),rgb(13_13_13/0))]" />
