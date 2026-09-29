@@ -16,20 +16,14 @@ const navItems = [
 ];
 
 const photos = {
-  hero:
-    "https://images.unsplash.com/photo-1683982059397-61b853170b8c?auto=format&fit=crop&w=3000&q=86",
-  tangier:
-    "https://images.unsplash.com/photo-1727793235385-c7b7ea6a70b8?auto=format&fit=crop&w=2400&q=84",
-  chefchaouen:
-    "https://images.unsplash.com/photo-1564507004663-b6dfb3c824d5?auto=format&fit=crop&w=1800&q=84",
-  chefchaouenWide:
-    "https://images.unsplash.com/photo-1729866582400-3e0a40c95293?auto=format&fit=crop&w=2200&q=84",
-  alHoceima:
-    "https://images.unsplash.com/photo-1669735448738-94d9f6de0ef8?auto=format&fit=crop&w=2400&q=84",
-  tetouan:
-    "https://images.unsplash.com/photo-1759234055159-19bcb532cfd9?auto=format&fit=crop&w=2200&q=84",
-  medina:
-    "https://images.unsplash.com/photo-1641734052941-bb57e88f67f2?auto=format&fit=crop&w=1800&q=84",
+  hero: "/images/region/tanger-pic.avif",
+  tangier: "/images/region/tanger.avif",
+  oldPort: "/images/region/tangier-old-port.avif",
+  chefchaouen: "/images/region/chefchaouen.avif",
+  akchour: "/images/region/akchour.avif",
+  akchourNature: "/images/region/akchour-nature.avif",
+  alHoceima: "/images/region/al-hoceima.jpg",
+  tetouan: "/images/region/tetouan.avif",
   cave:
     "https://images.unsplash.com/photo-1771690288491-4de18b75e038?auto=format&fit=crop&w=2400&q=84",
 };
@@ -88,32 +82,32 @@ const commissions = [
   {
     title: "Transport aérien",
     scope: "Connectivité, compagnies, distribution",
-    image: photos.hero,
+    image: photos.tangier,
   },
   {
     title: "Transport maritime",
     scope: "Détroit, flux voyageurs, coordination portuaire",
-    image: photos.cave,
+    image: photos.oldPort,
   },
   {
     title: "Hajj & Omra",
     scope: "Conformité, qualité, encadrement",
-    image: photos.medina,
+    image: photos.tetouan,
   },
   {
     title: "Réceptif & Outgoing",
     scope: "Circuits, production, expérience client",
-    image: photos.chefchaouenWide,
+    image: photos.akchour,
   },
   {
     title: "MICE",
     scope: "Rencontres, événements, tourisme d'affaires",
-    image: photos.tetouan,
+    image: photos.chefchaouen,
   },
   {
     title: "Relations publiques",
     scope: "Dialogue institutionnel et porte-parole",
-    image: photos.tangier,
+    image: photos.akchourNature,
   },
   {
     title: "Conseil des sages",
@@ -403,7 +397,7 @@ export default function Home() {
             </div>
           </div>
           <div className="relative min-h-[520px] lg:min-h-full">
-            <Photo src={photos.medina} alt="Rue historique de Tétouan" className="grayscale-[0.1]" />
+            <Photo src={photos.oldPort} alt="Port historique de Tanger" className="grayscale-[0.1]" />
             <div className="absolute bottom-0 left-0 w-full bg-[#0D0D0D] p-5 text-[#FAFAFA] sm:p-7">
               <p className="max-w-lg text-2xl font-black uppercase leading-none tracking-[-0.05em]">
                 Représenter. Structurer. Projeter.
@@ -525,7 +519,7 @@ export default function Home() {
 
       <section className="grid bg-[#0D0D0D] text-[#FAFAFA] lg:grid-cols-[0.58fr_0.42fr]">
         <div className="relative min-h-[560px]">
-          <Photo src={photos.tangier} alt="Littoral nord marocain" />
+          <Photo src={photos.akchourNature} alt="Nature d'Akchour dans le Rif" />
           <div className="absolute left-0 top-0 h-full w-7 bg-[linear-gradient(180deg,#1538D6,#8EC5FF)]" />
         </div>
         <div className="relative overflow-hidden px-5 py-20 sm:px-8 lg:px-12 lg:py-28">
@@ -629,7 +623,7 @@ export default function Home() {
       <section id="contact" className="relative overflow-hidden bg-[#0D0D0D] text-[#FAFAFA]">
         <div className="grid min-h-[680px] lg:grid-cols-[0.46fr_0.54fr]">
           <div className="relative min-h-[420px] lg:min-h-full">
-            <Photo src={photos.hero} alt="Côte de Tanger pendant l'heure dorée" className="opacity-80" />
+            <Photo src={photos.alHoceima} alt="Plage d'Al Hoceima et eau méditerranéenne" className="opacity-80" />
             <div className="absolute inset-x-0 bottom-0 bg-[linear-gradient(90deg,#1538D6,#4F7CFF,#8EC5FF)] px-5 py-5 text-[#0D0D0D] sm:px-8">
               <p className="text-2xl font-black uppercase leading-none tracking-[-0.05em]">
                 Tanger · Tétouan · Al Hoceima
