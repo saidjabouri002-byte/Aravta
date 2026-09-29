@@ -9,7 +9,7 @@ const navItems = [
   { label: "Accueil", href: "#accueil" },
   { label: "L'Association", href: "#association" },
   { label: "Commissions", href: "#commissions" },
-  { label: "Membres", href: "#membres" },
+  { label: "Membres", href: "#contact" },
   { label: "Actualités", href: "#actualites" },
   { label: "La Région", href: "#region" },
   { label: "Contact", href: "#contact" },
@@ -147,19 +147,6 @@ const news = [
 ];
 
 const partners = ["ONMT", "CRT TTA", "FNAVM", "ISITT", "Région TTAH"];
-
-const memberLogos = [
-  { name: "Tanger Travel", mark: "TT", tone: "blue" },
-  { name: "Rif Tours", mark: "RT", tone: "white" },
-  { name: "Tamuda Voyages", mark: "TV", tone: "sky" },
-  { name: "Détroit Incoming", mark: "DI", tone: "line" },
-  { name: "Medina Nord", mark: "MN", tone: "blue" },
-  { name: "Cap Spartel", mark: "CS", tone: "white" },
-  { name: "Al Hoceima Trips", mark: "AH", tone: "sky" },
-  { name: "Blue Gate", mark: "BG", tone: "line" },
-  { name: "Tétouan Évasion", mark: "TE", tone: "white" },
-  { name: "Atlas Rif", mark: "AR", tone: "blue" },
-];
 
 const heroLogos = [
   "ONMT",
@@ -634,22 +621,6 @@ export default function Home() {
           <div className="partner-run mt-10">
             {partners.map((partner) => (
               <span key={partner}>{partner}</span>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section id="membres" className="member-cloud-section" aria-labelledby="member-cloud-title">
-        <div className="member-cloud-shell">
-          <p id="member-cloud-title" className="member-cloud-kicker">
-            Réseau des agences membres
-          </p>
-          <div className="member-logo-cloud" aria-label="Agences membres ARAVTTA">
-            {memberLogos.map((member) => (
-              <div className={`member-logo member-logo-${member.tone}`} key={member.name}>
-                <span>{member.mark}</span>
-                <strong>{member.name}</strong>
-              </div>
             ))}
           </div>
         </div>

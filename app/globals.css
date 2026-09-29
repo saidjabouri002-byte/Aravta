@@ -592,101 +592,6 @@ button {
   color: #0d0d0d;
 }
 
-.member-cloud-section {
-  background:
-    radial-gradient(circle at 22% 18%, rgb(79 124 255 / 0.18), transparent 24rem),
-    radial-gradient(circle at 78% 74%, rgb(142 197 255 / 0.12), transparent 22rem),
-    #111316;
-  color: #fafafa;
-  overflow: hidden;
-  padding: clamp(4.5rem, 8vw, 8rem) 1.25rem;
-}
-
-.member-cloud-shell {
-  margin: 0 auto;
-  max-width: 1500px;
-}
-
-.member-cloud-kicker {
-  color: rgb(250 250 250 / 0.48);
-  font-size: clamp(1.35rem, 2.2vw, 2.45rem);
-  font-weight: 500;
-  letter-spacing: -0.035em;
-  line-height: 1;
-  margin: 0 auto clamp(3.6rem, 6vw, 5.5rem);
-  max-width: 58rem;
-  text-align: center;
-}
-
-.member-logo-cloud {
-  align-items: center;
-  display: grid;
-  gap: clamp(3rem, 6vw, 6.5rem) clamp(2rem, 5vw, 6rem);
-  grid-template-columns: repeat(5, minmax(0, 1fr));
-}
-
-.member-logo {
-  align-items: center;
-  color: rgb(250 250 250 / 0.86);
-  display: inline-flex;
-  gap: 0.85rem;
-  justify-content: center;
-  min-height: 3.8rem;
-  opacity: 0.92;
-  transform: translateZ(0);
-  transition:
-    opacity 180ms ease,
-    transform 180ms ease;
-}
-
-.member-logo:hover {
-  opacity: 1;
-  transform: translateY(-0.18rem);
-}
-
-.member-logo span {
-  align-items: center;
-  border: 1px solid currentColor;
-  display: inline-flex;
-  font-size: 0.72rem;
-  font-weight: 950;
-  height: 2rem;
-  justify-content: center;
-  letter-spacing: -0.08em;
-  line-height: 1;
-  min-width: 2rem;
-}
-
-.member-logo strong {
-  font-size: clamp(1.35rem, 2vw, 2.15rem);
-  font-weight: 900;
-  letter-spacing: -0.07em;
-  line-height: 0.9;
-  white-space: nowrap;
-}
-
-.member-logo-blue {
-  color: #4f7cff;
-}
-
-.member-logo-sky {
-  color: #8ec5ff;
-}
-
-.member-logo-white {
-  color: rgb(250 250 250 / 0.9);
-}
-
-.member-logo-line {
-  color: rgb(250 250 250 / 0.78);
-}
-
-.member-logo-line span {
-  background: linear-gradient(135deg, #1538d6, #8ec5ff);
-  border-color: transparent;
-  color: #0d0d0d;
-}
-
 .footer-title {
   color: #8ec5ff;
   font-size: 0.78rem;
@@ -749,10 +654,6 @@ button {
     grid-template-columns: 1fr;
     padding: 0 1rem 1rem;
   }
-
-  .member-logo-cloud {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
 }
 
 @media (max-width: 640px) {
@@ -782,31 +683,6 @@ button {
   .btn-outline,
   .btn-blue {
     min-width: 100%;
-  }
-
-  .member-cloud-section {
-    padding: 4rem 1.25rem;
-  }
-
-  .member-cloud-kicker {
-    margin-bottom: 3rem;
-    text-align: left;
-  }
-
-  .member-logo-cloud {
-    gap: 2rem 1.25rem;
-  }
-
-  .member-logo {
-    align-items: flex-start;
-    flex-direction: column;
-    gap: 0.7rem;
-    justify-content: flex-start;
-  }
-
-  .member-logo strong {
-    font-size: 1.35rem;
-    white-space: normal;
   }
 }
 
