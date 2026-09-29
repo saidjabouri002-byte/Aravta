@@ -142,17 +142,59 @@ const news = [
 
 const partners = ["ONMT", "CRT TTA", "FNAVM", "ISITT", "Région TTAH"];
 
-const heroLogos = [
-  "ONMT",
-  "CRT TTA",
-  "FNAVM",
-  "ISITT",
-  "Région TTAH",
-  "Agences TTA",
-  "MICE",
-  "Maritime",
-  "Aérien",
-  "Réceptif",
+const memberLogos = [
+  {
+    name: "ISITT Tanger",
+    src: "/images/logos/isitt.png",
+    width: 500,
+    height: 205,
+  },
+  {
+    name: "GNV",
+    src: "/images/logos/gnv.png",
+    width: 1280,
+    height: 351,
+    wide: true,
+  },
+  {
+    name: "Voyages Florence",
+    src: "/images/logos/voyages-florence.png",
+    width: 800,
+    height: 297,
+    wide: true,
+  },
+  {
+    name: "VIP Voyage",
+    src: "/images/logos/vip-voyage.png",
+    width: 500,
+    height: 245,
+  },
+  {
+    name: "Tanger Med Port Authority",
+    src: "/images/logos/tanger-med-port-authority.png",
+    width: 591,
+    height: 198,
+    wide: true,
+  },
+  {
+    name: "Amiral Voyages",
+    src: "/images/logos/amiral-voyages.png",
+    width: 2848,
+    height: 809,
+    wide: true,
+  },
+  {
+    name: "Alma Travel Agency",
+    src: "/images/logos/alma-travel-agency.png",
+    width: 600,
+    height: 325,
+  },
+  {
+    name: "Royal Air Maroc",
+    src: "/images/logos/royal-air-maroc.webp",
+    width: 1280,
+    height: 915,
+  },
 ];
 
 function Photo({
@@ -308,17 +350,27 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="logo-marquee-section" aria-label="Partenaires et expertises ARAVTTA">
+      <section className="logo-marquee-section" aria-label="Membres et partenaires ARAVTTA">
         <div className="logo-marquee-label">
-          <span>Écosystème régional</span>
-          <strong>Partenaires · Métiers · Commissions</strong>
+          <span>Réseau membre</span>
+          <strong>Ils avancent avec ARAVTTA</strong>
         </div>
-        <div className="logo-marquee" aria-hidden="true">
+        <div className="logo-marquee">
           <div className="logo-marquee-track">
-            {[...heroLogos, ...heroLogos].map((logo, index) => (
-              <span className="logo-wordmark" key={`${logo}-${index}`}>
-                <span>{String((index % heroLogos.length) + 1).padStart(2, "0")}</span>
-                <strong>{logo}</strong>
+            {[...memberLogos, ...memberLogos].map((logo, index) => (
+              <span
+                className={`logo-wordmark ${logo.wide ? "logo-wordmark-wide" : ""}`}
+                key={`${logo.name}-${index}`}
+                aria-hidden={index >= memberLogos.length ? true : undefined}
+              >
+                <Image
+                  src={logo.src}
+                  alt={index < memberLogos.length ? logo.name : ""}
+                  width={logo.width}
+                  height={logo.height}
+                  className="member-logo-image"
+                  unoptimized
+                />
               </span>
             ))}
           </div>
