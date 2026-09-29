@@ -157,36 +157,35 @@ const ecosystemLogos = [
     src: "/images/partners/onmt.png",
     width: 1427,
     height: 858,
-    imageClass: "max-h-24",
+    imageClass: "max-h-20",
   },
   {
     name: "Conseil Régional du Tourisme Tanger-Tétouan-Al Hoceima",
     src: "/images/partners/crt-tanger.png",
     width: 1362,
     height: 1045,
-    imageClass: "max-h-28",
+    imageClass: "max-h-20",
   },
   {
     name: "F.N.A.V.M",
     src: "/images/partners/fnavm.png",
     width: 1401,
     height: 980,
-    imageClass: "max-h-24",
+    imageClass: "max-h-20",
   },
   {
     name: "Chambre de Tourisme Tanger-Tétouan-Al Hoceima",
     src: "/images/partners/chambre-tourisme.png",
     width: 1514,
     height: 910,
-    imageClass: "max-h-24",
+    imageClass: "max-h-20",
   },
   {
     name: "Institut Supérieur International de Tourisme de Tanger",
     src: "/images/partners/isitt-tanger.png",
     width: 1917,
     height: 745,
-    cellClass: "sm:col-span-2 xl:col-span-3",
-    imageClass: "max-h-28",
+    imageClass: "max-h-20 max-w-[12rem]",
   },
 ];
 
@@ -795,9 +794,9 @@ export default function Home() {
             L&apos;ARAVTA travaille avec les institutions, écoles, fédérations et opérateurs
             pour renforcer la compétitivité touristique du Nord.
           </p>
-          <div className="mt-12 grid max-w-4xl grid-cols-2 items-center gap-x-10 gap-y-9 xl:grid-cols-3">
+          <div className="mt-12 grid max-w-4xl grid-cols-2 items-center gap-x-8 gap-y-8 sm:grid-cols-3 xl:grid-cols-5">
             {ecosystemLogos.map((logo) => (
-              <div key={logo.name} className={`flex min-h-24 items-center justify-center ${logo.cellClass ?? ""}`}>
+              <div key={logo.name} className="flex min-h-20 items-center justify-center">
                 <Image
                   src={logo.src}
                   alt={logo.name}
