@@ -175,9 +175,10 @@ const membershipQuestions = [
 const memberLogos = [
   {
     name: "ISITT Tanger",
-    src: "/images/logos/isitt.png",
-    width: 500,
-    height: 205,
+    src: "/images/logos/isitt-tanger.png",
+    width: 1959,
+    height: 803,
+    wide: true,
   },
   {
     name: "GNV",
