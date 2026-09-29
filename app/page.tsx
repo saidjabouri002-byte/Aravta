@@ -200,20 +200,16 @@ export default function Home() {
   return (
     <main className="min-h-screen bg-[#FAFAFA] text-[#0D0D0D]">
       <header
-        className={`fixed inset-x-0 top-0 z-50 border-b transition duration-500 ${
+        className={`fixed inset-x-0 top-0 z-50 border-b text-[#0D0D0D] transition duration-500 ${
           scrolled || menuOpen
-            ? "border-[#0D0D0D]/10 bg-[#FAFAFA]/95 text-[#0D0D0D] backdrop-blur"
-            : "border-[#FAFAFA]/20 bg-transparent text-[#FAFAFA]"
+            ? "border-[#0D0D0D]/12 bg-[#FAFAFA]/86 shadow-[0_18px_60px_rgb(13_13_13/10%)] backdrop-blur-2xl"
+            : "border-[#FAFAFA]/22 bg-[#FAFAFA]/54 backdrop-blur-2xl"
         }`}
       >
         <div className="mx-auto flex h-[78px] max-w-[1500px] items-center justify-between px-5 sm:px-8 lg:px-10">
           <a
             href="#accueil"
-            className={`group flex items-center transition ${
-              scrolled || menuOpen
-                ? "bg-transparent"
-                : "bg-[#FAFAFA]/94 px-3 py-2 shadow-[0_18px_45px_rgb(13_13_13/18%)] backdrop-blur"
-            }`}
+            className="group flex items-center transition"
             aria-label="ARAVTTA accueil"
           >
             <Image
@@ -235,20 +231,9 @@ export default function Home() {
           </nav>
 
           <div className="hidden items-center gap-5 lg:flex">
-            <div className="flex items-center gap-2 text-xs font-black uppercase tracking-[0.2em]">
-              <span>FR</span>
-              <span className="h-3 w-px bg-current opacity-25" />
-              <span>AR</span>
-              <span className="h-3 w-px bg-current opacity-25" />
-              <span>EN</span>
-            </div>
             <a
               href="#contact"
-              className={`inline-flex h-12 items-center border px-5 text-sm font-black transition ${
-                scrolled
-                  ? "border-[#1538D6] bg-[linear-gradient(135deg,#1538D6,#4F7CFF)] text-[#FAFAFA] hover:border-[#8EC5FF] hover:bg-[linear-gradient(135deg,#4F7CFF,#8EC5FF)] hover:text-[#0D0D0D]"
-                  : "border-[#FAFAFA] bg-[#FAFAFA] text-[#0D0D0D] hover:border-[#8EC5FF] hover:bg-[#8EC5FF]"
-              }`}
+              className="inline-flex h-12 items-center border border-[#1538D6] bg-[linear-gradient(135deg,#1538D6,#4F7CFF)] px-5 text-sm font-black text-[#FAFAFA] transition hover:border-[#8EC5FF] hover:bg-[linear-gradient(135deg,#4F7CFF,#8EC5FF)] hover:text-[#0D0D0D]"
             >
               Devenir membre
             </a>
@@ -258,16 +243,14 @@ export default function Home() {
             type="button"
             aria-label={menuOpen ? "Fermer le menu" : "Ouvrir le menu"}
             onClick={() => setMenuOpen((value) => !value)}
-            className={`grid h-12 w-12 place-items-center border lg:hidden ${
-              scrolled || menuOpen ? "border-[#0D0D0D]" : "border-[#FAFAFA]"
-            }`}
+            className="grid h-12 w-12 place-items-center border border-[#0D0D0D] lg:hidden"
           >
             {menuOpen ? <X size={21} /> : <Menu size={21} />}
           </button>
         </div>
 
         {menuOpen ? (
-          <div className="border-t border-[#0D0D0D]/10 bg-[#FAFAFA] px-5 py-5 text-[#0D0D0D] lg:hidden">
+          <div className="border-t border-[#0D0D0D]/10 bg-[#FAFAFA]/90 px-5 py-5 text-[#0D0D0D] backdrop-blur-2xl lg:hidden">
             <nav className="grid" aria-label="Navigation mobile">
               {navItems.map((item) => (
                 <a
@@ -280,8 +263,7 @@ export default function Home() {
                 </a>
               ))}
             </nav>
-            <div className="mt-5 flex items-center justify-between text-sm">
-              <span className="font-black uppercase tracking-[0.2em]">FR / AR / EN</span>
+            <div className="mt-5 flex justify-end text-sm">
               <a href="#contact" className="border border-[#1538D6] bg-[linear-gradient(135deg,#1538D6,#4F7CFF)] px-4 py-3 font-black text-[#FAFAFA]">
                 Devenir membre
               </a>
