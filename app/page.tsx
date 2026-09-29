@@ -32,25 +32,25 @@ const photos = {
 const destinations = [
   {
     name: "Tanger",
-    line: "Ville-pivot entre Atlantique, détroit et Méditerranée.",
+    line: "Porte du détroit, entre médina, corniche et connexions. Une ville d'arrivée, de départ et d'histoires maritimes.",
     image: photos.tangier,
     mark: "01",
   },
   {
     name: "Tétouan",
-    line: "Une écriture andalouse, blanche, patrimoniale.",
+    line: "Patrimoine andalou, médina blanche et savoir-faire vivant. Une étape calme pour lire l'histoire du Nord.",
     image: photos.tetouan,
     mark: "02",
   },
   {
     name: "Chefchaouen",
-    line: "L'icône bleue du Rif, magnétique et singulière.",
+    line: "Ville bleue du Rif, faite de ruelles lentes et de lumière. Une icône photographique, artisanale et montagnarde.",
     image: photos.chefchaouen,
     mark: "03",
   },
   {
     name: "Al Hoceima",
-    line: "Criques, falaises et lumière méditerranéenne.",
+    line: "Baies claires, falaises fortes et Méditerranée ouverte. Une destination de nature, de mer et de respiration.",
     image: photos.alHoceima,
     mark: "04",
   },
@@ -493,6 +493,7 @@ export default function Home() {
                 <div className="territory-strip">
                   <span>{destination.mark}</span>
                   <strong>{destination.name}</strong>
+                  <p>{destination.line}</p>
                 </div>
               </article>
             ))}
@@ -526,7 +527,7 @@ export default function Home() {
           </div>
           <div className="relative min-h-[520px] lg:min-h-full">
             <Photo src={photos.oldPort} alt="Port historique de Tanger" className="grayscale-[0.1]" />
-            <div className="absolute bottom-0 left-0 w-full bg-[#0D0D0D] p-5 text-[#FAFAFA] sm:p-7">
+            <div className="absolute bottom-0 left-0 w-full bg-[linear-gradient(0deg,rgb(7_19_148/0.96),rgb(21_56_214/0.82)_58%,rgb(13_13_13/0))] p-5 pt-24 text-[#FAFAFA] sm:p-7 sm:pt-28">
               <p className="max-w-lg text-2xl font-black uppercase leading-none tracking-[-0.05em]">
                 Représenter. Structurer. Projeter.
               </p>

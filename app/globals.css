@@ -398,7 +398,7 @@ button {
 }
 
 .territory-caption {
-  background: linear-gradient(0deg, rgb(13 13 13 / 0.94), rgb(13 13 13 / 0.7) 58%, rgb(13 13 13 / 0));
+  background: linear-gradient(0deg, rgb(7 19 148 / 0.96), rgb(21 56 214 / 0.82) 55%, rgb(13 13 13 / 0));
   bottom: 0;
   color: #fafafa;
   left: 0;
@@ -428,13 +428,18 @@ button {
 
 .territory-caption p {
   color: rgb(250 250 250 / 0.72);
+  display: -webkit-box;
   font-size: 1.05rem;
   line-height: 1.65;
   margin-top: 1rem;
+  max-width: 46rem;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
 }
 
 .territory-strip {
-  background: linear-gradient(0deg, rgb(13 13 13 / 0.9), rgb(13 13 13 / 0.58) 62%, rgb(13 13 13 / 0));
+  background: linear-gradient(0deg, rgb(7 19 148 / 0.96), rgb(21 56 214 / 0.78) 58%, rgb(13 13 13 / 0));
   bottom: 0;
   color: #fafafa;
   left: 0;
@@ -451,6 +456,17 @@ button {
   line-height: 0.88;
   margin-top: 0.25rem;
   text-transform: uppercase;
+}
+
+.territory-strip p {
+  color: rgb(250 250 250 / 0.76);
+  display: -webkit-box;
+  font-size: 0.95rem;
+  line-height: 1.45;
+  margin-top: 0.75rem;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
 }
 
 .mission-list {
@@ -507,7 +523,7 @@ button {
 }
 
 .commission-image > div:last-child {
-  background: linear-gradient(0deg, rgb(13 13 13 / 0.95), rgb(13 13 13 / 0.68) 60%, rgb(13 13 13 / 0)) !important;
+  background: linear-gradient(0deg, rgb(7 19 148 / 0.96), rgb(21 56 214 / 0.82) 58%, rgb(13 13 13 / 0)) !important;
   padding-top: 6rem;
 }
 
@@ -610,7 +626,7 @@ button {
 }
 
 .news-line > div:nth-child(2) {
-  background: linear-gradient(0deg, rgb(13 13 13 / 0.92), rgb(13 13 13 / 0.62) 56%, rgb(13 13 13 / 0));
+  background: linear-gradient(0deg, rgb(7 19 148 / 0.95), rgb(21 56 214 / 0.78) 56%, rgb(13 13 13 / 0));
   color: #fafafa;
   min-height: 250px;
   padding: 6rem 1.25rem 1.25rem;
