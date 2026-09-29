@@ -283,7 +283,7 @@ export default function Home() {
               <p className="mb-6 max-w-xl text-xs font-black uppercase tracking-[0.28em] text-[#8EC5FF]">
                 Association Régionale des Agences de Voyages
               </p>
-              <h1 className="max-w-5xl text-[clamp(3.6rem,9vw,10.5rem)] font-black uppercase leading-[0.78] tracking-[-0.075em]">
+              <h1 className="max-w-5xl text-[clamp(3.1rem,7.1vw,8.1rem)] font-black uppercase leading-[0.82] tracking-[-0.068em]">
                 Ensemble,
                 <br />
                 faisons rayonner
