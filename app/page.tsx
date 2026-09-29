@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { Menu, X } from "lucide-react";
 import { useEffect, useState } from "react";
+import { TextHoverEffect } from "@/components/ui/text-hover-effect";
 
 const navItems = [
   { label: "Accueil", href: "#accueil" },
@@ -676,9 +677,12 @@ export default function Home() {
 
       <footer className="relative overflow-hidden bg-[#0D0D0D] px-5 py-16 text-[#FAFAFA] sm:px-8 lg:px-10">
         <div className="absolute inset-x-0 top-0 h-2 bg-[linear-gradient(90deg,#1538D6,#4F7CFF,#8EC5FF)]" />
-        <span className="pointer-events-none absolute -bottom-9 left-0 text-[clamp(6rem,18vw,18rem)] font-black uppercase leading-none tracking-[-0.1em] text-[#1538D6]/55">
-          ARAVTTA
-        </span>
+        <div
+          aria-hidden="true"
+          className="absolute inset-x-[-6vw] -bottom-12 z-0 h-[clamp(7rem,18vw,18rem)] opacity-70 sm:-bottom-16"
+        >
+          <TextHoverEffect text="ARAVTTA" duration={0.14} />
+        </div>
         <div className="relative z-10 mx-auto grid max-w-[1500px] gap-10 lg:grid-cols-[1.25fr_0.7fr_0.7fr_1fr]">
           <div>
             <div className="inline-flex bg-[#FAFAFA] px-4 py-3">
