@@ -19,5 +19,7 @@ export const members: Member[] = [
     description:
       "Conciergerie de voyage haut de gamme basée à Tanger : séjours sur mesure, organisation d'événements, chauffeurs privés, location de yachts et de jets, avec une équipe multilingue disponible 24h/24.",
     website: "https://www.vipafrica.com/",
+    logo: "/images/members/vip-africa-logo.png",
+    photo: "/images/members/aziz-benami.jpg",
   },
 ];

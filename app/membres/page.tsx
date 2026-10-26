@@ -32,7 +32,7 @@ function MemberCard({ member }: { member: Member }) {
               alt={`Logo ${member.agency}`}
               fill
               sizes="(max-width: 768px) 50vw, 240px"
-              className="object-contain p-5"
+              className="object-contain p-8"
               unoptimized
             />
           ) : (
@@ -76,8 +76,19 @@ export default function MembersPage() {
     <main className="min-h-screen bg-[#FAFAFA] text-[#0D0D0D]">
       <SiteHeader />
 
-      <section className="bg-[linear-gradient(135deg,#071394,#1538D6_46%,#4F7CFF)] px-5 pb-16 pt-36 text-[#FAFAFA] sm:px-8 lg:px-10 lg:pb-20 lg:pt-44">
-        <div className="mx-auto grid max-w-[1500px] gap-8 lg:grid-cols-[0.55fr_0.45fr] lg:items-end">
+      <section className="relative overflow-hidden bg-[#0D0D0D] px-5 pb-16 pt-36 text-[#FAFAFA] sm:px-8 lg:px-10 lg:pb-20 lg:pt-44">
+        <Image
+          src="/images/region/tangier-old-port.avif"
+          alt="Port de Tanger"
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover object-[50%_40%]"
+          unoptimized
+        />
+        <div className="absolute inset-0 bg-[linear-gradient(135deg,rgb(7_19_148/0.88),rgb(21_56_214/0.66)_50%,rgb(13_13_13/0.78))]" />
+        <div className="absolute inset-0 bg-[linear-gradient(0deg,rgb(13_13_13/0.55),rgb(13_13_13/0)_75%)]" />
+        <div className="relative z-10 mx-auto grid max-w-[1500px] gap-8 lg:grid-cols-[0.55fr_0.45fr] lg:items-end">
           <div>
             <p className="section-label text-[#8EC5FF]">Réseau membre</p>
             <h1 className="mt-5 display-title display-title-hero">Nos agences membres.</h1>
