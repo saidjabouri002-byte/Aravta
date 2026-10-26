@@ -1,20 +1,9 @@
 "use client";
 
 import Image from "next/image";
-import { Menu, X } from "lucide-react";
 import type { FormEvent } from "react";
-import { useEffect, useState } from "react";
-import { TextHoverEffect } from "@/components/ui/text-hover-effect";
-
-const navItems = [
-  { label: "Accueil", href: "#accueil" },
-  { label: "L'Association", href: "#association" },
-  { label: "Commissions", href: "#commissions" },
-  { label: "Membres", href: "#contact" },
-  { label: "Actualités", href: "#actualites" },
-  { label: "La Région", href: "#region" },
-  { label: "Contact", href: "#contact" },
-];
+import { useState } from "react";
+import { SiteFooter, SiteHeader } from "@/components/site-chrome";
 
 const photos = {
   hero: "/images/region/tanger-pic.avif",
@@ -299,21 +288,12 @@ function Photo({
 }
 
 export default function Home() {
-  const [scrolled, setScrolled] = useState(false);
-  const [menuOpen, setMenuOpen] = useState(false);
   const [activeCommission, setActiveCommission] = useState(0);
   const [membershipStatus, setMembershipStatus] = useState("");
   const [membershipDraft, setMembershipDraft] = useState<{
     href: string;
     message: string;
   } | null>(null);
-
-  useEffect(() => {
-    const update = () => setScrolled(window.scrollY > 30);
-    update();
-    window.addEventListener("scroll", update, { passive: true });
-    return () => window.removeEventListener("scroll", update);
-  }, []);
 
   function handleMembershipSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -337,8 +317,8 @@ export default function Home() {
         return `${question.label}\n${value}`;
       })
       .join("\n\n");
-    const subject = `Demande d'adhésion ARAVTA${agency ? ` - ${agency}` : ""}`;
-    const body = `Bonjour ARAVTA,\n\nJe souhaite devenir membre de l'association.\n\n${details}\n\nMerci de me recontacter pour la suite du dossier.`;
+    const subject = `Demande d'adhésion ARAVTTA${agency ? ` - ${agency}` : ""}`;
+    const body = `Bonjour ARAVTTA,\n\nJe souhaite devenir membre de l'association.\n\n${details}\n\nMerci de me recontacter pour la suite du dossier.`;
     const href = `mailto:contact@aravta.org?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
     const message = `À: contact@aravta.org\nObjet: ${subject}\n\n${body}`;
 
@@ -361,82 +341,7 @@ export default function Home() {
 
   return (
     <main className="min-h-screen bg-[#FAFAFA] text-[#0D0D0D]">
-      <header
-        className={`fixed inset-x-0 top-0 z-50 border-b text-[#FAFAFA] backdrop-blur transition duration-500 ${
-          scrolled || menuOpen
-            ? "border-[#FAFAFA]/20 bg-[#0D0D0D]/68 shadow-[0_18px_60px_rgb(13_13_13/18%)]"
-            : "border-[#FAFAFA]/28 bg-[#0D0D0D]/55"
-        }`}
-      >
-        <div className="mx-auto flex h-[78px] max-w-[1500px] items-center justify-between px-5 sm:px-8 lg:px-10">
-          <a
-            href="#accueil"
-            className="group flex items-center transition"
-            aria-label="ARAVTA accueil"
-          >
-            <Image
-              src="/aravtta-logo.png"
-              alt="ARAVTA"
-              width={430}
-              height={100}
-              priority
-              className="h-auto w-[172px] sm:w-[214px] xl:w-[244px]"
-            />
-          </a>
-
-          <nav className="hidden items-center gap-7 text-sm font-semibold lg:flex" aria-label="Navigation principale">
-            {navItems.map((item) => (
-              <a key={item.label} href={item.href} className="nav-link">
-                {item.label}
-              </a>
-            ))}
-          </nav>
-
-          <div className="hidden items-center gap-5 lg:flex">
-            <a
-              href="#adhesion-form"
-              className="inline-flex h-12 items-center rounded-[8px] border border-[#FAFAFA]/85 bg-transparent px-5 text-sm font-black uppercase text-[#FAFAFA] transition hover:border-[#FAFAFA]"
-            >
-              Devenir membre
-            </a>
-          </div>
-
-          <button
-            type="button"
-            aria-label={menuOpen ? "Fermer le menu" : "Ouvrir le menu"}
-            onClick={() => setMenuOpen((value) => !value)}
-            className="grid h-12 w-12 place-items-center border border-[#FAFAFA]/65 lg:hidden"
-          >
-            {menuOpen ? <X size={21} /> : <Menu size={21} />}
-          </button>
-        </div>
-
-        {menuOpen ? (
-          <div className="border-t border-[#FAFAFA]/18 bg-[#0D0D0D]/80 px-5 py-5 text-[#FAFAFA] backdrop-blur lg:hidden">
-            <nav className="grid" aria-label="Navigation mobile">
-              {navItems.map((item) => (
-                <a
-                  key={item.label}
-                  href={item.href}
-                  onClick={() => setMenuOpen(false)}
-                  className="border-b border-[#FAFAFA]/16 py-3 text-xl font-black tracking-[-0.03em]"
-                >
-                  {item.label}
-                </a>
-              ))}
-            </nav>
-            <div className="mt-5 flex justify-end text-sm">
-              <a
-                href="#adhesion-form"
-                onClick={() => setMenuOpen(false)}
-                className="rounded-[8px] border border-[#FAFAFA]/85 bg-transparent px-4 py-3 font-black uppercase text-[#FAFAFA]"
-              >
-                Devenir membre
-              </a>
-            </div>
-          </div>
-        ) : null}
-      </header>
+      <SiteHeader />
 
       <section id="accueil" className="relative min-h-[96svh] overflow-hidden bg-[#0D0D0D] text-[#FAFAFA]">
         <Photo src={photos.hero} alt="Côte de Tanger au coucher du soleil" priority className="object-[50%_20%] opacity-72" />
@@ -448,17 +353,15 @@ export default function Home() {
               <p className="mb-6 max-w-xl text-xs font-black uppercase tracking-[0.28em] text-[#8EC5FF]">
                 Association Régionale des Agences de Voyages
               </p>
-              <h1 className="max-w-5xl text-[clamp(3.1rem,7.1vw,8.1rem)] font-black uppercase leading-[0.82] tracking-[-0.068em]">
-                Ensemble,
+              <h1 className="max-w-5xl display-title display-title-hero">
+                Ensemble, faisons
                 <br />
-                faisons rayonner
-                <br />
-                le Nord.
+                rayonner le Nord.
               </h1>
             </div>
             <div className="max-w-sm justify-self-start border-l border-[#FAFAFA]/35 pl-5 lg:justify-self-end">
               <p className="text-lg leading-8 text-[#FAFAFA]/84">
-                L&apos;ARAVTA fédère les agences de voyages de Tanger-Tétouan-Al Hoceima
+                L&apos;ARAVTTA fédère les agences de voyages de Tanger-Tétouan-Al Hoceima
                 autour d&apos;une industrie touristique forte, responsable et visible.
               </p>
               <div className="mt-7 flex flex-wrap gap-3">
@@ -479,10 +382,10 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="logo-marquee-section" aria-label="Membres et partenaires ARAVTA">
+      <section className="logo-marquee-section" aria-label="Membres et partenaires ARAVTTA">
         <div className="logo-marquee-label">
           <span>Réseau membre</span>
-          <strong>Ils avancent avec ARAVTA</strong>
+          <strong>Ils avancent avec ARAVTTA</strong>
         </div>
         <div className="logo-marquee">
           <div className="logo-marquee-track">
@@ -508,13 +411,11 @@ export default function Home() {
 
       <section id="region" className="overflow-hidden bg-[#FAFAFA] py-20 lg:py-28">
         <div className="mx-auto max-w-[1500px] px-5 sm:px-8 lg:px-10">
-          <div className="grid gap-10 lg:grid-cols-[0.42fr_0.58fr] lg:items-center">
+          <div className="grid gap-10 lg:grid-cols-[0.55fr_0.45fr] lg:items-center">
             <div>
               <p className="section-label">Notre territoire</p>
-              <h2 className="mt-4 max-w-2xl text-[clamp(3rem,6vw,7.4rem)] font-black uppercase leading-[0.83] tracking-[-0.07em]">
-                Une région.
-                <br />
-                Quatre climats visuels.
+              <h2 className="mt-4 display-title">
+                Une région. Quatre climats visuels.
               </h2>
             </div>
             <p className="max-w-2xl text-xl leading-9 text-[#0D0D0D]/70 lg:-translate-y-4">
@@ -547,14 +448,14 @@ export default function Home() {
       </section>
 
       <section id="association" className="bg-[linear-gradient(135deg,#071394,#1538D6_46%,#4F7CFF)] text-[#FAFAFA]">
-        <div className="grid min-h-[760px] lg:grid-cols-[0.48fr_0.52fr]">
+        <div className="grid min-h-[760px] lg:grid-cols-[0.56fr_0.44fr]">
           <div className="relative flex flex-col justify-between overflow-hidden px-5 py-16 sm:px-8 lg:px-10 lg:py-24">
-            <span className="absolute -left-4 top-8 text-[clamp(6rem,15vw,16rem)] font-black uppercase leading-none tracking-[-0.09em] text-[#8EC5FF]/18">
-              ARAVTA
+            <span className="absolute -left-4 top-8 text-[clamp(6rem,15vw,16rem)] font-black uppercase leading-none tracking-[-0.01em] text-[#8EC5FF]/18">
+              ARAVTTA
             </span>
-            <div className="relative z-10 max-w-xl">
+            <div className="relative z-10 max-w-2xl">
               <p className="section-label text-[#8EC5FF]">L&apos;association</p>
-              <h2 className="mt-5 text-[clamp(3rem,6vw,7rem)] font-black uppercase leading-[0.82] tracking-[-0.075em]">
+              <h2 className="mt-5 display-title">
                 Une voix commune
                 pour le voyage.
               </h2>
@@ -573,7 +474,7 @@ export default function Home() {
           <div className="relative min-h-[520px] lg:min-h-full">
             <Photo src={photos.oldPort} alt="Port historique de Tanger" className="grayscale-[0.1]" />
             <div className="absolute bottom-0 left-0 w-full bg-[linear-gradient(0deg,rgb(7_19_148/0.96),rgb(21_56_214/0.82)_58%,rgb(13_13_13/0))] p-5 pt-24 text-[#FAFAFA] sm:p-7 sm:pt-28">
-              <p className="max-w-lg text-2xl font-black uppercase leading-none tracking-[-0.05em]">
+              <p className="max-w-lg text-2xl font-black uppercase leading-none tracking-[-0.01em]">
                 Représenter. Structurer. Projeter.
               </p>
             </div>
@@ -582,10 +483,10 @@ export default function Home() {
       </section>
 
       <section className="bg-[#0D0D0D] px-5 py-20 text-[#FAFAFA] sm:px-8 lg:px-10 lg:py-28">
-        <div className="mx-auto grid max-w-[1500px] gap-12 lg:grid-cols-[0.38fr_0.62fr]">
+        <div className="mx-auto grid max-w-[1500px] gap-12 lg:grid-cols-[minmax(0,0.38fr)_minmax(0,0.62fr)]">
           <div className="lg:sticky lg:top-28 lg:self-start">
             <p className="section-label text-[#8EC5FF]">Mission</p>
-            <h2 className="mt-5 text-[clamp(4rem,8vw,9rem)] font-black uppercase leading-[0.78] tracking-[-0.08em]">
+            <h2 className="mt-5 display-title">
               Agir,
               <br />
               pas décorer.
@@ -613,13 +514,13 @@ export default function Home() {
           <div className="absolute inset-0 bg-[#1538D6]/30" />
           <div
             aria-hidden="true"
-            className="absolute inset-0 grid place-items-center text-[clamp(4.5rem,15vw,17rem)] font-black uppercase leading-none tracking-[-0.09em] text-[#FAFAFA]/18 drop-shadow-[0_22px_70px_rgb(13_13_13/82%)]"
+            className="absolute inset-0 grid place-items-center text-[clamp(4.5rem,15vw,17rem)] font-black uppercase leading-none tracking-[-0.01em] text-[#FAFAFA]/18 drop-shadow-[0_22px_70px_rgb(13_13_13/82%)]"
           >
-            ARAVTA
+            ARAVTTA
           </div>
           <div className="absolute inset-x-0 bottom-0 bg-[linear-gradient(135deg,#071394,#1538D6_48%,#4F7CFF)] px-5 py-8 sm:px-8 lg:px-10">
             <div className="mx-auto grid max-w-[1500px] gap-6 md:grid-cols-[0.95fr_1.05fr] md:items-end">
-              <h2 className="text-[clamp(3.8rem,9vw,11rem)] font-black uppercase leading-[0.78] tracking-[-0.08em]">
+              <h2 className="text-[clamp(3.8rem,9vw,11rem)] font-black uppercase leading-[0.95] tracking-[-0.01em]">
                 Impact
               </h2>
               <div className="grid grid-cols-2 gap-x-7 gap-y-6 border-t border-[#FAFAFA]/30 pt-6 md:grid-cols-4">
@@ -630,7 +531,7 @@ export default function Home() {
                   ["1", "Vision commune"],
                 ].map(([value, label]) => (
                   <div key={label}>
-                    <span className="block text-4xl font-black tracking-[-0.06em] text-[#8EC5FF]">{value}</span>
+                    <span className="block text-4xl font-black tracking-[-0.01em] text-[#8EC5FF]">{value}</span>
                     <span className="mt-2 block text-xs font-black uppercase tracking-[0.18em]">{label}</span>
                   </div>
                 ))}
@@ -645,7 +546,7 @@ export default function Home() {
           <div className="grid gap-10 lg:grid-cols-[0.45fr_0.55fr] lg:items-end">
             <div>
               <p className="section-label">Nos expertises</p>
-              <h2 className="mt-4 text-[clamp(3rem,6.5vw,8rem)] font-black uppercase leading-[0.82] tracking-[-0.075em]">
+              <h2 className="mt-4 display-title">
                 Sept tables.
                 <br />
                 Une profession.
@@ -674,7 +575,7 @@ export default function Home() {
               ))}
               <div className="absolute inset-x-0 bottom-0 bg-[#0D0D0D] p-6 text-[#FAFAFA]">
                 <p className="text-xs font-black uppercase tracking-[0.2em] text-[#8EC5FF]">Commission active</p>
-                <h3 className="mt-2 text-4xl font-black uppercase leading-none tracking-[-0.06em]">
+                <h3 className="mt-2 text-4xl font-black uppercase leading-none tracking-[-0.01em]">
                   {commissions[activeCommission].title}
                 </h3>
               </div>
@@ -711,7 +612,7 @@ export default function Home() {
           </svg>
           <div className="relative z-10 max-w-xl">
             <p className="section-label text-[#8EC5FF]">La Région</p>
-            <h2 className="mt-5 text-[clamp(3.2rem,7vw,7.5rem)] font-black uppercase leading-[0.82] tracking-[-0.075em]">
+            <h2 className="mt-5 display-title">
               Entre deux mers.
             </h2>
             <p className="mt-8 text-xl leading-9 text-[#FAFAFA]/74">
@@ -728,7 +629,7 @@ export default function Home() {
       <section id="actualites" className="bg-[#FAFAFA] px-5 py-20 sm:px-8 lg:px-10 lg:py-28">
         <div className="mx-auto max-w-[1500px]">
           <div className="mb-12 grid gap-8 lg:grid-cols-[0.55fr_0.45fr] lg:items-end">
-            <h2 className="text-[clamp(3.4rem,7vw,8.2rem)] font-black uppercase leading-[0.82] tracking-[-0.075em]">
+            <h2 className="text-[clamp(3.4rem,7vw,8.2rem)] font-black uppercase leading-[0.95] tracking-[-0.01em]">
               Journal
               <br />
               de bord.
@@ -751,7 +652,7 @@ export default function Home() {
                 <p className="text-xs font-black uppercase tracking-[0.2em] text-[#8EC5FF]">
                   {news[0].category} · {news[0].date}
                 </p>
-                <h3 className="mt-4 text-4xl font-black uppercase leading-[0.9] tracking-[-0.06em]">
+                <h3 className="mt-4 text-4xl font-black uppercase leading-[0.9] tracking-[-0.01em]">
                   {news[0].title}
                 </h3>
                 <p className="mt-5 text-lg leading-8 text-[#FAFAFA]/78">{news[0].copy}</p>
@@ -767,7 +668,7 @@ export default function Home() {
                     <p className="text-xs font-black uppercase tracking-[0.2em] text-[#1538D6]">
                       {item.category} · {item.date}
                     </p>
-                    <h3 className="mt-3 text-3xl font-black uppercase leading-none tracking-[-0.055em]">
+                    <h3 className="mt-3 text-3xl font-black uppercase leading-none tracking-[-0.01em]">
                       {item.title}
                     </h3>
                     <p className="mt-4 leading-7 text-[#0D0D0D]/68">{item.copy}</p>
@@ -782,16 +683,16 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="grid bg-[#FAFAFA] lg:grid-cols-[0.38fr_0.62fr]">
+      <section className="grid bg-[#FAFAFA] lg:grid-cols-[0.46fr_0.54fr]">
         <div className="bg-[linear-gradient(135deg,#071394,#1538D6_50%,#4F7CFF)] px-5 py-16 text-[#FAFAFA] sm:px-8 lg:px-10">
           <p className="section-label text-[#8EC5FF]">Partenaires</p>
-          <h2 className="mt-5 text-[clamp(3rem,6vw,6.8rem)] font-black uppercase leading-[0.82] tracking-[-0.075em]">
+          <h2 className="mt-5 display-title">
             Un écosystème en mouvement.
           </h2>
         </div>
         <div className="flex min-h-[360px] flex-col justify-center px-5 py-16 sm:px-8 lg:px-10">
           <p className="max-w-2xl text-xl leading-9 text-[#0D0D0D]/72">
-            L&apos;ARAVTA travaille avec les institutions, écoles, fédérations et opérateurs
+            L&apos;ARAVTTA travaille avec les institutions, écoles, fédérations et opérateurs
             pour renforcer la compétitivité touristique du Nord.
           </p>
           <div className="mt-12 grid max-w-4xl grid-cols-2 items-center gap-x-8 gap-y-8 sm:grid-cols-3 xl:grid-cols-5">
@@ -815,7 +716,7 @@ export default function Home() {
           <div className="relative min-h-[420px] lg:min-h-full">
             <Photo src={photos.alHoceima} alt="Plage d'Al Hoceima et eau méditerranéenne" className="opacity-80" />
             <div className="absolute inset-x-0 bottom-0 bg-[linear-gradient(90deg,#1538D6,#4F7CFF,#8EC5FF)] px-5 py-5 text-[#0D0D0D] sm:px-8">
-              <p className="text-2xl font-black uppercase leading-none tracking-[-0.05em]">
+              <p className="text-2xl font-black uppercase leading-none tracking-[-0.01em]">
                 Tanger · Tétouan · Al Hoceima
               </p>
             </div>
@@ -830,7 +731,7 @@ export default function Home() {
             <div className="absolute inset-x-0 bottom-0 h-2/3 bg-[linear-gradient(0deg,rgb(7_19_148/0.5),rgb(13_13_13/0))]" />
             <div className="relative z-10 flex min-h-full flex-col justify-center">
               <p className="section-label text-[#8EC5FF]">Adhésion</p>
-              <h2 className="mt-5 max-w-3xl text-[clamp(3.4rem,7.2vw,8rem)] font-black uppercase leading-[0.82] tracking-[-0.078em]">
+              <h2 className="mt-5 max-w-3xl display-title">
                 Rejoignez le réseau qui avance.
               </h2>
               <p className="mt-8 max-w-xl text-xl leading-9 text-[#FAFAFA]/74">
@@ -904,78 +805,7 @@ export default function Home() {
         </div>
       </section>
 
-      <footer className="relative overflow-hidden bg-[#0D0D0D] px-5 py-16 text-[#FAFAFA] sm:px-8 lg:px-10">
-        <div className="absolute inset-x-0 top-0 h-2 bg-[linear-gradient(90deg,#1538D6,#4F7CFF,#8EC5FF)]" />
-        <div
-          aria-hidden="true"
-          className="absolute inset-x-[-6vw] -bottom-12 z-0 h-[clamp(7rem,18vw,18rem)] opacity-70 sm:-bottom-16"
-        >
-          <TextHoverEffect text="ARAVTA" duration={0.14} />
-        </div>
-        <div className="relative z-10 mx-auto grid max-w-[1500px] gap-10 lg:grid-cols-[1.25fr_0.7fr_0.7fr_1fr]">
-          <div>
-            <Image
-              src="/aravtta-logo.png"
-              alt="ARAVTA"
-              width={430}
-              height={100}
-              className="h-auto w-[220px] drop-shadow-[0_0_22px_rgb(79_124_255/36%)] sm:w-[260px]"
-            />
-            <p className="mt-5 max-w-sm leading-7 text-[#FAFAFA]/62">
-              Association Régionale des Agences de Voyages Tanger-Tétouan-Al Hoceima.
-            </p>
-          </div>
-          <div>
-            <h3 className="footer-title">Navigation</h3>
-            <ul className="mt-5 space-y-3 text-[#FAFAFA]/62">
-              {navItems.slice(0, 5).map((item) => (
-                <li key={item.label}>
-                  <a href={item.href} className="hover:text-[#8EC5FF]">
-                    {item.label}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-          <div>
-            <h3 className="footer-title">Informations</h3>
-            <ul className="mt-5 space-y-3 text-[#FAFAFA]/62">
-              <li>Commissions</li>
-              <li>Adhésion</li>
-              <li>Partenariats</li>
-              <li>Presse</li>
-            </ul>
-          </div>
-          <div>
-            <h3 className="footer-title">Contact</h3>
-            <address className="mt-5 space-y-3 not-italic leading-7 text-[#FAFAFA]/62">
-              <p>139 Av. Louis Van Beethoven, Tanger 90060</p>
-              <p>
-                <a href="tel:+212539325004" className="hover:text-[#8EC5FF]">
-                  05393-25004
-                </a>
-              </p>
-              <p>
-                <a href="mailto:contact@aravta.org" className="hover:text-[#8EC5FF]">
-                  contact@aravta.org
-                </a>
-              </p>
-              <p>LinkedIn · Facebook · Instagram</p>
-            </address>
-          </div>
-        </div>
-        <div className="relative z-10 mx-auto mt-14 flex max-w-[1500px] flex-col gap-4 border-t border-[#FAFAFA]/14 pt-6 text-sm text-[#FAFAFA]/42 sm:flex-row sm:items-center sm:justify-between">
-          <p>Copyright 2026 ARAVTA. Tous droits réservés.</p>
-          <div className="flex gap-5">
-            <a href="#accueil" className="hover:text-[#8EC5FF]">
-              Mentions légales
-            </a>
-            <a href="#accueil" className="hover:text-[#8EC5FF]">
-              Confidentialité
-            </a>
-          </div>
-        </div>
-      </footer>
+      <SiteFooter />
     </main>
   );
 }

@@ -9,7 +9,7 @@ const manrope = Manrope({
 });
 
 export const metadata: Metadata = {
-  title: "ARAVTA | Tourisme régional Tanger-Tétouan-Al Hoceima",
+  title: "ARAVTTA | Tourisme régional Tanger-Tétouan-Al Hoceima",
   description:
     "Site institutionnel premium de l'Association Régionale des Agences de Voyages Tanger-Tétouan-Al Hoceima.",
   other: {
