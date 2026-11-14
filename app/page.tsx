@@ -3,57 +3,26 @@
 import Image from "next/image";
 import type { FormEvent } from "react";
 import { useState } from "react";
+import Link from "next/link";
+import { ArrowUpRight } from "lucide-react";
 import { SiteFooter, SiteHeader } from "@/components/site-chrome";
+import { cities, commissions, news, partners } from "@/lib/site-data";
 
 const photos = {
   hero: "/images/region/tanger-pic.avif",
   tangier: "/images/region/tanger.avif",
   oldPort: "/images/region/tangier-old-port.avif",
   chefchaouen: "/images/region/chefchaouen.avif",
-  akchour: "/images/region/akchour.avif",
-  akchourNature: "/images/region/akchour-nature.avif",
   alHoceima: "/images/region/al-hoceima.jpg",
   impact: "/images/region/tanger-tourism-associations.webp",
   spartel: "/images/region/phare-cap-spartel-tange.webp",
   tetouan: "/images/region/tetouan.avif",
   cave:
     "https://images.unsplash.com/photo-1771690288491-4de18b75e038?auto=format&fit=crop&w=2400&q=84",
-  commissionAir: "/images/commissions/transport-aerien.jpg",
-  commissionSea: "/images/commissions/transport-maritime.jpg",
-  commissionHajj: "/images/commissions/hajj-omra.jpeg",
-  commissionReception: "/images/commissions/receptif-outgoing.jpg",
-  commissionMice: "/images/commissions/mice.jpg",
   formMice: "/images/commissions/mice-event-tanger.webp",
-  commissionPublic: "/images/commissions/relations-publiques.webp",
-  commissionSages: "/images/commissions/conseil-sages.jpg",
 };
 
-const destinations = [
-  {
-    name: "Tanger",
-    line: "Porte du détroit, entre médina, corniche et connexions. Une ville d'arrivée, de départ et d'histoires maritimes.",
-    image: photos.tangier,
-    mark: "01",
-  },
-  {
-    name: "Tétouan",
-    line: "Patrimoine andalou, médina blanche et savoir-faire vivant. Une étape calme pour lire l'histoire du Nord.",
-    image: photos.tetouan,
-    mark: "02",
-  },
-  {
-    name: "Chefchaouen",
-    line: "Ville bleue du Rif, faite de ruelles lentes et de lumière. Une icône photographique, artisanale et montagnarde.",
-    image: photos.chefchaouen,
-    mark: "03",
-  },
-  {
-    name: "Al Hoceima",
-    line: "Baies claires, falaises fortes et Méditerranée ouverte. Une destination de nature, de mer et de respiration.",
-    image: photos.alHoceima,
-    mark: "04",
-  },
-];
+const destinations = cities;
 
 const missions = [
   {
@@ -75,106 +44,6 @@ const missions = [
     number: "04",
     title: "Développer",
     copy: "Porter une croissance touristique responsable, lisible et durable pour tout le territoire régional.",
-  },
-];
-
-const commissions = [
-  {
-    title: "Transport aérien",
-    scope: "Connectivité, compagnies, distribution",
-    image: photos.commissionAir,
-  },
-  {
-    title: "Transport maritime",
-    scope: "Détroit, flux voyageurs, coordination portuaire",
-    image: photos.commissionSea,
-  },
-  {
-    title: "Hajj & Omra",
-    scope: "Conformité, qualité, encadrement",
-    image: photos.commissionHajj,
-  },
-  {
-    title: "Réceptif & Outgoing",
-    scope: "Circuits, production, expérience client",
-    image: photos.commissionReception,
-  },
-  {
-    title: "MICE",
-    scope: "Rencontres, événements, tourisme d'affaires",
-    image: photos.commissionMice,
-  },
-  {
-    title: "Relations publiques",
-    scope: "Dialogue institutionnel et porte-parole",
-    image: photos.commissionPublic,
-  },
-  {
-    title: "Conseil des sages",
-    scope: "Transmission, arbitrage, mémoire professionnelle",
-    image: photos.commissionSages,
-  },
-];
-
-const news = [
-  {
-    category: "Institutionnel",
-    date: "15 janvier 2026",
-    title: "Assemblée régionale et feuille de route professionnelle",
-    copy: "Les agences du Nord consolident une vision commune autour de la qualité, de l'éthique et de la coopération.",
-    image: photos.tetouan,
-  },
-  {
-    category: "Rencontres",
-    date: "28 février 2026",
-    title: "Dialogue avec les acteurs touristiques du Nord",
-    copy: "Un format de travail resserré pour renforcer les passerelles entre agences, transporteurs et hôteliers.",
-    image: photos.tangier,
-  },
-  {
-    category: "Salons",
-    date: "20 mars 2026",
-    title: "La destination TTAH mise en avant",
-    copy: "Nouveaux itinéraires, expériences bleues et valorisation des savoir-faire régionaux.",
-    image: photos.chefchaouen,
-  },
-];
-
-const ecosystemLogos = [
-  {
-    name: "ONMT",
-    src: "/images/partners/onmt.png",
-    width: 1427,
-    height: 858,
-    imageClass: "max-h-20",
-  },
-  {
-    name: "Conseil Régional du Tourisme Tanger-Tétouan-Al Hoceima",
-    src: "/images/partners/crt-tanger.png",
-    width: 1362,
-    height: 1045,
-    imageClass: "max-h-20",
-  },
-  {
-    name: "F.N.A.V.M",
-    src: "/images/partners/fnavm.png",
-    width: 1401,
-    height: 980,
-    imageClass: "max-h-20",
-  },
-  {
-    name: "Chambre de Tourisme Tanger-Tétouan-Al Hoceima",
-    src: "/images/partners/chambre-tourisme.png",
-    width: 1514,
-    height: 910,
-    imageClass: "max-h-20",
-  },
-  {
-    name: "Institut Supérieur International de Tourisme de Tanger",
-    src: "/images/partners/isitt-tanger.png",
-    width: 1917,
-    height: 745,
-    imageClass: "max-h-20 max-w-[12rem]",
   },
 ];
 
@@ -204,62 +73,6 @@ const membershipQuestions = [
     label: "Quel est votre agrément et votre activité principale ?",
     placeholder: "Agrément, billetterie, réceptif, Hajj & Omra...",
     multiline: true,
-  },
-];
-
-const memberLogos = [
-  {
-    name: "ISITT Tanger",
-    src: "/images/logos/isitt-tanger.png",
-    width: 1959,
-    height: 803,
-    wide: true,
-  },
-  {
-    name: "GNV",
-    src: "/images/logos/gnv.png",
-    width: 1280,
-    height: 351,
-    wide: true,
-  },
-  {
-    name: "Voyages Florence",
-    src: "/images/logos/voyages-florence.png",
-    width: 800,
-    height: 297,
-    wide: true,
-  },
-  {
-    name: "VIP Voyage",
-    src: "/images/logos/vip-voyage.png",
-    width: 500,
-    height: 245,
-  },
-  {
-    name: "Tanger Med Port Authority",
-    src: "/images/logos/tanger-med-port-authority.png",
-    width: 591,
-    height: 198,
-    wide: true,
-  },
-  {
-    name: "Amiral Voyages",
-    src: "/images/logos/amiral-voyages.png",
-    width: 2848,
-    height: 809,
-    wide: true,
-  },
-  {
-    name: "Alma Travel Agency",
-    src: "/images/logos/alma-travel-agency.png",
-    width: 600,
-    height: 325,
-  },
-  {
-    name: "Royal Air Maroc",
-    src: "/images/logos/royal-air-maroc.webp",
-    width: 1280,
-    height: 915,
   },
 ];
 
@@ -365,12 +178,12 @@ export default function Home() {
                 autour d&apos;une industrie touristique forte, responsable et visible.
               </p>
               <div className="mt-7 flex flex-wrap gap-3">
-                <a href="#association" className="btn-light">
+                <Link href="/association" className="btn-light">
                   L&apos;association
-                </a>
-                <a href="#commissions" className="btn-outline">
+                </Link>
+                <Link href="/association/commissions" className="btn-outline">
                   Commissions
-                </a>
+                </Link>
               </div>
             </div>
           </div>
@@ -382,29 +195,46 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="logo-marquee-section" aria-label="Membres et partenaires ARAVTTA">
-        <div className="logo-marquee-label">
-          <span>Réseau membre</span>
-          <strong>Ils avancent avec ARAVTTA</strong>
-        </div>
+      <section className="logo-marquee-section" aria-label="Partenaires ARAVTTA">
+        <Link href="/partenaires" className="logo-marquee-label group">
+          <strong className="!mt-0 inline-flex items-center gap-2">
+            Nos partenaires
+            <ArrowUpRight size={18} aria-hidden="true" className="transition group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+          </strong>
+        </Link>
         <div className="logo-marquee">
           <div className="logo-marquee-track">
-            {[...memberLogos, ...memberLogos].map((logo, index) => (
-              <span
-                className={`logo-wordmark ${logo.wide ? "logo-wordmark-wide" : ""}`}
-                key={`${logo.name}-${index}`}
-                aria-hidden={index >= memberLogos.length ? true : undefined}
-              >
+            {[...partners, ...partners].map((logo, index) => {
+              const duplicate = index >= partners.length;
+              const image = (
                 <Image
-                  src={logo.src}
-                  alt={index < memberLogos.length ? logo.name : ""}
-                  width={logo.width}
-                  height={logo.height}
+                  src={logo.logo}
+                  alt={duplicate ? "" : logo.name}
+                  width={400}
+                  height={200}
                   className="member-logo-image"
                   unoptimized
                 />
-              </span>
-            ))}
+              );
+              return logo.website ? (
+                <a
+                  key={`${logo.short}-${index}`}
+                  href={logo.website}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="logo-wordmark"
+                  aria-hidden={duplicate ? true : undefined}
+                  tabIndex={duplicate ? -1 : undefined}
+                  title={logo.name}
+                >
+                  {image}
+                </a>
+              ) : (
+                <span key={`${logo.short}-${index}`} className="logo-wordmark" aria-hidden={duplicate ? true : undefined} title={logo.name}>
+                  {image}
+                </span>
+              );
+            })}
           </div>
         </div>
       </section>
@@ -415,34 +245,43 @@ export default function Home() {
             <div>
               <p className="section-label">Notre territoire</p>
               <h2 className="mt-4 display-title">
-                Une région. Quatre climats visuels.
+                Une région. Cinq escales.
               </h2>
             </div>
             <p className="max-w-2xl text-xl leading-9 text-[#0D0D0D]/70 lg:-translate-y-4">
               Le territoire se lit par contrastes : ports, médinas blanches, villes bleues,
-              falaises méditerranéennes. La page suit cette géographie au lieu de répéter des modules.
+              falaises méditerranéennes. Cliquez sur une ville pour la découvrir.
             </p>
           </div>
 
           <div className="territory-stage mt-12">
-            <article className="territory-main">
+            <Link href={`/region#${destinations[0].slug}`} className="territory-main">
               <Photo src={destinations[0].image} alt="Tanger et son littoral" />
               <div className="territory-caption">
-                <span>{destinations[0].mark}</span>
+                <span>01</span>
                 <h3>{destinations[0].name}</h3>
                 <p>{destinations[0].line}</p>
               </div>
-            </article>
+            </Link>
             {destinations.slice(1).map((destination, index) => (
-              <article key={destination.name} className={`territory-cut territory-cut-${index + 1}`}>
+              <Link
+                key={destination.slug}
+                href={`/region#${destination.slug}`}
+                className={`territory-cut territory-cut-${index + 1}`}
+              >
                 <Photo src={destination.image} alt={`${destination.name}, destination régionale`} />
                 <div className="territory-strip">
-                  <span>{destination.mark}</span>
+                  <span>{String(index + 2).padStart(2, "0")}</span>
                   <strong>{destination.name}</strong>
                   <p>{destination.line}</p>
                 </div>
-              </article>
+              </Link>
             ))}
+          </div>
+          <div className="mt-10 flex justify-end">
+            <Link href="/region" className="btn-blue">
+              Toute la région
+            </Link>
           </div>
         </div>
       </section>
@@ -450,9 +289,6 @@ export default function Home() {
       <section id="association" className="bg-[linear-gradient(135deg,#071394,#1538D6_46%,#4F7CFF)] text-[#FAFAFA]">
         <div className="grid min-h-[760px] lg:grid-cols-[0.56fr_0.44fr]">
           <div className="relative flex flex-col justify-between overflow-hidden px-5 py-16 sm:px-8 lg:px-10 lg:py-24">
-            <span className="absolute -left-4 top-8 text-[clamp(6rem,15vw,16rem)] font-black uppercase leading-none tracking-[-0.01em] text-[#8EC5FF]/18">
-              ARAVTTA
-            </span>
             <div className="relative z-10 max-w-2xl">
               <p className="section-label text-[#8EC5FF]">L&apos;association</p>
               <h2 className="mt-5 display-title">
@@ -512,12 +348,6 @@ export default function Home() {
         <div className="relative h-[72svh] min-h-[520px]">
           <Photo src={photos.impact} alt="Associations touristiques à Tanger" className="opacity-[0.88]" />
           <div className="absolute inset-0 bg-[#1538D6]/30" />
-          <div
-            aria-hidden="true"
-            className="absolute inset-0 grid place-items-center text-[clamp(4.5rem,15vw,17rem)] font-black uppercase leading-none tracking-[-0.01em] text-[#FAFAFA]/18 drop-shadow-[0_22px_70px_rgb(13_13_13/82%)]"
-          >
-            ARAVTTA
-          </div>
           <div className="absolute inset-x-0 bottom-0 bg-[linear-gradient(135deg,#071394,#1538D6_48%,#4F7CFF)] px-5 py-8 sm:px-8 lg:px-10">
             <div className="mx-auto grid max-w-[1500px] gap-6 md:grid-cols-[0.95fr_1.05fr] md:items-end">
               <h2 className="text-[clamp(3.8rem,9vw,11rem)] font-black uppercase leading-[0.95] tracking-[-0.01em]">
@@ -553,8 +383,8 @@ export default function Home() {
               </h2>
             </div>
             <p className="max-w-2xl text-xl leading-9 text-[#0D0D0D]/68">
-              Les commissions ne sont pas présentées comme des boîtes identiques : elles forment
-              une table de travail, avec une image active et une hiérarchie de sujets.
+              Sept commissions thématiques portent les dossiers de la profession : transport,
+              pèlerinage, réceptif, tourisme d&apos;affaires, médiation et communication.
             </p>
           </div>
 
@@ -563,7 +393,7 @@ export default function Home() {
               {commissions.map((commission, index) => (
                 <Image
                   key={commission.title}
-                  src={commission.image}
+                  src={commission.image ?? photos.formMice}
                   alt={commission.title}
                   fill
                   sizes="(max-width: 1024px) 100vw, 52vw"
@@ -573,28 +403,51 @@ export default function Home() {
                   unoptimized
                 />
               ))}
-              <div className="absolute inset-x-0 bottom-0 bg-[#0D0D0D] p-6 text-[#FAFAFA]">
-                <p className="text-xs font-black uppercase tracking-[0.2em] text-[#8EC5FF]">Commission active</p>
+              <div className="absolute inset-x-0 bottom-0 bg-[#0D0D0D] p-6 text-[#FAFAFA] sm:p-8">
+                <p className="text-xs font-black uppercase tracking-[0.2em] text-[#8EC5FF]">
+                  Commission {commissions[activeCommission].number}
+                </p>
                 <h3 className="mt-2 text-4xl font-black uppercase leading-none tracking-[-0.01em]">
                   {commissions[activeCommission].title}
                 </h3>
+                <p className="mt-4 text-sm font-semibold text-[#FAFAFA]/80">
+                  <span className="text-[#8EC5FF]">
+                    {commissions[activeCommission].leads.length > 1 ? "Responsables : " : "Responsable : "}
+                  </span>
+                  {commissions[activeCommission].leads.join(", ")}
+                </p>
+                <p className="mt-3 max-w-xl text-base leading-7 text-[#FAFAFA]/85">
+                  {commissions[activeCommission].mission}
+                </p>
+                <Link
+                  href={`/association/commissions#commission-${commissions[activeCommission].number}`}
+                  className="mt-5 inline-flex items-center gap-2 text-sm font-black uppercase tracking-[0.16em] text-[#FAFAFA] underline-offset-4 hover:underline"
+                >
+                  Voir le détail
+                  <ArrowUpRight size={16} aria-hidden="true" />
+                </Link>
               </div>
             </div>
             <div className="commission-list">
               {commissions.map((commission, index) => (
-                <button
-                  type="button"
+                <Link
+                  href={`/association/commissions#commission-${commission.number}`}
                   key={commission.title}
                   onMouseEnter={() => setActiveCommission(index)}
                   onFocus={() => setActiveCommission(index)}
                   className={`commission-line ${activeCommission === index ? "is-active" : ""}`}
                 >
-                  <span>{String(index + 1).padStart(2, "0")}</span>
+                  <span>{commission.number}</span>
                   <strong>{commission.title}</strong>
                   <em>{commission.scope}</em>
-                </button>
+                </Link>
               ))}
             </div>
+          </div>
+          <div className="mt-10 flex justify-end">
+            <Link href="/association/commissions" className="btn-blue">
+              Voir toutes les commissions
+            </Link>
           </div>
         </div>
       </section>
@@ -619,9 +472,9 @@ export default function Home() {
               De Tanger à Al Hoceima, la région Tanger-Tétouan-Al Hoceima assemble
               littoral atlantique, Méditerranée, villes historiques, Rif et destinations emblématiques.
             </p>
-            <a href="#region" className="btn-blue mt-9">
+            <Link href="/region" className="btn-blue mt-9">
               Explorer la région
-            </a>
+            </Link>
           </div>
         </div>
       </section>
@@ -650,34 +503,61 @@ export default function Home() {
               </div>
               <div className="bg-[linear-gradient(135deg,#071394,#1538D6_52%,#4F7CFF)] p-6 text-[#FAFAFA] sm:p-8">
                 <p className="text-xs font-black uppercase tracking-[0.2em] text-[#8EC5FF]">
-                  {news[0].category} · {news[0].date}
+                  {news[0].source ?? news[0].category} · {news[0].date}
                 </p>
                 <h3 className="mt-4 text-4xl font-black uppercase leading-[0.9] tracking-[-0.01em]">
                   {news[0].title}
                 </h3>
                 <p className="mt-5 text-lg leading-8 text-[#FAFAFA]/78">{news[0].copy}</p>
+                {news[0].url ? (
+                  <a
+                    href={news[0].url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mt-6 inline-flex items-center gap-2 text-sm font-black uppercase tracking-[0.16em] text-[#FAFAFA] underline-offset-4 hover:underline"
+                  >
+                    Lire l&apos;article
+                    <ArrowUpRight size={16} aria-hidden="true" />
+                  </a>
+                ) : null}
               </div>
             </article>
             <div className="news-digest">
-              {news.slice(1).map((item) => (
+              {news.slice(1, 3).map((item) => (
                 <article key={item.title} className="news-line">
                   <div className="relative h-44 w-full sm:h-auto sm:w-52">
                     <Photo src={item.image} alt={item.title} />
                   </div>
                   <div className="py-5 sm:py-8">
                     <p className="text-xs font-black uppercase tracking-[0.2em] text-[#1538D6]">
-                      {item.category} · {item.date}
+                      {item.source ?? item.category} · {item.date}
                     </p>
                     <h3 className="mt-3 text-3xl font-black uppercase leading-none tracking-[-0.01em]">
                       {item.title}
                     </h3>
                     <p className="mt-4 leading-7 text-[#0D0D0D]/68">{item.copy}</p>
+                    {item.url ? (
+                      <a
+                        href={item.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="mt-4 inline-flex items-center gap-1.5 text-sm font-black uppercase text-[#FAFAFA] underline-offset-4 hover:underline"
+                      >
+                        Lire l&apos;article
+                        <ArrowUpRight size={16} aria-hidden="true" />
+                      </a>
+                    ) : null}
                   </div>
                 </article>
               ))}
-              <a href="#contact" className="text-link mt-2">
-                Toutes les actualités
-              </a>
+              <div className="mt-2 flex flex-wrap gap-6">
+                <Link href="/actualites" className="text-link">
+                  Toutes les actualités
+                </Link>
+                <Link href="/evenements" className="text-link">
+                  Nos événements
+                </Link>
+              </div>
             </div>
           </div>
         </div>
@@ -695,19 +575,39 @@ export default function Home() {
             L&apos;ARAVTTA travaille avec les institutions, écoles, fédérations et opérateurs
             pour renforcer la compétitivité touristique du Nord.
           </p>
-          <div className="mt-12 grid max-w-4xl grid-cols-2 items-center gap-x-8 gap-y-8 sm:grid-cols-3 xl:grid-cols-5">
-            {ecosystemLogos.map((logo) => (
-              <div key={logo.name} className="flex min-h-20 items-center justify-center">
+          <div className="mt-12 grid max-w-4xl grid-cols-2 items-center gap-4 sm:grid-cols-3 xl:grid-cols-4">
+            {partners.map((logo) => {
+              const img = (
                 <Image
-                  src={logo.src}
+                  src={logo.logo}
                   alt={logo.name}
-                  width={logo.width}
-                  height={logo.height}
-                  className={`h-auto w-auto max-w-full object-contain ${logo.imageClass}`}
+                  width={400}
+                  height={200}
+                  className="h-auto max-h-16 w-auto max-w-full object-contain"
+                  unoptimized
                 />
-              </div>
-            ))}
+              );
+              return logo.website ? (
+                <a
+                  key={logo.short}
+                  href={logo.website}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  title={logo.name}
+                  className="flex min-h-24 items-center justify-center rounded-[12px] border border-[#0D0D0D]/8 bg-white p-3 transition hover:border-[#4F7CFF]/50 hover:shadow-[0_14px_40px_rgb(21_56_214/12%)]"
+                >
+                  {img}
+                </a>
+              ) : (
+                <div key={logo.short} title={logo.name} className="flex min-h-24 items-center justify-center rounded-[12px] border border-[#0D0D0D]/8 bg-white p-3">
+                  {img}
+                </div>
+              );
+            })}
           </div>
+          <Link href="/partenaires" className="text-link mt-10">
+            Tous nos partenaires
+          </Link>
         </div>
       </section>
 
