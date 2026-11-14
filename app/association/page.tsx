@@ -67,9 +67,9 @@ export default function AssociationPage() {
                 «&nbsp;<T>Ensemble, faisons rayonner le tourisme régional.</T>&nbsp;»
               </p>
               <div>
-                <p className="font-black uppercase">Mohamed El Hitmi</p>
+                <p className="font-black">Mohamed El Hitmi</p>
                 <p className="text-sm text-[#FAFAFA]/72"><T>Président de l&apos;ARAVTTA</T></p>
-                <span className="mt-4 inline-flex items-center gap-2 text-sm font-black uppercase text-[#C3F84A]">
+                <span className="mt-4 inline-flex items-center gap-2 text-sm font-black text-[#C3F84A]">
                   <T>Lire le mot du Président</T>
                   <ArrowRight size={16} className="transition group-hover:translate-x-1" />
                 </span>
@@ -86,7 +86,7 @@ export default function AssociationPage() {
               <span className="text-sm font-black tracking-[0.2em] text-[#C3F84A]">
                 {String(index + 1).padStart(2, "0")}
               </span>
-              <h3 className="mt-3 text-2xl font-black uppercase"><T>{title}</T></h3>
+              <h3 className="mt-3 text-2xl font-black"><T>{title}</T></h3>
               <p className="mt-3 leading-7 text-[#FAFAFA]/68"><T>{copy}</T></p>
             </div>
           ))}
@@ -103,9 +103,9 @@ export default function AssociationPage() {
                 <span className="text-sm font-black tracking-[0.2em] text-[#136CFC]">
                   {String(index + 1).padStart(2, "0")}
                 </span>
-                <h3 className="mt-4 text-2xl font-black uppercase leading-tight"><T>{page.label}</T></h3>
+                <h3 className="mt-4 text-2xl font-black leading-tight"><T>{page.label}</T></h3>
                 <p className="mt-3 leading-7 text-[#152641]/65"><T>{page.copy}</T></p>
-                <span className="mt-auto inline-flex items-center gap-2 pt-6 text-sm font-black uppercase text-[#136CFC]">
+                <span className="mt-auto inline-flex items-center gap-2 pt-6 text-sm font-black text-[#136CFC]">
                   <T>Voir la page</T>
                   <ArrowRight size={16} className="transition group-hover:translate-x-1" />
                 </span>

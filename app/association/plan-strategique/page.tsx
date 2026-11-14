@@ -49,12 +49,12 @@ export default function PlanStrategiquePage() {
           {axes.map((axis) => (
             <article key={axis.number} className="overflow-hidden rounded-[18px] border border-[#152641]/10 bg-white">
               <header className="grid gap-6 bg-[linear-gradient(135deg,#152641,#0F4FC4_52%,#136CFC)] p-6 text-[#FAFAFA] sm:p-9 md:grid-cols-[auto_1fr] md:items-end">
-                <span className="text-7xl font-black leading-none text-[#C3F84A]/60 sm:text-8xl">{axis.number}</span>
+                <span className="text-7xl font-black leading-[1.15] text-[#C3F84A]/60 sm:text-8xl">{axis.number}</span>
                 <div>
-                  <p className="text-xs font-black uppercase tracking-[0.2em] text-[#C3F84A]">
+                  <p className="text-xs font-black tracking-[0.2em] text-[#C3F84A]">
                     <T>Axe</T> · <T>{axis.horizon}</T>
                   </p>
-                  <h2 className="mt-2 text-3xl font-black uppercase leading-none sm:text-5xl">
+                  <h2 className="mt-2 text-3xl font-black leading-[1.15] sm:text-5xl">
                     <T>{axis.title}</T>
                   </h2>
                   <p className="mt-4 max-w-2xl text-lg leading-8 text-[#FAFAFA]/82">
@@ -68,7 +68,7 @@ export default function PlanStrategiquePage() {
               <div className="grid gap-px bg-[#152641]/8 sm:grid-cols-2 lg:grid-cols-3">
                 {axis.points.map(([title, copy]) => (
                   <div key={title} className="bg-white p-6 sm:p-7">
-                    <h3 className="text-lg font-black uppercase leading-tight text-[#136CFC]">
+                    <h3 className="text-lg font-black leading-tight text-[#136CFC]">
                       <T>{title}</T>
                     </h3>
                     <p className="mt-3 leading-7 text-[#152641]/72">

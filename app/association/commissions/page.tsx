@@ -34,16 +34,16 @@ export default function CommissionsPage() {
                 ) : (
                   <>
                     <ImageIcon size={34} aria-hidden="true" />
-                    <span className="text-xs font-black uppercase tracking-[0.18em]"><T>Photo à venir</T></span>
+                    <span className="text-xs font-black tracking-[0.04em]"><T>Photo à venir</T></span>
                   </>
                 )}
-                <span className="absolute left-4 top-4 rounded-full bg-[#152641] px-3 py-1 text-xs font-black tracking-[0.16em] text-[#FAFAFA]">
+                <span className="absolute left-4 top-4 rounded-full bg-[#152641] px-3 py-1 text-xs font-black tracking-[0.04em] text-[#FAFAFA]">
                   {commission.number}
                 </span>
               </div>
 
               <div className="p-6 sm:p-8">
-                <h2 className="text-3xl font-black uppercase leading-none tracking-[-0.01em] sm:text-4xl">
+                <h2 className="text-3xl font-black leading-[1.15] tracking-[-0.01em] sm:text-4xl">
                   <T>{commission.title}</T>
                 </h2>
                 <div className="mt-4 flex flex-wrap gap-2">
@@ -57,9 +57,9 @@ export default function CommissionsPage() {
                     </span>
                   ))}
                 </div>
-                <p className="mt-6 text-xs font-black uppercase tracking-[0.2em] text-[#152641]/45"><T>Mission</T></p>
+                <p className="mt-6 text-xs font-black tracking-[0.2em] text-[#152641]/45"><T>Mission</T></p>
                 <p className="mt-2 text-lg leading-8 text-[#152641]/78"><T>{commission.mission}</T></p>
-                <p className="mt-6 text-xs font-black uppercase tracking-[0.2em] text-[#152641]/45"><T>Axes de travail</T></p>
+                <p className="mt-6 text-xs font-black tracking-[0.2em] text-[#152641]/45"><T>Axes de travail</T></p>
                 <ul className="mt-3 grid gap-3">
                   {commission.axes.map((axis) => (
                     <li key={axis} className="flex gap-3 leading-7 text-[#152641]/72">

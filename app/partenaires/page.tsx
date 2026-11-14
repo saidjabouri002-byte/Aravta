@@ -39,17 +39,17 @@ export default function PartnersPage() {
                     />
                   </div>
                   <div className="mt-auto w-full border-t border-[#152641]/8 pt-4">
-                    <p className="text-xs font-black uppercase tracking-[0.2em] text-[#136CFC]">{partner.short}</p>
+                    <p className="text-xs font-black tracking-[0.2em] text-[#136CFC]">{partner.short}</p>
                     <p className="mt-2 text-sm leading-6 text-[#152641]/70">
                       <T>{partner.name}</T>
                     </p>
                     {partner.website ? (
-                      <span className="mt-4 inline-flex items-center gap-1.5 text-sm font-black uppercase text-[#136CFC]">
+                      <span className="mt-4 inline-flex items-center gap-1.5 text-sm font-black text-[#136CFC]">
                         <T>Visiter le site</T>
                         <ArrowUpRight size={16} aria-hidden="true" />
                       </span>
                     ) : (
-                      <span className="mt-4 inline-block text-xs font-semibold uppercase tracking-[0.14em] text-[#152641]/40">
+                      <span className="mt-4 inline-block text-xs font-semibold tracking-[0.04em] text-[#152641]/40">
                         <T>Lien bientôt disponible</T>
                       </span>
                     )}

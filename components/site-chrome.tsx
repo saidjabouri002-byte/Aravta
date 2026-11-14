@@ -100,7 +100,7 @@ export function LanguageSwitcher({ className = "" }: { className?: string }) {
         aria-expanded={open}
         aria-label={t("Choisir la langue")}
         onClick={() => setOpen((value) => !value)}
-        className="inline-flex h-11 items-center gap-1.5 rounded-[8px] border border-[#FAFAFA]/45 px-3 text-sm font-black uppercase text-[#FAFAFA] transition hover:bg-[#FAFAFA]/10"
+        className="inline-flex h-11 items-center gap-1.5 rounded-[8px] border border-[#FAFAFA]/45 px-3 text-sm font-black text-[#FAFAFA] transition hover:bg-[#FAFAFA]/10"
       >
         <Flag code={current.code} />
         {current.short}
@@ -242,7 +242,7 @@ export function SiteHeader() {
           : "border-[#FAFAFA]/28 bg-[#152641]/55"
       }`}
     >
-      <div className="mx-auto flex h-[72px] max-w-[1500px] items-center justify-between gap-3 px-5 sm:h-[78px] sm:gap-6 sm:px-8 lg:px-10">
+      <div className="mx-auto flex h-[72px] max-w-[1500px] items-center justify-between gap-3 px-5 sm:h-[78px] sm:gap-6 sm:px-8 lg:px-10 xl:gap-4">
         <Link href="/" className="flex shrink-0 items-center" aria-label={t("ARAVTTA accueil")} onClick={closeMenu}>
           <Image
             src="/aravtta-logo.png"
@@ -250,11 +250,11 @@ export function SiteHeader() {
             width={1262}
             height={320}
             priority
-            className="h-auto w-[150px] brightness-0 invert sm:w-[190px] 2xl:w-[230px]"
+            className="h-auto w-[150px] brightness-0 invert sm:w-[190px] xl:w-[150px] 2xl:w-[210px]"
           />
         </Link>
 
-        <nav className="hidden items-center gap-6 text-sm font-semibold xl:flex 2xl:gap-8" aria-label={t("Navigation principale")}>
+        <nav className="hidden items-center gap-4 text-sm font-semibold xl:flex 2xl:gap-7" aria-label={t("Navigation principale")}>
           {navItems.map((item) =>
             item.children ? (
               <DesktopDropdown key={item.label} item={item} pathname={pathname} />
@@ -275,7 +275,7 @@ export function SiteHeader() {
           <div className="hidden xl:flex">
           <Link
             href="/#adhesion-form"
-            className="inline-flex h-11 items-center whitespace-nowrap rounded-[8px] border border-[#FAFAFA]/85 px-5 text-sm font-black uppercase text-[#FAFAFA] transition hover:bg-[#FAFAFA] hover:text-[#152641]"
+            className="inline-flex h-11 items-center whitespace-nowrap rounded-[8px] border border-[#FAFAFA]/85 px-4 text-sm font-black 2xl:px-5 text-[#FAFAFA] transition hover:bg-[#FAFAFA] hover:text-[#152641]"
           >
             {t("Devenir membre")}
           </Link>
@@ -349,7 +349,7 @@ export function SiteHeader() {
             href="/#adhesion-form"
             onClick={closeMenu}
             tabIndex={menuOpen ? 0 : -1}
-            className="mt-6 inline-flex h-12 items-center justify-center rounded-[8px] bg-[linear-gradient(135deg,#152641,#0F4FC4_48%,#136CFC)] px-5 text-sm font-black uppercase text-[#FAFAFA]"
+            className="mt-6 inline-flex h-12 items-center justify-center rounded-[8px] bg-[linear-gradient(135deg,#152641,#0F4FC4_48%,#136CFC)] px-5 text-sm font-black text-[#FAFAFA]"
           >
             {t("Devenir membre")}
           </Link>
@@ -361,45 +361,40 @@ export function SiteHeader() {
 
 export function SiteFooter() {
   const t = useT();
-  const pathname = usePathname() ?? "/";
-  // The homepage already ends with the membership form, so the call to action is shown on the other pages.
-  const showCta = pathname !== "/";
 
   return (
     <footer className="relative overflow-hidden border-t border-[#152641]/8 bg-white px-5 text-[#152641] sm:px-8 lg:px-10">
       <div className="absolute inset-x-0 top-0 h-1 bg-[linear-gradient(90deg,#152641,#136CFC,#4D94FF,#C3F84A)]" />
 
-      {showCta ? (
-        <div className="relative mx-auto max-w-[1500px] pt-12 sm:pt-16">
-          <div className="relative grid gap-6 overflow-hidden rounded-[20px] bg-[linear-gradient(135deg,#152641,#0F4FC4_52%,#136CFC)] p-7 text-[#FAFAFA] sm:p-10 lg:grid-cols-[1fr_auto] lg:items-center">
-            <svg aria-hidden="true" viewBox="0 0 480 260" className="pointer-events-none absolute -right-16 -top-10 w-[460px] text-[#C3F84A]/30">
-              <path d="M18 181 C102 62 169 223 249 98 C304 13 358 80 452 24" fill="none" stroke="currentColor" strokeWidth="3" />
-              <path d="M50 225 C142 130 199 250 284 156 C333 101 371 118 460 75" fill="none" stroke="currentColor" strokeWidth="1.5" />
-            </svg>
-            <div className="relative">
-              <p className="text-xs font-black uppercase tracking-[0.2em] text-[#C3F84A]">{t("Adhésion")}</p>
-              <p className="mt-3 max-w-2xl text-3xl font-black uppercase leading-[0.95] tracking-[-0.01em] sm:text-4xl">
-                {t("Rejoignez le réseau qui avance.")}
-              </p>
-            </div>
-            <div className="relative flex flex-wrap gap-3">
-              <Link
-                href="/#adhesion-form"
-                className="inline-flex h-12 items-center gap-2 rounded-[8px] bg-[#FAFAFA] px-5 text-sm font-black uppercase text-[#136CFC] transition hover:bg-[#C3F84A] hover:text-[#152641]"
-              >
-                {t("Devenir membre")}
-                <ArrowUpRight size={16} aria-hidden="true" />
-              </Link>
-              <a
-                href="mailto:contact@aravta.org"
-                className="inline-flex h-12 items-center rounded-[8px] border border-[#FAFAFA]/70 px-5 text-sm font-black uppercase text-[#FAFAFA] transition hover:bg-[#FAFAFA]/12"
-              >
-                {t("Nous contacter")}
-              </a>
-            </div>
+      <div className="relative mx-auto max-w-[1500px] pt-12 sm:pt-16">
+        <div className="relative grid gap-6 overflow-hidden rounded-[20px] bg-[linear-gradient(135deg,#152641,#0F4FC4_52%,#136CFC)] p-7 text-[#FAFAFA] sm:p-10 lg:grid-cols-[1fr_auto] lg:items-center">
+          <svg aria-hidden="true" viewBox="0 0 480 260" className="pointer-events-none absolute -right-16 -top-10 w-[460px] text-[#C3F84A]/30">
+            <path d="M18 181 C102 62 169 223 249 98 C304 13 358 80 452 24" fill="none" stroke="currentColor" strokeWidth="3" />
+            <path d="M50 225 C142 130 199 250 284 156 C333 101 371 118 460 75" fill="none" stroke="currentColor" strokeWidth="1.5" />
+          </svg>
+          <div className="relative">
+            <p className="text-xs font-black tracking-[0.2em] text-[#C3F84A]">{t("Adhésion")}</p>
+            <p className="mt-3 max-w-2xl text-3xl font-black leading-[1.1] tracking-[-0.01em] sm:text-4xl">
+              {t("Rejoignez le réseau qui avance.")}
+            </p>
+          </div>
+          <div className="relative flex flex-wrap gap-3">
+            <Link
+              href="/#adhesion-form"
+              className="inline-flex h-12 items-center gap-2 rounded-[8px] bg-[#FAFAFA] px-5 text-sm font-black text-[#136CFC] transition hover:bg-[#C3F84A] hover:text-[#152641]"
+            >
+              {t("Devenir membre")}
+              <ArrowUpRight size={16} aria-hidden="true" />
+            </Link>
+            <a
+              href="mailto:contact@aravta.org"
+              className="inline-flex h-12 items-center rounded-[8px] border border-[#FAFAFA]/70 px-5 text-sm font-black text-[#FAFAFA] transition hover:bg-[#FAFAFA]/12"
+            >
+              {t("Nous contacter")}
+            </a>
           </div>
         </div>
-      ) : null}
+      </div>
 
       <div className="relative mx-auto grid max-w-[1500px] grid-cols-2 gap-x-6 gap-y-10 py-12 sm:py-16 lg:grid-cols-[1.3fr_0.75fr_0.85fr_1.1fr] lg:gap-12">
         <div className="col-span-2 lg:col-span-1">
@@ -409,7 +404,7 @@ export function SiteFooter() {
           <p className="mt-5 max-w-sm leading-7 text-[#152641]/62">
             {t("Association Régionale des Agences de Voyages Tanger-Tétouan-Al Hoceima.")}
           </p>
-          <p className="mt-5 inline-flex rounded-full bg-[#136CFC]/8 px-3.5 py-1.5 text-xs font-black uppercase tracking-[0.14em] text-[#136CFC]">
+          <p className="mt-5 inline-flex rounded-full bg-[#136CFC]/8 px-3.5 py-1.5 text-xs font-black tracking-[0.04em] text-[#136CFC]">
             {t("Tanger · Tétouan · Al Hoceima")}
           </p>
         </div>
@@ -462,7 +457,7 @@ export function SiteFooter() {
               contact@aravta.org
             </a>
           </address>
-          <p className="mt-6 text-xs font-black uppercase tracking-[0.16em] text-[#152641]/40">LinkedIn · Facebook · Instagram</p>
+          <p className="mt-6 text-xs font-black tracking-[0.04em] text-[#152641]/40">LinkedIn · Facebook · Instagram</p>
         </div>
       </div>
 

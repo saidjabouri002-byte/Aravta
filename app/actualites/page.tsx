@@ -42,11 +42,11 @@ export default function NewsPage() {
                 />
               </div>
               <div className="flex flex-col justify-end bg-[linear-gradient(135deg,#152641,#0F4FC4_52%,#136CFC)] p-6 sm:p-10">
-                <p className="text-xs font-black uppercase tracking-[0.2em] text-[#C3F84A]">
+                <p className="text-xs font-black tracking-[0.2em] text-[#C3F84A]">
                   <T>{featured.category}</T> · <T>{featured.date}</T>
                   {featured.source ? ` · ${featured.source}` : ""}
                 </p>
-                <h2 className="mt-4 text-4xl font-black uppercase leading-[0.92] tracking-[-0.01em] sm:text-5xl">
+                <h2 className="mt-4 text-3xl font-black leading-[1.15] tracking-[-0.01em] sm:text-4xl lg:text-5xl">
                   <T>{featured.title}</T>
                 </h2>
                 <p className="mt-5 text-lg leading-8 text-[#FAFAFA]/80">
@@ -62,7 +62,7 @@ export default function NewsPage() {
                     href={featured.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="mt-7 inline-flex w-fit items-center gap-2 rounded-[8px] bg-[#FAFAFA] px-5 py-3 text-sm font-black uppercase text-[#136CFC] transition hover:bg-[#C3F84A] hover:text-[#152641]"
+                    className="mt-7 inline-flex w-fit items-center gap-2 rounded-[8px] bg-[#FAFAFA] px-5 py-3 text-sm font-black text-[#136CFC] transition hover:bg-[#C3F84A] hover:text-[#152641]"
                   >
                     {featured.source ? (
                       <T k="Lire l'article sur {source}" vars={{ source: featured.source }} />
@@ -95,11 +95,11 @@ export default function NewsPage() {
                   />
                 </div>
                 <div className="p-6 sm:p-8">
-                  <p className="text-xs font-black uppercase tracking-[0.2em] text-[#136CFC]">
+                  <p className="text-xs font-black tracking-[0.2em] text-[#136CFC]">
                     <T>{item.category}</T> · <T>{item.date}</T>
                     {item.source ? ` · ${item.source}` : ""}
                   </p>
-                  <h2 className="mt-3 text-3xl font-black uppercase leading-none tracking-[-0.01em]">
+                  <h2 className="mt-3 text-3xl font-black leading-[1.15] tracking-[-0.01em]">
                     <T>{item.title}</T>
                   </h2>
                   <p className="mt-4 leading-7 text-[#152641]/70">
@@ -115,7 +115,7 @@ export default function NewsPage() {
                       href={item.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="mt-5 inline-flex items-center gap-1.5 text-sm font-black uppercase text-[#136CFC] underline-offset-4 hover:underline"
+                      className="mt-5 inline-flex items-center gap-1.5 text-sm font-black text-[#136CFC] underline-offset-4 hover:underline"
                     >
                       {item.source ? (
                         <T k="Lire l'article sur {source}" vars={{ source: item.source }} />

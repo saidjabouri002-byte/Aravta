@@ -38,7 +38,7 @@ export default function PresidentPage() {
                 unoptimized
               />
               <div className="absolute inset-x-0 bottom-0 bg-[linear-gradient(0deg,rgb(21_38_65/0.95),rgb(19_108_252/0.6)_60%,rgb(21_38_65/0))] p-6 pt-20 text-[#FAFAFA]">
-                <p className="text-2xl font-black uppercase leading-none">Mohamed El Hitmi</p>
+                <p className="text-2xl font-black leading-[1.15]">Mohamed El Hitmi</p>
                 <p className="mt-2 text-sm font-semibold text-[#FAFAFA]/80"><T>Président de l&apos;ARAVTTA</T></p>
               </div>
             </div>
@@ -55,12 +55,12 @@ export default function PresidentPage() {
                 </p>
               ))}
             </div>
-            <blockquote className="mt-10 border-l-4 border-[#136CFC] bg-[#136CFC]/6 px-6 py-5 text-2xl font-black uppercase leading-tight">
+            <blockquote className="mt-10 border-l-4 border-[#136CFC] bg-[#136CFC]/6 px-6 py-5 text-2xl font-black leading-tight">
               <T>Ensemble, faisons rayonner le tourisme régional.</T>
             </blockquote>
             <div className="mt-10 border-t border-[#152641]/10 pt-6">
               <p className="text-[#152641]/60"><T>Sincères salutations,</T></p>
-              <p className="mt-2 text-xl font-black uppercase">Mohamed El Hitmi</p>
+              <p className="mt-2 text-xl font-black">Mohamed El Hitmi</p>
               <p className="text-[#152641]/60"><T>Président de l&apos;ARAVTTA</T></p>
             </div>
           </article>

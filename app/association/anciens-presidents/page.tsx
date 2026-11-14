@@ -45,12 +45,12 @@ export default function FormerPresidentsPage() {
                     className="object-cover object-top grayscale transition duration-700 group-hover:scale-105 group-hover:grayscale-0"
                     unoptimized
                   />
-                  <span className="absolute left-3 top-3 rounded-full bg-[#152641]/75 px-2.5 py-1 text-[0.7rem] font-black tracking-[0.14em] text-[#FAFAFA] backdrop-blur">
+                  <span className="absolute left-3 top-3 rounded-full bg-[#152641]/75 px-2.5 py-1 text-[0.7rem] font-black tracking-[0.04em] text-[#FAFAFA] backdrop-blur">
                     {String(index + 1).padStart(2, "0")}
                   </span>
                 </div>
                 <figcaption className="border-t-4 border-[#136CFC] p-4 sm:p-5">
-                  <p className="text-base font-black uppercase leading-tight sm:text-lg">{president.name}</p>
+                  <p className="text-base font-black leading-tight sm:text-lg">{president.name}</p>
                   <p className="mt-1 text-sm text-[#152641]/55">
                     <T>Ancien Président</T>
                     {president.term ? ` · ${president.term}` : ""}

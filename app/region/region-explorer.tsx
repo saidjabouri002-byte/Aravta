@@ -70,12 +70,12 @@ export function RegionExplorer({ cities }: { cities: City[] }) {
             />
             <div className="absolute inset-0 -z-10 bg-[linear-gradient(0deg,rgb(21_38_65/0.94),rgb(19_108_252/0.5)_45%,rgb(21_38_65/0)_75%)]" />
             <div className="flex h-full min-h-[420px] flex-col justify-end p-6 sm:p-7">
-              <span className="text-xs font-black tracking-[0.22em] text-[#C3F84A]">
+              <span className="text-xs font-black tracking-[0.04em] text-[#C3F84A]">
                 {String(index + 1).padStart(2, "0")} · {t(city.tagline)}
               </span>
-              <strong className="mt-2 block text-4xl font-black uppercase leading-none sm:text-5xl">{t(city.name)}</strong>
+              <strong className="mt-2 block break-words text-[clamp(2rem,3.6vw,3rem)] font-black leading-[1.15]">{t(city.name)}</strong>
               <p className="mt-3 max-w-md leading-7 text-[#FAFAFA]/78">{t(city.line)}</p>
-              <span className="mt-5 inline-flex w-fit items-center gap-2 rounded-full border border-[#FAFAFA]/50 px-4 py-2 text-xs font-black uppercase tracking-[0.12em] transition group-hover:bg-white">
+              <span className="mt-5 inline-flex w-fit items-center gap-2 rounded-full border border-[#FAFAFA]/50 px-4 py-2 text-xs font-black tracking-[0.04em] transition group-hover:bg-white">
                 {t("Découvrir")}
               </span>
             </div>
@@ -101,7 +101,7 @@ export function RegionExplorer({ cities }: { cities: City[] }) {
             </div>
             <div className="flex flex-col p-6 sm:p-9">
               <p className="section-label">{t(active.tagline)}</p>
-              <h2 id="city-title" className="mt-3 text-5xl font-black uppercase leading-none tracking-[-0.01em]">
+              <h2 id="city-title" className="mt-3 text-5xl font-black leading-[1.15] tracking-[-0.01em]">
                 {t(active.name)}
               </h2>
               <p className="mt-6 text-lg leading-8 text-[#152641]/74">{t(active.paragraph)}</p>

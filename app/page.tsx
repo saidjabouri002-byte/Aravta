@@ -4,7 +4,7 @@ import Image from "next/image";
 import type { FormEvent } from "react";
 import { useState } from "react";
 import Link from "next/link";
-import { ArrowUpRight, Mail, Phone } from "lucide-react";
+import { ArrowUpRight, Mail, MapPin, Phone } from "lucide-react";
 import { SiteFooter, SiteHeader } from "@/components/site-chrome";
 import { cities, commissions, news, partners } from "@/lib/site-data";
 import { useT } from "@/lib/i18n";
@@ -18,7 +18,7 @@ const photos = {
   impact: "/images/region/tanger-tourism-associations.webp",
   spartel: "/images/region/phare-cap-spartel-tange.webp",
   tetouan: "/images/region/tetouan.avif",
-  atlantic: "/images/region/assilah.jpg",
+  cave: "https://images.unsplash.com/photo-1771690288491-4de18b75e038?auto=format&fit=crop&w=1600&q=84",
   formMice: "/images/commissions/mice-event-tanger.webp",
 };
 
@@ -164,13 +164,11 @@ export default function Home() {
         <div className="relative z-10 mx-auto grid min-h-[96svh] max-w-[1500px] content-end px-5 pb-10 pt-28 sm:px-8 lg:px-10">
           <div className="grid gap-8 lg:grid-cols-[0.66fr_0.34fr] lg:items-end">
             <div className="max-w-5xl">
-              <p className="mb-6 max-w-xl text-xs font-black uppercase tracking-[0.28em] text-[#C3F84A]">
+              <p className="mb-6 max-w-xl text-xs font-black tracking-[0.04em] text-[#C3F84A]">
                 {t("Association Régionale des Agences de Voyages")}
               </p>
               <h1 className="max-w-5xl display-title display-title-hero">
-                {t("Ensemble, faisons")}
-                <br />
-                {t("rayonner le Nord.")}
+                {t("Ensemble, faisons rayonner le Nord.")}
               </h1>
             </div>
             <div className="max-w-sm justify-self-start border-l border-[#FAFAFA]/35 pl-5 lg:justify-self-end">
@@ -190,7 +188,7 @@ export default function Home() {
 
         </div>
 
-        <div className="absolute right-5 top-28 hidden text-right text-[10px] font-black uppercase tracking-[0.24em] text-[#FAFAFA]/55 lg:block">
+        <div className="absolute right-5 top-28 hidden text-right text-[10px] font-black tracking-[0.04em] text-[#FAFAFA]/55 lg:block">
           {t("Détroit / Rif / Méditerranée")}
         </div>
       </section>
@@ -306,7 +304,7 @@ export default function Home() {
           <div className="relative min-h-[520px] lg:min-h-full">
             <Photo src={photos.oldPort} alt={t("Port historique de Tanger")} className="grayscale-[0.1]" />
             <div className="absolute bottom-0 left-0 w-full bg-[linear-gradient(0deg,rgb(21_38_65/0.96),rgb(19_108_252/0.82)_58%,rgb(21_38_65/0))] p-5 pt-24 text-[#FAFAFA] sm:p-7 sm:pt-28">
-              <p className="max-w-lg text-2xl font-black uppercase leading-none tracking-[-0.01em]">
+              <p className="max-w-lg text-2xl font-black leading-[1.15] tracking-[-0.01em]">
                 {t("Représenter. Structurer. Projeter.")}
               </p>
             </div>
@@ -314,21 +312,14 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="bg-[#152641] px-5 py-14 sm:py-20 text-[#FAFAFA] sm:px-8 lg:px-10 lg:py-28">
-        <div className="mx-auto grid max-w-[1500px] gap-12 lg:grid-cols-[minmax(0,0.38fr)_minmax(0,0.62fr)]">
-          <div className="lg:sticky lg:top-28 lg:self-start">
-            <p className="section-label text-[#C3F84A]">{t("Mission")}</p>
-            <h2 className="mt-5 display-title">
-              {t("Agir,")}
-              <br />
-              {t("pas décorer.")}
-            </h2>
-            <div className="relative mt-9 h-[340px] w-full max-w-md overflow-hidden rounded-[8px] lg:ml-auto">
-              <Photo src={photos.atlantic} alt={t("Assilah, sur la côte atlantique")} />
-            </div>
-          </div>
+      <section className="grid bg-[#0D0D0D] text-[#FAFAFA] lg:grid-cols-[minmax(0,0.45fr)_minmax(0,0.55fr)]">
+        <div className="relative min-h-[340px] sm:min-h-[460px] lg:min-h-full">
+          <Photo src={photos.cave} alt={t("Grotte d'Hercule à Tanger")} />
+        </div>
 
-          <div className="mission-list">
+        <div className="px-5 py-14 sm:px-8 sm:py-20 lg:px-12 lg:py-24 xl:px-16">
+          <h2 className="display-title">{t("Nos missions")}</h2>
+          <div className="mission-list mt-10 lg:mt-12">
             {missions.map((mission, index) => (
               <article key={mission.number} className={index % 2 === 0 ? "mission-row" : "mission-row mission-row-shift"}>
                 <span>{mission.number}</span>
@@ -346,7 +337,7 @@ export default function Home() {
           <div className="absolute inset-0 bg-[#136CFC]/30" />
           <div className="absolute inset-x-0 bottom-0 bg-[linear-gradient(135deg,#152641,#0F4FC4_48%,#136CFC)] px-5 py-8 sm:px-8 lg:px-10">
             <div className="mx-auto grid max-w-[1500px] gap-6 md:grid-cols-[0.95fr_1.05fr] md:items-end">
-              <h2 className="text-[clamp(3.8rem,9vw,11rem)] font-black uppercase leading-[0.95] tracking-[-0.01em]">
+              <h2 className="text-[clamp(3.8rem,9vw,11rem)] font-black leading-[1.1] tracking-[-0.01em]">
                 {t("Impact")}
               </h2>
               <div className="grid grid-cols-2 gap-x-7 gap-y-6 border-t border-[#FAFAFA]/30 pt-6 md:grid-cols-4">
@@ -358,7 +349,7 @@ export default function Home() {
                 ].map(([value, label]) => (
                   <div key={label}>
                     <span className="block text-4xl font-black tracking-[-0.01em] text-[#C3F84A]">{t(value)}</span>
-                    <span className="mt-2 block text-xs font-black uppercase tracking-[0.18em]">{t(label)}</span>
+                    <span className="mt-2 block text-xs font-black tracking-[0.04em]">{t(label)}</span>
                   </div>
                 ))}
               </div>
@@ -372,11 +363,7 @@ export default function Home() {
           <div className="grid gap-10 lg:grid-cols-[0.45fr_0.55fr] lg:items-end">
             <div>
               <p className="section-label">{t("Nos expertises")}</p>
-              <h2 className="mt-4 display-title">
-                {t("Sept tables.")}
-                <br />
-                {t("Une profession.")}
-              </h2>
+              <h2 className="mt-4 display-title">{t("Sept tables. Une profession.")}</h2>
             </div>
             <p className="max-w-2xl text-xl leading-9 text-[#152641]/68">
               {t("Sept commissions thématiques portent les dossiers de la profession : transport, pèlerinage, réceptif, tourisme d'affaires, médiation et communication.")}
@@ -399,10 +386,10 @@ export default function Home() {
                 />
               ))}
               <div className="absolute inset-x-0 bottom-0 bg-[#152641] p-6 text-[#FAFAFA] sm:p-8">
-                <p className="text-xs font-black uppercase tracking-[0.2em] text-[#C3F84A]">
+                <p className="text-xs font-black tracking-[0.2em] text-[#C3F84A]">
                   {t("Commission {n}", { n: commissions[activeCommission].number })}
                 </p>
-                <h3 className="mt-2 text-4xl font-black uppercase leading-none tracking-[-0.01em]">
+                <h3 className="mt-2 text-3xl font-black leading-[1.15] tracking-[-0.01em] sm:text-4xl">
                   {t(commissions[activeCommission].title)}
                 </h3>
                 <p className="mt-4 text-sm font-semibold text-[#FAFAFA]/80">
@@ -416,7 +403,7 @@ export default function Home() {
                 </p>
                 <Link
                   href={`/association/commissions#commission-${commissions[activeCommission].number}`}
-                  className="mt-5 inline-flex items-center gap-2 text-sm font-black uppercase tracking-[0.16em] text-[#FAFAFA] underline-offset-4 hover:underline"
+                  className="mt-5 inline-flex items-center gap-2 text-sm font-black tracking-[0.04em] text-[#FAFAFA] underline-offset-4 hover:underline"
                 >
                   {t("Voir le détail")}
                   <ArrowUpRight size={16} aria-hidden="true" />
@@ -476,11 +463,7 @@ export default function Home() {
       <section id="actualites" className="bg-[#FAFAFA] px-5 py-14 sm:py-20 sm:px-8 lg:px-10 lg:py-28">
         <div className="mx-auto max-w-[1500px]">
           <div className="mb-12 grid gap-8 lg:grid-cols-[0.55fr_0.45fr] lg:items-end">
-            <h2 className="text-[clamp(3.4rem,7vw,8.2rem)] font-black uppercase leading-[0.95] tracking-[-0.01em]">
-              {t("Journal")}
-              <br />
-              {t("de bord.")}
-            </h2>
+            <h2 className="display-title">{t("Journal de bord.")}</h2>
             <div>
               <p className="section-label">{t("Actualités & événements")}</p>
               <p className="mt-5 max-w-xl text-xl leading-9 text-[#152641]/70">
@@ -495,10 +478,10 @@ export default function Home() {
                 <Photo src={news[0].image} alt={t(news[0].title)} />
               </div>
               <div className="bg-[linear-gradient(135deg,#152641,#0F4FC4_52%,#136CFC)] p-6 text-[#FAFAFA] sm:p-8">
-                <p className="text-xs font-black uppercase tracking-[0.2em] text-[#C3F84A]">
+                <p className="text-xs font-black tracking-[0.2em] text-[#C3F84A]">
                   {news[0].source ?? t(news[0].category)} · {t(news[0].date)}
                 </p>
-                <h3 className="mt-4 text-4xl font-black uppercase leading-[0.9] tracking-[-0.01em]">
+                <h3 className="mt-4 text-3xl font-black leading-[1.15] tracking-[-0.01em] sm:text-4xl">
                   {t(news[0].title)}
                 </h3>
                 <p className="mt-5 text-lg leading-8 text-[#FAFAFA]/78">{t(news[0].copy)}</p>
@@ -507,7 +490,7 @@ export default function Home() {
                     href={news[0].url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="mt-6 inline-flex items-center gap-2 text-sm font-black uppercase tracking-[0.16em] text-[#FAFAFA] underline-offset-4 hover:underline"
+                    className="mt-6 inline-flex items-center gap-2 text-sm font-black tracking-[0.04em] text-[#FAFAFA] underline-offset-4 hover:underline"
                   >
                     {t("Lire l'article")}
                     <ArrowUpRight size={16} aria-hidden="true" />
@@ -522,10 +505,10 @@ export default function Home() {
                     <Photo src={item.image} alt={t(item.title)} />
                   </div>
                   <div className="py-5 sm:py-8">
-                    <p className="text-xs font-black uppercase tracking-[0.2em] text-[#136CFC]">
+                    <p className="text-xs font-black tracking-[0.2em] text-[#136CFC]">
                       {item.source ?? t(item.category)} · {t(item.date)}
                     </p>
-                    <h3 className="mt-3 text-3xl font-black uppercase leading-none tracking-[-0.01em]">
+                    <h3 className="mt-3 text-3xl font-black leading-[1.15] tracking-[-0.01em]">
                       {t(item.title)}
                     </h3>
                     <p className="mt-4 leading-7 text-[#152641]/68">{t(item.copy)}</p>
@@ -534,7 +517,7 @@ export default function Home() {
                         href={item.url}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="mt-4 inline-flex items-center gap-1.5 text-sm font-black uppercase text-[#FAFAFA] underline-offset-4 hover:underline"
+                        className="mt-4 inline-flex items-center gap-1.5 text-sm font-black text-[#FAFAFA] underline-offset-4 hover:underline"
                       >
                         {t("Lire l'article")}
                         <ArrowUpRight size={16} aria-hidden="true" />
@@ -603,35 +586,41 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="contact" className="bg-[linear-gradient(135deg,#152641,#0F4FC4_55%,#136CFC)] text-[#FAFAFA]">
-        <div className="grid lg:grid-cols-[0.4fr_0.6fr]">
-          <div className="relative min-h-[360px] sm:min-h-[420px] lg:min-h-full">
-            <Photo src={photos.alHoceima} alt={t("Plage d'Al Hoceima et eau méditerranéenne")} />
-            <div className="absolute inset-x-0 bottom-0 bg-[#FAFAFA] px-5 py-5 text-[#136CFC] sm:px-8">
-              <p className="text-xl font-black uppercase leading-none tracking-[-0.01em] sm:text-2xl">
-                {t("Tanger · Tétouan · Al Hoceima")}
-              </p>
-            </div>
-          </div>
-
-          <div className="px-5 py-14 sm:px-8 sm:py-20 lg:px-12 lg:py-24">
-            <div className="mx-auto max-w-[760px]">
-              <p className="section-label text-[#C3F84A]">{t("Adhésion")}</p>
-              <h2 className="mt-5 display-title">{t("Rejoignez le réseau qui avance.")}</h2>
-              <p className="mt-6 max-w-xl text-lg leading-8 text-[#FAFAFA]/80 sm:text-xl sm:leading-9">
-                {t("Vous êtes une agence de voyages ou un acteur du secteur touristique ? Parlons représentation, coopération et développement régional.")}
-              </p>
-              <div className="mt-6 flex flex-wrap gap-3 text-sm font-semibold">
-                <a href="tel:+212539325004" className="membership-pill">
-                  <Phone size={15} aria-hidden="true" />
+      <section id="contact" className="border-t border-[#152641]/8 bg-[#FAFAFA] px-5 py-14 text-[#152641] sm:px-8 sm:py-20 lg:px-10 lg:py-28">
+        <div className="mx-auto grid max-w-[1400px] gap-12 lg:grid-cols-[minmax(0,0.42fr)_minmax(0,0.58fr)] lg:gap-16">
+          <div className="lg:sticky lg:top-32 lg:self-start">
+            <p className="section-label">{t("Adhésion")}</p>
+            <h2 className="mt-5 display-title">{t("Rejoignez le réseau qui avance.")}</h2>
+            <p className="mt-6 max-w-xl text-lg leading-8 text-[#152641]/72 sm:text-xl sm:leading-9">
+              {t("Vous êtes une agence de voyages ou un acteur du secteur touristique ? Parlons représentation, coopération et développement régional.")}
+            </p>
+            <ul className="mt-10 grid gap-4 border-t border-[#152641]/10 pt-8">
+              <li>
+                <a href="tel:+212539325004" className="membership-contact">
+                  <span className="footer-icon">
+                    <Phone size={16} aria-hidden="true" />
+                  </span>
                   05393-25004
                 </a>
-                <a href="mailto:contact@aravta.org" className="membership-pill">
-                  <Mail size={15} aria-hidden="true" />
+              </li>
+              <li>
+                <a href="mailto:contact@aravta.org" className="membership-contact">
+                  <span className="footer-icon">
+                    <Mail size={16} aria-hidden="true" />
+                  </span>
                   contact@aravta.org
                 </a>
-              </div>
+              </li>
+              <li className="membership-contact">
+                <span className="footer-icon">
+                  <MapPin size={16} aria-hidden="true" />
+                </span>
+                139 Av. Louis Van Beethoven, Tanger 90060
+              </li>
+            </ul>
+          </div>
 
+          <div>
               <form id="adhesion-form" className="membership-form" onSubmit={handleMembershipSubmit} noValidate>
                 <div className="membership-form-header">
                   <strong>{t("Demande d'adhésion agence")}</strong>
@@ -694,7 +683,6 @@ export default function Home() {
                   </div>
                 ) : null}
               </form>
-            </div>
           </div>
         </div>
       </section>

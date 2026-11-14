@@ -28,7 +28,7 @@ function EventCard({ event }: { event: EventItem }) {
           unoptimized
         />
         <span
-          className={`absolute left-4 top-4 rounded-full px-3 py-1 text-xs font-black uppercase tracking-[0.14em] ${
+          className={`absolute left-4 top-4 rounded-full px-3 py-1 text-xs font-black tracking-[0.04em] ${
             upcoming ? "bg-[#136CFC] text-[#FAFAFA]" : "bg-[#152641] text-[#FAFAFA]"
           }`}
         >
@@ -36,7 +36,7 @@ function EventCard({ event }: { event: EventItem }) {
         </span>
       </div>
       <div className="flex flex-col p-6 sm:p-8">
-        <h3 className="text-2xl font-black uppercase leading-none tracking-[-0.01em] sm:text-3xl">
+        <h3 className="text-2xl font-black leading-[1.15] tracking-[-0.01em] sm:text-3xl">
           <T>{event.title}</T>
         </h3>
         <div className="mt-4 flex flex-wrap gap-2 text-sm font-semibold text-[#136CFC]">
@@ -59,7 +59,7 @@ function EventCard({ event }: { event: EventItem }) {
             href={event.url}
             target="_blank"
             rel="noopener noreferrer"
-            className="mt-5 self-start text-sm font-black uppercase leading-6 text-[#136CFC] underline-offset-4 hover:underline"
+            className="mt-5 self-start text-sm font-black leading-6 text-[#136CFC] underline-offset-4 hover:underline"
           >
             {event.source ? (
               <T k="Lire l'article sur {source}" vars={{ source: event.source }} />
@@ -94,7 +94,7 @@ export default function EventsPage() {
             <p className="section-label">
               <T>Agenda</T>
             </p>
-            <h2 className="mt-4 text-4xl font-black uppercase leading-none tracking-[-0.01em] sm:text-5xl">
+            <h2 className="mt-4 text-4xl font-black leading-[1.15] tracking-[-0.01em] sm:text-5xl">
               <T>Événements à venir</T>
             </h2>
           </div>
@@ -112,7 +112,7 @@ export default function EventsPage() {
             <p className="section-label">
               <T>Archives</T>
             </p>
-            <h2 className="mt-4 text-4xl font-black uppercase leading-none tracking-[-0.01em] sm:text-5xl">
+            <h2 className="mt-4 text-4xl font-black leading-[1.15] tracking-[-0.01em] sm:text-5xl">
               <T>Événements organisés</T>
             </h2>
           </div>

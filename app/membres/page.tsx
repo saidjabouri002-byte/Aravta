@@ -15,7 +15,7 @@ function Placeholder({ label, icon }: { label: string; icon: "logo" | "photo" })
   return (
     <div className="photo-placeholder min-h-0" style={{ position: "absolute", inset: 0, minHeight: 0 }}>
       {icon === "logo" ? <ImageIcon size={28} aria-hidden="true" /> : <UserRound size={30} aria-hidden="true" />}
-      <span className="text-[0.68rem] font-black uppercase tracking-[0.16em]">
+      <span className="text-[0.68rem] font-black tracking-[0.04em]">
         <T>{label}</T>
       </span>
     </div>
@@ -147,10 +147,10 @@ export default function MembersPage() {
                 )}
               </div>
               <figcaption className="p-5 sm:p-6">
-                <p className="text-xs font-black uppercase tracking-[0.2em] text-[#C3F84A]">
+                <p className="text-xs font-black tracking-[0.2em] text-[#C3F84A]">
                   <T>{president.role}</T>
                 </p>
-                <p className="mt-2 text-2xl font-black uppercase leading-none sm:text-3xl">{president.name}</p>
+                <p className="mt-2 text-2xl font-black leading-[1.15] sm:text-3xl">{president.name}</p>
               </figcaption>
             </figure>
 
@@ -167,10 +167,10 @@ export default function MembersPage() {
                   )}
                 </div>
                 <figcaption className="border-t-4 border-[#136CFC] p-4">
-                  <p className="text-xs font-black uppercase tracking-[0.16em] text-[#136CFC]">
+                  <p className="text-xs font-black tracking-[0.04em] text-[#136CFC]">
                     <T>{person.role}</T>
                   </p>
-                  <p className="mt-1.5 text-base font-black uppercase leading-tight">{person.name}</p>
+                  <p className="mt-1.5 text-base font-black leading-tight">{person.name}</p>
                 </figcaption>
               </figure>
             ))}
