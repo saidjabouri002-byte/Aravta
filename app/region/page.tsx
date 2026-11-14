@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 
 export default function RegionPage() {
   return (
-    <main className="min-h-screen bg-[#FAFAFA] text-[#0D0D0D]">
+    <main className="min-h-screen bg-[#FAFAFA] text-[#152641]">
       <SiteHeader />
       <PageHero
         label="La Région"
@@ -19,7 +19,7 @@ export default function RegionPage() {
         image="/images/region/tanger-pic.avif"
         imagePosition="50% 30%"
       />
-      <section className="px-5 py-16 sm:px-8 lg:px-10 lg:py-24">
+      <section className="px-5 py-12 sm:py-16 sm:px-8 lg:px-10 lg:py-24">
         <div className="mx-auto max-w-[1500px]">
           <RegionExplorer cities={cities} />
         </div>

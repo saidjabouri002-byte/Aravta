@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { T } from "@/lib/i18n";
 import { AssociationShell } from "@/components/association-shell";
 
 export const metadata: Metadata = {
@@ -43,25 +44,36 @@ export default function PlanStrategiquePage() {
       intro="2024 – 2027 : deux axes pour professionnaliser le métier et renforcer l'influence des agences du Nord."
       image="/images/region/akchour-nature.avif"
     >
-      <section className="px-5 py-16 sm:px-8 lg:px-10 lg:py-24">
+      <section className="px-5 py-12 sm:py-16 sm:px-8 lg:px-10 lg:py-24">
         <div className="mx-auto grid max-w-[1300px] gap-10">
           {axes.map((axis) => (
-            <article key={axis.number} className="overflow-hidden rounded-[18px] border border-[#0D0D0D]/10 bg-white">
-              <header className="grid gap-6 bg-[linear-gradient(135deg,#071394,#1538D6_52%,#4F7CFF)] p-6 text-[#FAFAFA] sm:p-9 md:grid-cols-[auto_1fr] md:items-end">
-                <span className="text-7xl font-black leading-none text-[#8EC5FF]/60 sm:text-8xl">{axis.number}</span>
+            <article key={axis.number} className="overflow-hidden rounded-[18px] border border-[#152641]/10 bg-white">
+              <header className="grid gap-6 bg-[linear-gradient(135deg,#152641,#0F4FC4_52%,#136CFC)] p-6 text-[#FAFAFA] sm:p-9 md:grid-cols-[auto_1fr] md:items-end">
+                <span className="text-7xl font-black leading-none text-[#C3F84A]/60 sm:text-8xl">{axis.number}</span>
                 <div>
-                  <p className="text-xs font-black uppercase tracking-[0.2em] text-[#8EC5FF]">Axe · {axis.horizon}</p>
-                  <h2 className="mt-2 text-3xl font-black uppercase leading-none sm:text-5xl">{axis.title}</h2>
+                  <p className="text-xs font-black uppercase tracking-[0.2em] text-[#C3F84A]">
+                    <T>Axe</T> · <T>{axis.horizon}</T>
+                  </p>
+                  <h2 className="mt-2 text-3xl font-black uppercase leading-none sm:text-5xl">
+                    <T>{axis.title}</T>
+                  </h2>
                   <p className="mt-4 max-w-2xl text-lg leading-8 text-[#FAFAFA]/82">
-                    <strong className="text-[#FAFAFA]">Objectif :</strong> {axis.objective}
+                    <strong className="text-[#FAFAFA]">
+                      <T>Objectif :</T>
+                    </strong>{" "}
+                    <T>{axis.objective}</T>
                   </p>
                 </div>
               </header>
-              <div className="grid gap-px bg-[#0D0D0D]/8 sm:grid-cols-2 lg:grid-cols-3">
+              <div className="grid gap-px bg-[#152641]/8 sm:grid-cols-2 lg:grid-cols-3">
                 {axis.points.map(([title, copy]) => (
                   <div key={title} className="bg-white p-6 sm:p-7">
-                    <h3 className="text-lg font-black uppercase leading-tight text-[#1538D6]">{title}</h3>
-                    <p className="mt-3 leading-7 text-[#0D0D0D]/72">{copy}</p>
+                    <h3 className="text-lg font-black uppercase leading-tight text-[#136CFC]">
+                      <T>{title}</T>
+                    </h3>
+                    <p className="mt-3 leading-7 text-[#152641]/72">
+                      <T>{copy}</T>
+                    </p>
                   </div>
                 ))}
               </div>

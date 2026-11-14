@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { T } from "@/lib/i18n";
 import { AssociationShell } from "@/components/association-shell";
 
 export const metadata: Metadata = {
@@ -42,7 +43,9 @@ function PlanList({ items }: { items: string[] }) {
       {items.map((item, index) => (
         <li key={item} className="plan-item">
           <span>{String(index + 1).padStart(2, "0")}</span>
-          <p className="text-lg leading-8 text-[#0D0D0D]/80">{item}</p>
+          <p className="text-lg leading-8 text-[#152641]/80">
+            <T>{item}</T>
+          </p>
         </li>
       ))}
     </ol>
@@ -56,31 +59,31 @@ export default function PlanActionPage() {
       intro="Comité 2024 – 2027 : les actions court et long terme portées par l'ARAVTTA."
       image="/images/region/tetouan.avif"
     >
-      <section className="px-5 py-16 sm:px-8 lg:px-10 lg:py-24">
+      <section className="px-5 py-12 sm:py-16 sm:px-8 lg:px-10 lg:py-24">
         <div className="mx-auto grid max-w-[1300px] gap-8 lg:grid-cols-2">
-          <div className="rounded-[18px] border border-[#0D0D0D]/10 bg-white p-6 sm:p-9">
-            <span className="inline-block rounded-full bg-[#1538D6] px-4 py-1.5 text-xs font-black uppercase tracking-[0.16em] text-[#FAFAFA]">
-              Court terme
+          <div className="rounded-[18px] border border-[#152641]/10 bg-white p-6 sm:p-9">
+            <span className="inline-block rounded-full bg-[#136CFC] px-4 py-1.5 text-xs font-black uppercase tracking-[0.16em] text-[#FAFAFA]">
+              <T>Court terme</T>
             </span>
-            <h2 className="mt-5 text-3xl font-black uppercase leading-none sm:text-4xl">Actions immédiates</h2>
+            <h2 className="mt-5 text-3xl font-black uppercase leading-none sm:text-4xl"><T>Actions immédiates</T></h2>
             <PlanList items={shortTerm} />
-            <div className="mt-6 rounded-[14px] bg-[#1538D6]/6 p-5">
-              <p className="text-xs font-black uppercase tracking-[0.2em] text-[#1538D6]">Commissions à activer</p>
+            <div className="mt-6 rounded-[14px] bg-[#136CFC]/6 p-5">
+              <p className="text-xs font-black uppercase tracking-[0.2em] text-[#136CFC]"><T>Commissions à activer</T></p>
               <ul className="mt-4 flex flex-wrap gap-2">
                 {commissionsList.map((item) => (
-                  <li key={item} className="rounded-full border border-[#1538D6]/25 bg-white px-3 py-1.5 text-sm font-semibold">
-                    {item}
+                  <li key={item} className="rounded-full border border-[#136CFC]/25 bg-white px-3 py-1.5 text-sm font-semibold">
+                    <T>{item}</T>
                   </li>
                 ))}
               </ul>
             </div>
           </div>
 
-          <div className="rounded-[18px] bg-[#0D0D0D] p-6 text-[#FAFAFA] sm:p-9 [&_.plan-item]:border-[#FAFAFA]/12 [&_.plan-item_p]:text-[#FAFAFA]/80 [&_.plan-item_span]:text-[#8EC5FF]">
-            <span className="inline-block rounded-full bg-[#8EC5FF] px-4 py-1.5 text-xs font-black uppercase tracking-[0.16em] text-[#0D0D0D]">
-              Long terme
+          <div className="rounded-[18px] bg-[#152641] p-6 text-[#FAFAFA] sm:p-9 [&_.plan-item]:border-[#FAFAFA]/12 [&_.plan-item_p]:text-[#FAFAFA]/80 [&_.plan-item_span]:text-[#C3F84A]">
+            <span className="inline-block rounded-full bg-[#C3F84A] px-4 py-1.5 text-xs font-black uppercase tracking-[0.16em] text-[#152641]">
+              <T>Long terme</T>
             </span>
-            <h2 className="mt-5 text-3xl font-black uppercase leading-none sm:text-4xl">Construire l&apos;avenir</h2>
+            <h2 className="mt-5 text-3xl font-black uppercase leading-none sm:text-4xl"><T>Construire l&apos;avenir</T></h2>
             <PlanList items={longTerm} />
           </div>
         </div>

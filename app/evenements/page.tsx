@@ -1,5 +1,6 @@
 import Image from "next/image";
 import type { Metadata } from "next";
+import { T } from "@/lib/i18n";
 import { ArrowUpRight, CalendarDays, MapPin } from "lucide-react";
 import { PageHero, SiteFooter, SiteHeader } from "@/components/site-chrome";
 import { events, type EventItem } from "@/lib/site-data";
@@ -14,7 +15,7 @@ function EventCard({ event }: { event: EventItem }) {
   return (
     <article
       id={event.slug}
-      className="grid scroll-mt-32 overflow-hidden rounded-[18px] border border-[#0D0D0D]/10 bg-white sm:grid-cols-[0.42fr_0.58fr]"
+      className="grid scroll-mt-32 overflow-hidden rounded-[18px] border border-[#152641]/10 bg-white sm:grid-cols-[0.42fr_0.58fr]"
     >
       <div className="relative min-h-[220px]">
         <Image
@@ -28,35 +29,43 @@ function EventCard({ event }: { event: EventItem }) {
         />
         <span
           className={`absolute left-4 top-4 rounded-full px-3 py-1 text-xs font-black uppercase tracking-[0.14em] ${
-            upcoming ? "bg-[#1538D6] text-[#FAFAFA]" : "bg-[#0D0D0D] text-[#FAFAFA]"
+            upcoming ? "bg-[#136CFC] text-[#FAFAFA]" : "bg-[#152641] text-[#FAFAFA]"
           }`}
         >
-          {upcoming ? "À venir" : "Organisé"}
+          <T>{upcoming ? "À venir" : "Organisé"}</T>
         </span>
       </div>
       <div className="flex flex-col p-6 sm:p-8">
-        <h3 className="text-2xl font-black uppercase leading-none tracking-[-0.01em] sm:text-3xl">{event.title}</h3>
-        <div className="mt-4 flex flex-wrap gap-2 text-sm font-semibold text-[#1538D6]">
-          <span className="inline-flex items-center gap-1.5 rounded-full bg-[#1538D6]/8 px-3 py-1.5">
+        <h3 className="text-2xl font-black uppercase leading-none tracking-[-0.01em] sm:text-3xl">
+          <T>{event.title}</T>
+        </h3>
+        <div className="mt-4 flex flex-wrap gap-2 text-sm font-semibold text-[#136CFC]">
+          <span className="inline-flex items-center gap-1.5 rounded-full bg-[#136CFC]/8 px-3 py-1.5">
             <CalendarDays size={14} aria-hidden="true" />
-            {event.date}
+            <T>{event.date}</T>
           </span>
           {event.city ? (
-            <span className="inline-flex items-center gap-1.5 rounded-full bg-[#1538D6]/8 px-3 py-1.5">
+            <span className="inline-flex items-center gap-1.5 rounded-full bg-[#136CFC]/8 px-3 py-1.5">
               <MapPin size={14} aria-hidden="true" />
-              {event.city}
+              <T>{event.city}</T>
             </span>
           ) : null}
         </div>
-        <p className="mt-5 leading-7 text-[#0D0D0D]/72">{event.copy}</p>
+        <p className="mt-5 leading-7 text-[#152641]/72">
+          <T>{event.copy}</T>
+        </p>
         {event.url ? (
           <a
             href={event.url}
             target="_blank"
             rel="noopener noreferrer"
-            className="mt-5 self-start text-sm font-black uppercase leading-6 text-[#1538D6] underline-offset-4 hover:underline"
+            className="mt-5 self-start text-sm font-black uppercase leading-6 text-[#136CFC] underline-offset-4 hover:underline"
           >
-            Lire l&apos;article{event.source ? ` sur ${event.source}` : ""}
+            {event.source ? (
+              <T k="Lire l'article sur {source}" vars={{ source: event.source }} />
+            ) : (
+              <T>Lire l&apos;article</T>
+            )}
             <ArrowUpRight size={16} aria-hidden="true" className="ml-1 inline align-[-3px]" />
           </a>
         ) : null}
@@ -70,7 +79,7 @@ export default function EventsPage() {
   const past = events.filter((event) => event.status === "past");
 
   return (
-    <main className="min-h-screen bg-[#FAFAFA] text-[#0D0D0D]">
+    <main className="min-h-screen bg-[#FAFAFA] text-[#152641]">
       <SiteHeader />
       <PageHero
         label="Événements"
@@ -79,33 +88,41 @@ export default function EventsPage() {
         image="/images/commissions/mice-event-tanger.webp"
       />
 
-      <section className="px-5 py-16 sm:px-8 lg:px-10 lg:py-24">
+      <section className="px-5 py-12 sm:py-16 sm:px-8 lg:px-10 lg:py-24">
         <div className="mx-auto max-w-[1300px]">
           <div id="a-venir" className="scroll-mt-32">
-            <p className="section-label">Agenda</p>
+            <p className="section-label">
+              <T>Agenda</T>
+            </p>
             <h2 className="mt-4 text-4xl font-black uppercase leading-none tracking-[-0.01em] sm:text-5xl">
-              Événements à venir
+              <T>Événements à venir</T>
             </h2>
           </div>
           <div className="mt-10 grid gap-6 lg:grid-cols-2">
             {upcoming.length ? (
               upcoming.map((event) => <EventCard key={event.slug} event={event} />)
             ) : (
-              <p className="text-lg text-[#0D0D0D]/60">Aucun événement programmé pour le moment.</p>
+              <p className="text-lg text-[#152641]/60">
+                <T>Aucun événement programmé pour le moment.</T>
+              </p>
             )}
           </div>
 
-          <div id="organises" className="mt-20 scroll-mt-32 border-t border-[#0D0D0D]/10 pt-16">
-            <p className="section-label">Archives</p>
+          <div id="organises" className="mt-14 scroll-mt-32 border-t border-[#152641]/10 pt-12 sm:mt-20 sm:pt-16">
+            <p className="section-label">
+              <T>Archives</T>
+            </p>
             <h2 className="mt-4 text-4xl font-black uppercase leading-none tracking-[-0.01em] sm:text-5xl">
-              Événements organisés
+              <T>Événements organisés</T>
             </h2>
           </div>
           <div className="mt-10 grid gap-6 lg:grid-cols-2">
             {past.length ? (
               past.map((event) => <EventCard key={event.slug} event={event} />)
             ) : (
-              <p className="text-lg text-[#0D0D0D]/60">Les premiers événements seront bientôt ajoutés.</p>
+              <p className="text-lg text-[#152641]/60">
+                <T>Les premiers événements seront bientôt ajoutés.</T>
+              </p>
             )}
           </div>
         </div>

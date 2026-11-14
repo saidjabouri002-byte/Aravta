@@ -1,5 +1,6 @@
 import Image from "next/image";
 import type { Metadata } from "next";
+import { T } from "@/lib/i18n";
 import { AssociationShell } from "@/components/association-shell";
 
 export const metadata: Metadata = {
@@ -23,10 +24,10 @@ export default function PresidentPage() {
       intro="Un message aux confrères, partenaires et visiteurs de l'ARAVTTA."
       image="/images/region/tanger.avif"
     >
-      <section className="px-5 py-16 sm:px-8 lg:px-10 lg:py-24">
+      <section className="px-5 py-12 sm:py-16 sm:px-8 lg:px-10 lg:py-24">
         <div className="mx-auto grid max-w-[1300px] gap-12 lg:grid-cols-[0.38fr_0.62fr] lg:gap-16">
           <aside className="lg:sticky lg:top-44 lg:self-start">
-            <div className="relative aspect-square overflow-hidden rounded-[18px] bg-[#0D0D0D] shadow-[0_30px_80px_rgb(21_56_214/18%)]">
+            <div className="relative aspect-square overflow-hidden rounded-[18px] bg-[#152641] shadow-[0_30px_80px_rgb(19_108_252/18%)]">
               <Image
                 src="/images/presidents/el-hitmi-portrait.jpg"
                 alt="Mohamed El Hitmi, Président de l'ARAVTTA"
@@ -36,29 +37,31 @@ export default function PresidentPage() {
                 className="object-cover object-top"
                 unoptimized
               />
-              <div className="absolute inset-x-0 bottom-0 bg-[linear-gradient(0deg,rgb(7_19_148/0.95),rgb(21_56_214/0.6)_60%,rgb(13_13_13/0))] p-6 pt-20 text-[#FAFAFA]">
+              <div className="absolute inset-x-0 bottom-0 bg-[linear-gradient(0deg,rgb(21_38_65/0.95),rgb(19_108_252/0.6)_60%,rgb(21_38_65/0))] p-6 pt-20 text-[#FAFAFA]">
                 <p className="text-2xl font-black uppercase leading-none">Mohamed El Hitmi</p>
-                <p className="mt-2 text-sm font-semibold text-[#FAFAFA]/80">Président de l&apos;ARAVTTA</p>
+                <p className="mt-2 text-sm font-semibold text-[#FAFAFA]/80"><T>Président de l&apos;ARAVTTA</T></p>
               </div>
             </div>
           </aside>
 
           <article>
-            <p className="text-2xl font-black leading-snug text-[#1538D6] sm:text-3xl">
-              Chers confrères, chères consœurs, partenaires et visiteurs,
+            <p className="text-2xl font-black leading-snug text-[#136CFC] sm:text-3xl">
+              <T>Chers confrères, chères consœurs, partenaires et visiteurs,</T>
             </p>
             <div className="prose-aravtta mt-8">
               {paragraphs.map((text) => (
-                <p key={text.slice(0, 24)}>{text}</p>
+                <p key={text.slice(0, 24)}>
+                  <T>{text}</T>
+                </p>
               ))}
             </div>
-            <blockquote className="mt-10 border-l-4 border-[#1538D6] bg-[#1538D6]/6 px-6 py-5 text-2xl font-black uppercase leading-tight">
-              Ensemble, faisons rayonner le tourisme régional.
+            <blockquote className="mt-10 border-l-4 border-[#136CFC] bg-[#136CFC]/6 px-6 py-5 text-2xl font-black uppercase leading-tight">
+              <T>Ensemble, faisons rayonner le tourisme régional.</T>
             </blockquote>
-            <div className="mt-10 border-t border-[#0D0D0D]/10 pt-6">
-              <p className="text-[#0D0D0D]/60">Sincères salutations,</p>
+            <div className="mt-10 border-t border-[#152641]/10 pt-6">
+              <p className="text-[#152641]/60"><T>Sincères salutations,</T></p>
               <p className="mt-2 text-xl font-black uppercase">Mohamed El Hitmi</p>
-              <p className="text-[#0D0D0D]/60">Président de l&apos;ARAVTTA</p>
+              <p className="text-[#152641]/60"><T>Président de l&apos;ARAVTTA</T></p>
             </div>
           </article>
         </div>
